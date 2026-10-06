@@ -4,7 +4,7 @@ import Lenis from "lenis";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useMotionValue, useSpring } from "motion/react";
 import { CommandPalette } from "@/components/command-palette";
-import { AI_NAV, NAV, profile } from "@/lib/data";
+import { AI_NAV, CONTENT_NAV, NAV, WORK_NAV, profile } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
@@ -56,11 +56,11 @@ const DASH_NAV = [
   { id: "trends", label: "Cross-Channel Trends" },
   { id: "promo-analysis", label: "Promo Analysis" },
 ];
-const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai-content", label: "AI & Content", key: "ai" }, { href: "/dashboard", label: "Dashboard", key: "dash" }];
+const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai", label: "AI", key: "ai" }, { href: "/content", label: "Content", key: "content" }, { href: "/work", label: "Work", key: "work" }, { href: "/dashboard", label: "Dashboard", key: "dash" }];
 
 /** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
-export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "dash" }) {
-  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : DASH_NAV;
+export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "content" | "work" | "dash" }) {
+  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : DASH_NAV;
   const [active, setActive] = useState(items[0].id);
   const [open, setOpen] = useState(false);
   const [palette, setPalette] = useState(false);

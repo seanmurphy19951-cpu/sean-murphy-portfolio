@@ -9,7 +9,9 @@ type Item = { label: string; hint: string; href: string; external?: boolean };
 
 const ITEMS: Item[] = [
   { label: "Home", hint: "Page", href: "/" },
-  { label: "AI & Content", hint: "Page", href: "/ai-content" },
+  { label: "AI", hint: "Page", href: "/ai" },
+  { label: "Content", hint: "Page", href: "/content" },
+  { label: "Work", hint: "Page", href: "/work" },
   { label: "About", hint: "Section", href: "/#about" },
   { label: "Highlights", hint: "Section", href: "/#featured" },
   { label: "Case studies", hint: "Section", href: "/#work" },

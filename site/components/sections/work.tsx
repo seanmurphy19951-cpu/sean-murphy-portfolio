@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const num = (i: number) => String(i + 1).padStart(2, "0");
 
-function CaseCard({ c, i, onOpen }: { c: Case; i: number; onOpen: () => void }) {
+export function CaseCard({ c, i, onOpen }: { c: Case; i: number; onOpen: () => void }) {
   const big = i === 0;
   const [value, label] = c.stats[0] ?? ["", ""];
   return (
@@ -35,7 +35,7 @@ function CaseCard({ c, i, onOpen }: { c: Case; i: number; onOpen: () => void }) 
   );
 }
 
-function CaseModal({ c, i, onClose }: { c: Case; i: number; onClose: () => void }) {
+export function CaseModal({ c, i, onClose }: { c: Case; i: number; onClose: () => void }) {
   useEffect(() => {
     const k = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", k);
@@ -90,11 +90,38 @@ export function Work() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {(all ? cases : cases.slice(0, 6)).map((c, i) => <CaseCard key={c.id} c={c} i={i} onOpen={() => setOpen(c.id)} />)}
         </div>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <button onClick={() => setAll(!all)} className="rounded-full border border-line px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:border-accent hover:text-accent">{all ? "Show fewer" : `Show all ${cases.length} case studies`}</button>
+          <a href="/work" className="rounded-full bg-accent px-6 py-3 font-mono text-xs uppercase tracking-widest text-[#0a1224]">Open the Work page →</a>
         </div>
       </div>
       <AnimatePresence>{idx >= 0 && <CaseModal key={open} c={cases[idx]} i={idx} onClose={() => setOpen(null)} />}</AnimatePresence>
     </section>
+  );
+}
+
+export function WorkPage() {
+  const [open, setOpen] = useState<string | null>(null);
+  const [tag, setTag] = useState("All");
+  const tags = ["All", ...Array.from(new Set(cases.flatMap((c) => c.tags)))];
+  const idx = cases.findIndex((c) => c.id === open);
+  const shown = cases.map((c, i) => ({ c, i })).filter(({ c }) => tag === "All" || c.tags.includes(tag));
+  return (
+    <main className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
+      <div className="mx-auto max-w-7xl">
+        <SectionHead eyebrow="Work" title={<>Every case study,<br />problem to result.</>}>
+          {cases.length} projects across paid media, lifecycle, marketplaces and operations. Partners, retailers and talent are anonymized and figures rounded.
+        </SectionHead>
+        <div id="cases" className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter case studies">
+          {tags.map((t) => (
+            <button key={t} onClick={() => setTag(t)} aria-pressed={tag === t} className={cn("rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors", tag === t ? "border-accent bg-accent text-[#0a1224]" : "border-line text-muted hover:border-accent hover:text-accent")}>{t}</button>
+          ))}
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {shown.map(({ c, i }) => <CaseCard key={c.id} c={c} i={i} onOpen={() => setOpen(c.id)} />)}
+        </div>
+      </div>
+      <AnimatePresence>{idx >= 0 && <CaseModal key={open} c={cases[idx]} i={idx} onClose={() => setOpen(null)} />}</AnimatePresence>
+    </main>
   );
 }

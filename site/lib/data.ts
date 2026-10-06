@@ -41,6 +41,11 @@ export const NAV = [
 ];
 
 export const AI_NAV = [
-  { id: "top", label: "Intro" }, { id: "pipeline", label: "Workflow" }, { id: "gallery", label: "Gallery" },
-  { id: "films", label: "Films & ads" }, { id: "email", label: "Email" }, { id: "growth", label: "Growth" },
+  { id: "top", label: "Intro" }, { id: "automations", label: "Automations" }, { id: "builds", label: "Builds" }, { id: "stack", label: "MCP & CLI" },
+  { id: "pipeline", label: "Workflow" }, { id: "imagery", label: "Imagery" }, { id: "principles", label: "Principles" },
 ];
+export const CONTENT_NAV = [
+  { id: "top", label: "Intro" }, { id: "shoots", label: "Shoots" }, { id: "ads", label: "Ads" }, { id: "email", label: "Email" },
+  { id: "more", label: "More" }, { id: "growth", label: "Growth" },
+];
+export const WORK_NAV = [{ id: "top", label: "Intro" }, { id: "cases", label: "Case studies" }];
