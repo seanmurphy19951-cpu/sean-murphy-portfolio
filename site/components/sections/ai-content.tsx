@@ -159,7 +159,7 @@ export function AiContent() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Magnetic><a href="#gallery" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#0a1224] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(255_185_56/0.5)]">See the AI gallery</a></Magnetic>
               <Magnetic><a href="#growth" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">Jump to the numbers</a></Magnetic>
-              <Magnetic><a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a></Magnetic>
+              <Magnetic><a href="/dashboard" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a></Magnetic>
             </div>
           </Reveal>
         </div>

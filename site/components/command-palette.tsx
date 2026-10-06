@@ -19,7 +19,7 @@ const ITEMS: Item[] = [
   ...cases.map((c) => ({ label: c.title, hint: `Case · ${c.employer}`, href: "/#work" })),
   { label: "Email Sean", hint: "Link", href: `mailto:${profile.email}`, external: true },
   { label: "LinkedIn", hint: "Link", href: profile.linkedin, external: true },
-  { label: "AI-built dashboard", hint: "Link", href: "https://reportingdashboard.vercel.app/", external: true },
+  { label: "Dashboard", hint: "Page", href: "/dashboard" },
 ];
 
 /** ⌘K / Ctrl+K command palette to jump anywhere. Open it with the exported trigger or the keyboard. */
