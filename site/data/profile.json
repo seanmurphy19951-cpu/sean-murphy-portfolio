@@ -1,0 +1,76 @@
+{
+  "_note": "Single source of truth for the portfolio. Built from Sean Murphy CV.pdf (original) plus LinkedIn (Aldi). Stage 3 variants will be generated from this file. Contact phone intentionally omitted (not public).",
+  "name": "Sean Murphy",
+  "headline": "E-commerce & Digital Marketing Leader",
+  "location": "Orange, CA",
+  "email": "seanmurphy19951@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/seanmurphy19951",
+  "summary_cv": "An experienced and results-driven Management Studies graduate from the United Kingdom, with over 6 years of experience in E-commerce. Has proven expertise in Business growth and is highly driven for both personal and organizational success.",
+  "experience": [
+    {
+      "id": "uneekor", "title": "E-commerce Marketing Manager", "company": "Uneekor", "location": "Irvine, CA",
+      "start": "Jun 2025", "end": "Present",
+      "bullets": [
+        "Led a strategic reseller growth initiative that generated $15M in Q4 revenue, contributing to $50M+ annual revenue for 2026 and achieving 34% YoY growth.",
+        "Established and optimized email lifecycle marketing programs, implementing segmented and behavior-based campaigns that increased email open rates by 20% and CTR by 55%.",
+        "Developed and optimized multi-channel e-commerce strategies across paid media, email marketing, and marketplace optimization, driving traffic and demand to Amazon product listings and generating $2M+ in Amazon sales in H2 while improving conversion performance and marketplace visibility.",
+        "Revamped the company's paid media strategy across Cyber promotions, programmatic advertising, and paid social/search campaigns, optimizing budget allocation and performance tracking to achieve a blended ROAS exceeding 4x.",
+        "Developed the company's 2025H2 and 2026H1 marketing plans, spearheading a creative product photoshoot and integrated campaign strategy to support new product launches, a brand commercial, and enhance brand visibility across digital and e-commerce channels."
+      ]
+    },
+    {
+      "id": "melton", "title": "E-commerce Merchandiser", "company": "Melton Tackle", "location": "Orange, CA",
+      "start": "Dec 2024", "end": "Jun 2025",
+      "bullets": [
+        "Pushed researched merchandising strategies using SEO, PPC, and onsite incentives, lowering the cost of CPA on purchases by over $3, improving the CTR by 35% and increasing the amount of webpages displayed as a top-ranked position on search engines.",
+        "Increased AOV by over 12% through refining the marketing strategy used, including methods such as upselling products through bundling, cross-selling, personalizing recommendations and limited time deals.",
+        "Updated and expanded the product catalog, while meticulously placing high-value products based on market trends, consumer preferences, and research through A/B testing.",
+        "Refined the company's website layout and imported in-house images, increasing page load speed by over 1 second, lowering average clicks per purchase and an overall more user-friendly service.",
+        "Implemented tailored mailers depending on customer type and purchase patterns, increasing open rates by 6% and a CTR of 30% through email marketing."
+      ]
+    },
+    {
+      "id": "pacific", "title": "E-commerce Operations", "company": "Pacific Brainspotting", "location": "Remote",
+      "start": "Feb 2024", "end": "Mar 2025", "note": "Freelance",
+      "bullets": [
+        "Created a Shopify E-commerce website for the company, improving site navigation, mobile responsiveness, streamlining the checkout process, while enhancing overall presentation, leading to over 40% increase in sales YoY.",
+        "Connected company's website to external services such as Google Analytics, Merchant Center and Search Console, while creating and overseeing PPC ad campaigns and writing SEO content for all pages and products on the website, increasing the SERP ranking of indexed pages, including having the website as a first page result on an additional 10 keywords.",
+        "Developed a business plan for the transition and implemented custom coding changes for the website, providing the company a refined customer experience and successfully meeting all needs of the company."
+      ]
+    },
+    {
+      "id": "shopwired", "title": "E-commerce Specialist", "company": "ShopWired", "location": "Birmingham, England",
+      "start": "Mar 2022", "end": "Feb 2024",
+      "bullets": [
+        "Gained proficiency in web design using a multitude of e-commerce platforms, by utilizing a wide range of design tools and techniques to create visually appealing and user-friendly websites to increase engagement, increasing customer satisfaction and retention.",
+        "Proven track record in bug fixing and data analysis, employing analytical skills to identify and resolve technical issues, while leveraging data-driven insights to improve website performance and optimize business strategies.",
+        "Performed SEO, PPC and Google services, including Analytics, Search Console and Merchant Center to maximize website performance for multiple clients, increasing revenue for over 50 different business by at least 30%.",
+        "Conducted HTML and CSS coding changes for customers, carrying out personalized changes, creating a new revenue stream for the company which brought in an additional $5,000 revenue MoM."
+      ]
+    },
+    {
+      "id": "aldi", "title": "Store Assistant", "company": "Aldi UK", "location": "West Midlands, England",
+      "start": "Sep 2019", "end": "Mar 2022", "source": "LinkedIn", "review": true,
+      "bullets": [
+        "Resolved technical issues in store so daily operations ran smoothly.",
+        "Took detailed inventory of store merchandise to keep online records updated, enabling accurate stock takes.",
+        "Solely responsible for the highest-value store stock while handling \"special buys\", helping put the branch higher in the region for sales.",
+        "Interpreted item stock to keep company databases updated.",
+        "Worked alongside managers to understand how the store is run, taking on more responsibility than required to progress."
+      ]
+    }
+  ],
+  "education": [
+    { "degree": "Bachelor of Arts, Management Studies", "school": "University of Leicester", "location": "Leicester, England", "date": "Jun 2018" }
+  ],
+  "skills_technical": ["Website Development", "Website Management", "Digital Marketing", "Data Analytics", "Conversion Optimization", "E-Commerce Automation", "AI Tools", "SEO", "PPC", "CRM", "Product Information", "Catalog Management", "Supply Chain & Logistics", "SQL", "Tech Support", "Copywriting", "Writing", "HTML", "CSS"],
+  "skills_soft": ["Communication", "Project Management", "Analytical Thinking", "Customer-Centric Mindset", "Strategic Thinking", "Adaptability", "Problem-Solving", "Time Management", "Collaboration", "Creativity", "Initiative", "Attention to Detail", "Critical Thinking", "Leadership", "Emotional Intelligence", "Decision-Making"],
+  "tools_verified": {
+    "Commerce platforms": ["Shopify / Shopify Plus", "WooCommerce", "BigCommerce", "Magento / Adobe Commerce", "ShopWired"],
+    "Marketplaces": ["Amazon Seller Central / Vendor Central", "Walmart Marketplace"],
+    "Advertising": ["Google Ads (Search, Shopping/PMax)", "Meta Ads", "Amazon Ads", "Microsoft Ads", "Programmatic / display"],
+    "Email / CRM": ["Klaviyo", "Mailchimp", "HubSpot", "Salesforce"],
+    "Analytics": ["GA4 / Google Analytics", "Google Search Console", "Google Merchant Center", "Looker Studio", "Advanced Excel / Google Sheets", "SQL"],
+    "Web": ["HTML", "CSS", "Custom theme / code changes"]
+  }
+}

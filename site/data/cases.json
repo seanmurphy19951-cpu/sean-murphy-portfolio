@@ -1,0 +1,136 @@
+{
+  "_note": "Case studies, neutral and anonymized (partners, retailers, products and talent are unnamed). Figures are rounded; fixed facts match Sean Murphy CV.pdf. Rendered into index.html by _dev/render_sections.py. 'cv' = taken from the CV; 'site' = carried over from the previous portfolio (Sean confirmed true); 'draft' = wording by Claude, awaiting Sean's review. Stage 3 variants reorder/filter by 'tags'.",
+  "cases": [
+    {
+      "id": "reseller-growth", "employer": "Uneekor", "source": "cv", "tags": ["marketing", "ecommerce", "operations"],
+      "title": "A reseller growth initiative worth $15M in one quarter",
+      "problem": "The reseller channel was the biggest lever on revenue, and the peak quarter was the moment to pull it.",
+      "approach": "Led a strategic reseller growth initiative end to end, built around matched-spend co-op programs, a shared asset portal and a clear promotional calendar so partners could execute without waiting on us.",
+      "result": "$15M in Q4 revenue, contributing to $50M+ in annual revenue for 2026 and 34% year-over-year growth.",
+      "stats": [["$15M", "Q4 reseller revenue"], ["34%", "YoY revenue growth"]],
+      "tools": ["Co-op programs", "Reseller enablement", "Promotional planning"]
+    },
+    {
+      "id": "black-friday", "employer": "Uneekor", "source": "site", "tags": ["marketing", "ecommerce"],
+      "title": "Owned Black Friday, reseller by reseller",
+      "problem": "The biggest promotional event of the year had to drive retail-partner demand without wasting spend.",
+      "approach": "Sole owner of the event: matched-spend co-op deals with four retail partners, invoicing and reimbursement handled end to end, and regional performance tracking to steer spend in-flight.",
+      "result": "One national partner turned roughly $70K in co-op ad spend into nearly $2M in sales, and leadership extended the promotion by a full week because the results earned it.",
+      "stats": [["~$2M", "sales, one partner"], ["25×+", "return on co-op spend"]],
+      "tools": ["Co-op advertising", "Regional reporting", "Paid media platforms"],
+      "footnote": "Per-partner detail held privately; happy to walk through the full breakdown in person."
+    },
+    {
+      "id": "amazon", "employer": "Uneekor", "source": "cv", "tags": ["ecommerce", "marketing"],
+      "title": "Built and ran the Amazon store",
+      "problem": "Demand on the website was strong, but the brand had no scaled presence on the marketplace where many customers start.",
+      "approach": "Built the Amazon storefront from scratch (listings, assets, ongoing operations), drove traffic and demand to the listings with paid media and email, then ran paid ads across Amazon, Walmart and other marketplaces.",
+      "result": "$2M+ in Amazon sales in H2, with better conversion performance and marketplace visibility.",
+      "stats": [["$2M+", "Amazon sales, H2"]],
+      "tools": ["Amazon Seller Central / Vendor Central", "Amazon Ads", "Walmart Marketplace"]
+    },
+    {
+      "id": "paid-media", "employer": "Uneekor", "source": "cv", "tags": ["marketing", "ecommerce"],
+      "title": "Rebuilt paid media around return, not reach",
+      "problem": "Spend was spread across promotions and channels without a single view of what was paying back.",
+      "approach": "Revamped the paid media strategy across Cyber promotions, programmatic advertising and paid social and search, reallocating budget and tightening performance tracking. Added a connected-TV flight to build awareness that could still be measured.",
+      "result": "A blended ROAS above 4×. The CTV flight delivered 2.8M impressions, 500K+ completed views and a 3×+ attributed ROAS.",
+      "stats": [["4×+", "blended paid media ROAS"], ["3×+", "CTV attributed ROAS"]],
+      "tools": ["Google Ads", "Meta Ads", "Programmatic", "Connected TV", "GA4"],
+      "link": ["content.html#growth", "See the growth numbers"]
+    },
+    {
+      "id": "email", "employer": "Uneekor", "source": "cv", "tags": ["marketing", "ecommerce"],
+      "title": "Lifecycle email that moves on behavior",
+      "problem": "Email was sending to everyone the same way, so open and click rates were leaving revenue behind.",
+      "approach": "Established and optimized the lifecycle email program: segmented, behavior-based campaigns and automated flows, designed to match the paid and social creative so customers see one brand from ad to inbox.",
+      "result": "Open rates up 20% and click-through rate up 55%.",
+      "stats": [["+20%", "email open rate"], ["+55%", "email CTR"]],
+      "tools": ["Klaviyo", "Segmentation", "Automated flows"],
+      "link": ["content.html#email", "See the emails"]
+    },
+    {
+      "id": "brand-infrastructure", "employer": "Uneekor", "source": "site", "tags": ["operations", "marketing"],
+      "title": "Brand infrastructure: a partner portal and a 100+ page guideline",
+      "problem": "Resellers and internal teams were pulling outdated, inconsistent brand assets.",
+      "approach": "Built a single structured portal that gives every reseller and retailer current, on-brand product and campaign material, then upgraded the brand guidelines into a 100+ page identity system running from strategy (values, customer persona, voice) through the design system to application rules.",
+      "result": "One source of truth for 100+ retail partners and the foundation a multi-brand, multi-retailer business needs to scale cleanly.",
+      "stats": [["100+", "retail partners served"], ["100+", "pages of brand guidelines"]],
+      "tools": ["Asset portal", "Design system", "Documentation"]
+    },
+    {
+      "id": "influencer", "employer": "Uneekor", "source": "site", "tags": ["marketing"],
+      "title": "Three influencer programs, not one",
+      "problem": "One influencer approach cannot do every job: scale, credibility and community need different models.",
+      "approach": "Designed three programs for three jobs: an agency partner for scale, in-house sourcing of creators selected with forecast-modeled performance, and signed celebrity and tour-winner ambassadors as the face of the brand. Added a junior program where young players get product in exchange for content.",
+      "result": "1.3M+ views from a single creator package, with all three tiers running at once.",
+      "stats": [["1.3M+", "views, one creator package"], ["3", "program tiers at once"]],
+      "tools": ["Creator sourcing", "Agency management", "Performance forecasting"]
+    },
+    {
+      "id": "press", "employer": "Uneekor", "source": "site", "tags": ["marketing"],
+      "title": "Press relationships that turned into results",
+      "problem": "Paid and creator channels were working, but earned credibility is harder to buy and worth protecting.",
+      "approach": "Maintained working relationships with trade and broadcast press, including an active conversation with a national broadcaster's ad-sales team about the TV golf schedule, and an editorial relationship that led to a product being selected for an industry award.",
+      "result": "A 2026 Editor's Choice Award for one of the company's products.",
+      "stats": [["2026", "Editor's Choice Award"]],
+      "tools": ["Media relations", "Trade shows"]
+    },
+    {
+      "id": "marketing-plans", "employer": "Uneekor", "source": "cv", "tags": ["marketing"],
+      "title": "Two half-year marketing plans, a photoshoot and a brand commercial",
+      "problem": "New product launches needed a coordinated plan and fresh creative, not one-off campaigns.",
+      "approach": "Developed the 2025H2 and 2026H1 marketing plans, and spearheaded a creative product photoshoot and an integrated campaign strategy to support the launches and a brand commercial.",
+      "result": "A planned, integrated calendar across digital and e-commerce channels and stronger brand visibility around each launch.",
+      "stats": [],
+      "tools": ["Marketing planning", "Creative direction", "Campaign strategy"],
+      "link": ["content.html#films", "See the films"]
+    },
+    {
+      "id": "ai-production", "employer": "Uneekor", "source": "site", "tags": ["marketing", "ecommerce"],
+      "title": "AI as a production line, not a novelty",
+      "problem": "Content demand outpaced what photoshoots and crews could deliver.",
+      "approach": "Built a working pipeline: SEO keyword research plus AI automation driving blog targeting, raw product renders turned into polished lifestyle photography, and AI-generated video including product demos and AI-produced software walkthroughs.",
+      "result": "Dozens of finished lifestyle scenes and several videos produced without a shoot, in service for months and reusable across product lines.",
+      "stats": [["70+", "AI scenes in the gallery"]],
+      "tools": ["SEMrush", "AI image generation", "AI video generation"],
+      "link": ["content.html", "See the production line"]
+    },
+    {
+      "id": "web-modernization", "employer": "Uneekor", "source": "site", "tags": ["ecommerce", "operations"],
+      "title": "Co-led a website modernization, backed by the sales data",
+      "problem": "Site navigation was organized around products instead of the way customers actually shop.",
+      "approach": "Co-authored the website modernization strategy: intent-based entry paths, guided tools and clearer conversion pathways, grounded in direct-channel sales data.",
+      "result": "A roadmap with real margin upside identified at scale.",
+      "stats": [],
+      "tools": ["GA4", "Sales analysis", "Conversion optimization"]
+    },
+    {
+      "id": "melton", "employer": "Melton Tackle", "source": "cv", "tags": ["ecommerce", "marketing"],
+      "title": "Merchandising that lowered CPA and raised order value",
+      "problem": "A broad fishing-tackle catalog needed to convert more efficiently and sell more per order.",
+      "approach": "Used SEO, PPC and on-site incentives to guide merchandising, expanded the catalog, placed high-value products using market trends and A/B tests, added bundles, cross-sells and limited-time deals, imported in-house images to speed the site up, and tailored emails to customer type and purchase patterns.",
+      "result": "CPA down by over $3, CTR up 35%, AOV up over 12%, pages loading over a second faster, and email opens up 6% with a 30% CTR.",
+      "stats": [["+35%", "CTR"], ["+12%", "AOV"], ["−$3+", "CPA"]],
+      "tools": ["SEO", "PPC", "A/B testing", "Email marketing"]
+    },
+    {
+      "id": "pacific", "employer": "Pacific Brainspotting", "source": "cv", "tags": ["ecommerce", "operations"],
+      "title": "A Shopify store built from scratch: +40% sales",
+      "problem": "A training company needed to sell online without the budget for an agency.",
+      "approach": "Built the Shopify store (navigation, mobile responsiveness, streamlined checkout), connected Google Analytics, Merchant Center and Search Console, ran PPC, wrote SEO content for every page and product, and planned the transition with custom code changes.",
+      "result": "Sales up over 40% year over year, and first-page rankings on an additional 10 keywords.",
+      "stats": [["+40%", "YoY sales"], ["+10", "first-page keywords"]],
+      "tools": ["Shopify", "Google Analytics", "Merchant Center", "Search Console", "PPC", "SEO"]
+    },
+    {
+      "id": "shopwired", "employer": "ShopWired", "source": "cv", "tags": ["ecommerce", "operations"],
+      "title": "50+ client stores, and a new revenue line from code changes",
+      "problem": "Merchants on the platform needed performance gains and hands-on fixes, not just software.",
+      "approach": "Worked across web design, bug fixing and data analysis, ran SEO, PPC and Google services (Analytics, Search Console, Merchant Center) for multiple clients, and offered personalized HTML and CSS changes as a paid service.",
+      "result": "At least 30% revenue growth across 50+ businesses, and a new service line bringing in about $5,000 a month.",
+      "stats": [["+30%", "revenue across 50+ clients"], ["+$5,000", "new MoM revenue line"]],
+      "tools": ["ShopWired", "HTML / CSS", "GA4", "Search Console", "Merchant Center"]
+    }
+  ]
+}
