@@ -42,6 +42,7 @@ export function Hero() {
           </h1>
           <Reveal delay={0.7}>
             <p className="mt-10 max-w-3xl font-display text-2xl leading-snug tracking-tight text-fg/90 md:text-4xl">
+              <span className="mb-2 block text-fg/60 md:mb-3">I turn data into strategy.</span>
               I turn strategy into <span className="text-accent"><FlipWords words={["live campaigns", "shipped websites", "signed partner deals", "measurable growth"]} /></span>
             </p>
           </Reveal>
@@ -86,8 +87,8 @@ export function About() {
       <div ref={ref} className="grid gap-12 lg:grid-cols-[340px_1fr] lg:gap-20">
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
-            {/* TODO(Sean): headshot. Add public/media/headshot.jpg, then swap this placeholder for <Image src="/media/headshot.jpg" ... />. */}
-            <div className="mb-6 grid aspect-[4/5] w-full place-items-center rounded-3xl border border-dashed border-line bg-surface font-display text-7xl font-light tracking-[-0.05em] text-faint" aria-hidden>SM<span className="text-accent">.</span></div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/media/headshot.jpg" alt="Sean Murphy" width={546} height={546} className="mb-6 aspect-[4/5] w-full rounded-3xl border border-line object-cover object-[50%_20%] grayscale" />
             <dl className="divide-y divide-line border-y border-line text-sm">
               {[["Based", "Orange, CA"], ["Current role", "E-commerce Marketing Manager, Uneekor"], ["Education", "BA Management Studies, University of Leicester"]].map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 py-3"><dt className="font-mono text-[0.7rem] uppercase tracking-widest text-faint">{k}</dt><dd className="text-right">{v}</dd></div>
