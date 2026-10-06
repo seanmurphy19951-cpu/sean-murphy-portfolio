@@ -2,7 +2,8 @@
 import { Reveal, SectionHead, Swiper } from "@/components/ui/primitives";
 import { cases } from "@/lib/data";
 
-const FEATURED = ["reseller-growth", "black-friday", "amazon", "paid-media"]
+export const FEATURED_IDS = ["reseller-growth", "black-friday", "amazon", "paid-media"];
+const FEATURED = FEATURED_IDS
   .map((id) => cases.find((c) => c.id === id))
   .filter((c): c is NonNullable<typeof c> => !!c);
 

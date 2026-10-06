@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SectionHead, Tag, TiltCard } from "@/components/ui/primitives";
 import { cases, type Case } from "@/lib/data";
+import { FEATURED_IDS } from "./featured";
 import { cn } from "@/lib/utils";
 
+const more = cases.filter((c) => !FEATURED_IDS.includes(c.id));
 const num = (i: number) => String(i + 1).padStart(2, "0");
 
-export function CaseCard({ c, i, onOpen }: { c: Case; i: number; onOpen: () => void }) {
-  const big = i === 0;
+export function CaseCard({ c, i, onOpen, big = false }: { c: Case; i: number; onOpen: () => void; big?: boolean }) {
   const [value, label] = c.stats[0] ?? ["", ""];
   return (
     <motion.div layoutId={`case-${c.id}`} className={cn(big && "md:col-span-2 lg:col-span-2")} style={{ borderRadius: 24 }}>
@@ -84,12 +85,12 @@ export function Work() {
   return (
     <section id="work" className="relative border-y border-white/10 bg-bg2 px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="Case studies" title={<>Fourteen problems,<br />fourteen results.</>}>Each case lays out the problem, approach and result. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
+        <SectionHead eyebrow="Case studies" title={<>Ten more problems,<br />ten more results.</>}>The four above, plus ten more, each laid out as problem, approach and result. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {(all ? cases : cases.slice(0, 6)).map((c, i) => <CaseCard key={c.id} c={c} i={i} onOpen={() => setOpen(c.id)} />)}
+          {(all ? more : more.slice(0, 6)).map((c) => <CaseCard key={c.id} c={c} i={cases.indexOf(c)} big={c === more[0]} onOpen={() => setOpen(c.id)} />)}
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <button onClick={() => setAll(!all)} className="rounded-full border border-line px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:border-accent hover:text-accent">{all ? "Show fewer" : `Show all ${cases.length} case studies`}</button>
+          <button onClick={() => setAll(!all)} className="rounded-full border border-line px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:border-accent hover:text-accent">{all ? "Show fewer" : `Show all ${more.length} here`}</button>
           <a href="/work" className="rounded-full bg-accent px-6 py-3 font-mono text-xs uppercase tracking-widest text-[#0a1224]">Open the Work page →</a>
         </div>
       </div>
@@ -105,7 +106,7 @@ export function WorkPage() {
   const idx = cases.findIndex((c) => c.id === open);
   const shown = cases.map((c, i) => ({ c, i })).filter(({ c }) => tag === "All" || c.tags.includes(tag));
   return (
-    <main className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
+    <main id="top" className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
       <div className="mx-auto max-w-7xl">
         <SectionHead eyebrow="Work" title={<>The full portfolio<br />of work.</>}>Filter by channel and open any project for the detail. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
         <div id="cases" className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter case studies">
@@ -114,7 +115,7 @@ export function WorkPage() {
           ))}
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {shown.map(({ c, i }) => <CaseCard key={c.id} c={c} i={i} onOpen={() => setOpen(c.id)} />)}
+          {shown.map(({ c, i }) => <CaseCard key={c.id} c={c} i={i} big={i === 0 && tag === "All"} onOpen={() => setOpen(c.id)} />)}
         </div>
       </div>
       <AnimatePresence>{idx >= 0 && <CaseModal key={open} c={cases[idx]} i={idx} onClose={() => setOpen(null)} />}</AnimatePresence>
