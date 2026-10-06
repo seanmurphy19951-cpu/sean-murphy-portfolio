@@ -267,8 +267,8 @@ function GoogleImpl({ data, compareData }) {
       <Disclaimer data={data} />
       <div className="grid grid-4">
         <Kpi index={0} accentColor="#4285f4" sparklineColor="#4285f4" {...kpi("Spend", "spend", (v) => formatCurrency(v, true), { invert: true })} invertDelta />
-        <Kpi index={1} accentColor="#4285f4" sparklineColor="#4285f4" {...kpi("ROAS", "roas", (v) => `${Number(v).toFixed(2)}×`, { spark: "spend" })} />
-        <Kpi index={2} accentColor="#4285f4" sparklineColor="#4285f4" {...kpi("Revenue", "revenue", (v) => formatCurrency(v, true), { spark: "spend" })} />
+        <Kpi index={1} accentColor="#4285f4" sparklineColor="#4285f4" {...kpi("ROAS", "roas", (v) => `${Number(v).toFixed(2)}×`, { spark: "conversions" })} />
+        <Kpi index={2} accentColor="#4285f4" sparklineColor="#4285f4" {...kpi("Revenue", "revenue", (v) => formatCurrency(v, true), { spark: "conversions" })} />
         <Kpi index={3} accentColor="#4285f4" sparklineColor="#4285f4" {...kpi("Clicks", "clicks", (v) => formatNumber(v))} />
       </div>
       <DataTable
@@ -377,8 +377,8 @@ function MetaImpl({ data }) {
       <Disclaimer data={data} />
       <div className="grid grid-4">
         <Kpi index={0} label="Spend" value={m.summary.spend} previous={mp.spend} format="currency" invertDelta accentColor={sparkC} sparkline={daily.map((d) => d.spend)} sparklineColor={sparkC} />
-        <Kpi index={1} label="ROAS" value={m.summary.roas} previous={mp.roas} format="multiplier" accentColor={sparkC} />
-        <Kpi index={2} label="Revenue" value={m.summary.revenue} previous={mp.revenue} format="currency" accentColor={sparkC} />
+        <Kpi index={1} label="ROAS" value={m.summary.roas} previous={mp.roas} format="multiplier" accentColor={sparkC} sparkline={daily.map((d) => d.conversions)} sparklineColor={sparkC} />
+        <Kpi index={2} label="Revenue" value={m.summary.revenue} previous={mp.revenue} format="currency" accentColor={sparkC} sparkline={daily.map((d) => d.conversions)} sparklineColor={sparkC} />
         <Kpi index={3} label="Clicks" value={m.summary.clicks} previous={mp.clicks} format="number" accentColor={sparkC} sparkline={daily.map((d) => d.clicks)} sparklineColor={sparkC} />
       </div>
       <DataTable

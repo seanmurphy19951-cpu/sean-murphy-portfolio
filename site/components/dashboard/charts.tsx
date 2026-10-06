@@ -116,7 +116,7 @@ export function ensureChartSetup() {
   d.elements.point.radius = 0; d.elements.point.hoverRadius = 5; d.elements.point.hoverBorderWidth = 2;
   d.scale.grid.color = "rgba(255,255,255,0.05)";
   d.scale.ticks.padding = 8;
-  d.scale.ticks.color = "#32456e";
+  d.scale.ticks.color = "#aab4cd";
   d.animation.duration = 900;
   d.animation.easing = "easeOutExpo";
 }
@@ -170,7 +170,7 @@ function lineConfig({ labels, datasets, dualAxis = false, aspectRatio = 2, promo
     type: "line",
     data: { labels, datasets: ds },
     options: {
-      responsive: true, maintainAspectRatio: true, aspectRatio,
+      responsive: true, maintainAspectRatio: false,
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: legendOpts,
@@ -195,7 +195,7 @@ function barConfig({ labels, datasets, horizontal = false, stacked = false, aspe
     type: "bar",
     data: { labels, datasets: ds },
     options: {
-      responsive: true, maintainAspectRatio: true, aspectRatio,
+      responsive: true, maintainAspectRatio: false,
       indexAxis: horizontal ? "y" : "x",
       plugins: { legend: legendOpts },
       scales: { x: { stacked, grid: { display: false } }, y: { stacked } },
@@ -220,7 +220,7 @@ function doughnutConfig({ labels, data, colors, centerText = null, aspectRatio =
     type: "doughnut",
     data: { labels, datasets: [{ data, backgroundColor: colors || labels.map((_, i) => chartColor(i)), borderWidth: 0 }] },
     options: {
-      responsive: true, maintainAspectRatio: true, aspectRatio, cutout: "70%",
+      responsive: true, maintainAspectRatio: false, cutout: "70%",
       plugins: {
         legend: { position: "bottom", labels: { usePointStyle: true, padding: 16 } },
         tooltip: {
@@ -248,7 +248,7 @@ function bubbleConfig({ datasets, aspectRatio = 1.5 }) {
       }),
     },
     options: {
-      responsive: true, maintainAspectRatio: true, aspectRatio,
+      responsive: true, maintainAspectRatio: false,
       plugins: {
         legend: legendOpts,
         tooltip: { callbacks: { label(c) { const p = c.raw; return `${c.dataset.label}: CPA $${p.x.toFixed(2)}, ROAS ${p.y.toFixed(2)}x`; } } },

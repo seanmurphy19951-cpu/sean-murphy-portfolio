@@ -463,6 +463,22 @@ body {
 }
 
 .grid > * { margin-top: 0 !important; min-width: 0; }
+
+/* one rhythm for everything inside a section */
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+.section-content > * { margin: 0 !important; min-width: 0; max-width: 100%; }
+.dash, .dash-content, .dashboard-section, .section-content { min-width: 0; max-width: 100%; }
+.dash-content { overflow-x: clip; }
+.section-content > .card,
+.section-content > .chart-wrapper { width: 100%; }
+.card:hover, .kpi-card:hover { transform: none !important; }
+.chart-wrapper { padding: var(--space-lg); }
+.chart-wrapper .chart-title { margin-bottom: var(--space-md); }
+.chart-wrapper canvas { font-family: var(--font-inter, inherit); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
