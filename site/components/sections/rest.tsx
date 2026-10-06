@@ -60,17 +60,16 @@ export function Recognition() {
 }
 
 export function Skills() {
-  const card = "h-full rounded-3xl border border-line bg-surface p-6 transition-colors hover:border-accent/40";
-  const head = "mb-4 font-mono text-xs uppercase tracking-[0.15em] text-accent";
+  const card = "h-full rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-accent/40";
+  const head = "mb-3 font-mono text-xs uppercase tracking-[0.15em] text-accent";
   return (
     <section id="skills" className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
       <SectionHead eyebrow="Skills & tools" title={<>Tools and<br />skills.</>} />
       <Reveal>
-        <Swiper label="Skills and tools" itemClass="w-[80vw] md:w-80">
+        <Swiper label="Skills and tools" itemClass="w-[78vw] md:w-72">
           {[
-            ...Object.entries(profile.tools_verified).map(([k, v]) => <div key={k} className={card}><h3 className={head}>{k}</h3><div className="flex flex-wrap gap-2">{v.map((t) => <Tag key={t}>{t}</Tag>)}</div></div>),
-            <div key="core" className={card}><h3 className={head}>Core skills</h3><div className="flex flex-wrap gap-2">{profile.skills_technical.map((t) => <Tag key={t}>{t}</Tag>)}</div></div>,
-            <div key="soft" className={card}><h3 className={head}>Working style</h3><div className="flex flex-wrap gap-2">{profile.skills_soft.map((t) => <Tag key={t}>{t}</Tag>)}</div></div>,
+            ...Object.entries(profile.tools_verified).map(([k, v]) => <div key={k} className={card}><h3 className={head}>{k}</h3><div className="flex flex-wrap gap-1.5">{v.map((t) => <Tag key={t}>{t}</Tag>)}</div></div>),
+            <div key="soft" className={card}><h3 className={head}>Working style</h3><div className="flex flex-wrap gap-1.5">{profile.skills_soft.map((t) => <Tag key={t}>{t}</Tag>)}</div></div>,
           ]}
         </Swiper>
       </Reveal>

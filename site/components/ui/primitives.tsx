@@ -162,7 +162,7 @@ export function SectionHead({ eyebrow, title, children }: { eyebrow: string; tit
 }
 
 export function Tag({ children }: { children: ReactNode }) {
-  return <span className="inline-block rounded-full border border-line bg-white/[0.02] px-3 py-1 text-[0.78rem] text-muted transition-colors hover:border-accent/60 hover:text-fg">{children}</span>;
+  return <span className="inline-block rounded-full border border-line bg-white/[0.02] px-2.5 py-0.5 text-[0.74rem] text-muted transition-colors hover:border-accent/60 hover:text-fg">{children}</span>;
 }
 
 /** Pulls its child toward the cursor like a magnet. */

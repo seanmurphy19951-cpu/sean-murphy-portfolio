@@ -116,33 +116,34 @@
   ],
   "skills_soft": [
     "Communication",
-    "Project Management",
-    "Analytical Thinking",
-    "Customer-Centric Mindset",
-    "Strategic Thinking",
-    "Adaptability",
-    "Problem-Solving",
-    "Time Management",
     "Collaboration",
-    "Creativity",
-    "Initiative",
-    "Attention to Detail",
-    "Critical Thinking",
+    "Analytical thinking",
+    "Strategic thinking",
+    "Problem-solving",
+    "Adaptability",
+    "Customer focus",
     "Leadership",
-    "Emotional Intelligence",
-    "Decision-Making"
+    "Creativity",
+    "Attention to detail",
+    "Decision-making"
   ],
   "tools_verified": {
-    "Commerce platforms": [
-      "Shopify / Shopify Plus",
+    "Commerce and web": [
+      "Shopify / Plus",
       "WooCommerce",
       "BigCommerce",
-      "Magento / Adobe Commerce",
-      "ShopWired"
+      "Magento",
+      "Salesforce Commerce Cloud",
+      "ShopWired",
+      "Webflow",
+      "WordPress",
+      "Liquid / custom themes",
+      "HTML / CSS",
+      "Site migrations"
     ],
     "Marketplaces": [
-      "Amazon Seller Central / Vendor Central",
-      "Walmart Marketplace",
+      "Amazon Seller / Vendor Central",
+      "Walmart",
       "eBay",
       "Target Plus",
       "Best Buy",
@@ -151,188 +152,139 @@
       "Temu",
       "Wayfair"
     ],
-    "Advertising": [
-      "Google Ads (Search, Shopping/PMax)",
+    "Paid media": [
+      "Google Ads (Search, Shopping, PMax)",
       "Meta Ads",
       "Amazon Ads",
       "Microsoft Ads",
-      "Programmatic / display",
       "TikTok Ads",
       "LinkedIn Ads",
       "Reddit Ads",
-      "YouTube Ads"
+      "YouTube Ads",
+      "Programmatic"
     ],
-    "Email / CRM": [
+    "Performance and growth": [
+      "Creative testing",
+      "A/B and incrementality testing",
+      "Retargeting and lookalikes",
+      "Bidding and pacing",
+      "Attribution and UTMs",
+      "LTV:CAC and MER",
+      "Landing page and funnel CRO",
+      "Experiment roadmaps"
+    ],
+    "Email, CRM and lifecycle": [
       "Klaviyo",
       "Mailchimp",
       "HubSpot",
-      "Salesforce"
-    ],
-    "Analytics": [
-      "GA4 / Google Analytics",
-      "Google Search Console",
-      "Google Merchant Center",
-      "Looker Studio",
-      "Advanced Excel / Google Sheets",
-      "SQL",
-      "Google Tag Manager",
-      "Triple Whale",
-      "Segment (CDP)",
-      "Power BI",
-      "Tableau",
-      "BigQuery",
-      "Snowflake",
-      "Hotjar"
-    ],
-    "Web": [
-      "HTML",
-      "CSS",
-      "Custom theme / code changes"
-    ],
-    "Shopify apps": [
+      "Salesforce",
+      "Attentive",
+      "Postscript",
       "Recharge",
+      "SMS",
+      "Deliverability",
+      "Lead scoring and ABM",
+      "Loyalty and referral",
+      "Win-back and retention"
+    ],
+    "Customer tools": [
       "Yotpo",
       "Judge.me",
       "Gorgias",
       "Zendesk",
-      "Attentive",
-      "Postscript"
+      "Hotjar",
+      "Customer research"
     ],
-    "AI tools": [
+    "Analytics and data": [
+      "GA4",
+      "Search Console",
+      "Merchant Center",
+      "Looker Studio",
+      "Tag Manager",
+      "Triple Whale",
+      "Segment",
+      "Tableau / Power BI",
+      "BigQuery / Snowflake",
+      "SQL",
+      "Excel / Sheets",
+      "Python"
+    ],
+    "AI and automation": [
       "ChatGPT",
       "Claude",
       "Midjourney",
-      "Sora",
-      "Veo",
-      "Runway"
+      "Sora / Veo / Runway",
+      "Zapier / Make",
+      "Shopify Flow",
+      "APIs and webhooks"
     ],
-    "Creative": [
-      "Photoshop",
-      "Illustrator",
-      "Premiere",
-      "After Effects",
-      "CapCut",
-      "Figma",
-      "Canva"
-    ],
-    "Project management": [
-      "Asana",
-      "Jira",
-      "Notion",
-      "Airtable",
-      "Monday",
-      "Trello",
-      "ClickUp",
-      "Slack"
-    ],
-    "Data and automation": [
-      "Python",
-      "Zapier",
-      "Make",
-      "API integrations / webhooks",
-      "Liquid theme development",
-      "Salesforce Commerce Cloud"
-    ],
-    "SEO tools": [
+    "SEO": [
       "Semrush",
       "Ahrefs",
       "Screaming Frog",
-      "Technical SEO",
-      "Core Web Vitals",
-      "Structured data (schema)",
-      "GEO"
+      "Technical SEO and Core Web Vitals",
+      "Structured data",
+      "GEO",
+      "Content calendars"
     ],
-    "Operations": [
+    "Creative and content": [
+      "Photoshop / Illustrator",
+      "Premiere / After Effects / CapCut",
+      "Figma",
+      "Canva",
+      "Video production",
+      "Ad and email copy",
+      "Public speaking",
+      "Press and PR"
+    ],
+    "Social and partnerships": [
+      "Instagram / Facebook",
+      "YouTube",
+      "Discord community",
+      "Influencer and creator programs",
+      "Impact",
+      "ShareASale"
+    ],
+    "Project and operations": [
+      "Asana",
+      "Jira",
+      "Notion / Airtable",
+      "Monday / Trello / ClickUp",
+      "Slack",
       "NetSuite",
       "ShipStation / 3PL",
       "Inventory planning",
-      "Vendor and PO management",
-      "Site migrations"
+      "Vendor and PO management"
     ],
-    "Social and affiliate": [
-      "Instagram / Facebook",
-      "YouTube channel",
-      "Discord community",
-      "Impact",
-      "ShareASale",
-      "Influencer / creator marketing"
-    ],
-    "Paid media skills": [
-      "Creative testing",
-      "Incrementality and geo testing",
-      "Lookalikes and retargeting",
-      "Bidding and budget pacing"
-    ],
-    "Growth and measurement": [
-      "Attribution and UTM tracking",
-      "LTV:CAC and MER",
-      "Experimentation roadmaps",
-      "Funnel and landing page optimization"
-    ],
-    "Lifecycle and retention": [
-      "SMS marketing",
-      "Deliverability and list health",
-      "Lead scoring / MQL-SQL / ABM",
-      "Subscription and retention",
-      "Loyalty programs",
-      "Win-back and churn",
-      "Referral programs",
-      "Customer research"
-    ],
-    "Brand and merchandising": [
+    "Merchandising and finance": [
       "Pricing and promotions",
       "Bundling and AOV",
-      "Go-to-market",
-      "Product launches",
-      "Content calendars"
+      "MAP and channel pricing",
+      "P&L and margin analysis",
+      "Forecasting",
+      "Marketing mix modeling",
+      "Go-to-market and launches"
     ],
-    "Leadership": [
+    "Methods and leadership": [
+      "OKRs and KPIs",
+      "Agile",
+      "Kanban",
+      "Cohort and RFM analysis",
+      "Messaging frameworks",
       "Hiring and onboarding",
-      "Budget ownership and forecasting",
-      "Agency selection and oversight",
+      "Budget ownership",
+      "Agency oversight",
       "Executive reporting"
     ],
-    "Certifications": [
+    "Credentials and industries": [
       "Google Ads certified",
       "Meta Blueprint",
       "GA4 certified",
-      "HubSpot certified"
-    ],
-    "Methods": [
-      "OKRs and KPIs",
-      "Agile / sprints",
-      "Kanban"
-    ],
-    "Marketing methods": [
-      "Marketing mix and budget modeling",
-      "Cohort analysis",
-      "RFM segmentation",
-      "Brand and messaging frameworks"
-    ],
-    "Industries": [
+      "HubSpot certified",
       "Golf and sports tech",
       "Consumer electronics",
       "Grocery and retail",
-      "B2B and reseller channels"
-    ],
-    "Content and communication": [
-      "Video production and editing",
-      "Ad and email copywriting",
-      "Public speaking",
-      "Press and PR outreach"
-    ],
-    "Web tools": [
-      "A/B testing tools",
-      "Webflow",
-      "WordPress",
-      "Klaviyo flows and SMS",
-      "Shopify Flow"
-    ],
-    "Finance and pricing": [
-      "P&L and margin analysis",
-      "Forecasting and pacing models",
-      "Pricing strategy",
-      "MAP policy and channel pricing"
+      "B2B and reseller"
     ]
   }
 }
