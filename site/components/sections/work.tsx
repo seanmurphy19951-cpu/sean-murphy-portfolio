@@ -13,7 +13,7 @@ export function CaseCard({ c, i, onOpen, big = false }: { c: Case; i: number; on
   const [value, label] = c.stats[0] ?? ["", ""];
   return (
     <motion.div layoutId={`case-${c.id}`} className={cn(big && "md:col-span-2 lg:col-span-2")} style={{ borderRadius: 24 }}>
-      <TiltCard onClick={onOpen} label={`Open case study: ${c.title}`} className="h-full">
+      <TiltCard onClick={onOpen} label={c.title} className="h-full">
         <article className={cn("flex h-full min-h-[22rem] flex-col p-7", big && "md:min-h-[26rem] md:p-10")}>
           <div className="flex items-start justify-between">
             <span className="font-mono text-xs text-faint">{num(i)}</span>

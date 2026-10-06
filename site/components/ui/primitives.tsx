@@ -8,7 +8,8 @@ export function WordReveal({ lines, className, wordClass, delay = 0 }: { lines: 
   const reduce = useReducedMotion();
   let n = 0;
   return (
-    <span className={cn("block", className)} aria-label={lines.join(" ")}>
+    <span className={cn("block", className)}>
+      <span className="sr-only">{lines.join(" ")}</span>
       {lines.map((line, li) => (
         <span key={li} className="block" aria-hidden>
           {line.split(" ").map((w, wi) => (
@@ -77,13 +78,13 @@ export function CountUp({ value, className }: { value: string; className?: strin
     return () => c.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
-  return <span ref={ref} className={className} aria-label={value}>{text}</span>;
+  return <span ref={ref} className={className}><span className="sr-only">{value}</span><span aria-hidden>{text}</span></span>;
 }
 
 export function Marquee({ items, className }: { items: string[]; className?: string }) {
   const row = [...items, ...items];
   return (
-    <div className={cn("marquee relative overflow-hidden", className)} aria-label={items.join(", ")}>
+    <div className={cn("marquee relative overflow-hidden", className)} role="img" aria-label={items.join(", ")}>
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap" aria-hidden>
         {row.map((t, i) => (
           <span key={i} className="flex items-center gap-10 font-display text-2xl font-light tracking-tight text-fg/80 md:text-4xl">
@@ -210,7 +211,7 @@ export function Scramble({ text, className }: { text: string; className?: string
   useEffect(() => { if (inView) run(); return () => { if (timer.current) clearInterval(timer.current); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
-  return <span ref={ref} className={className} onMouseEnter={run} aria-label={text}>{out}</span>;
+  return <span ref={ref} className={className} onMouseEnter={run}><span className="sr-only">{text}</span><span aria-hidden>{out}</span></span>;
 }
 
 /** Stat whose number is scrubbed by scroll position (counts up as it passes through the viewport). */
@@ -227,7 +228,7 @@ export function ScrollCount({ value, className }: { value: string; className?: s
     setText(`${m[1]}${(target * Math.min(1, Math.max(0, p))).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec })}${m[3]}`);
   };
   useMotionValueEvent(scrollYProgress, "change", (p) => { if (!reduce) render(p); });
-  return <span ref={ref} className={className} aria-label={value}>{text}</span>;
+  return <span ref={ref} className={className}><span className="sr-only">{value}</span><span aria-hidden>{text}</span></span>;
 }
 
 

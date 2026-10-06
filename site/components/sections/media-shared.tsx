@@ -160,8 +160,8 @@ export function PageHero({ eyebrow, lines, intro, links }: { eyebrow: string; li
         <h1 className="font-display text-[clamp(3.4rem,11vw,10rem)] font-light leading-[0.88] tracking-[-0.05em]">
           <WordReveal lines={lines} wordClass="text-gradient" delay={0.1} />
         </h1>
-        <Reveal delay={0.7}><p className="mt-10 max-w-2xl text-lg text-muted">{intro}</p></Reveal>
-        <Reveal delay={0.85}>
+        <Reveal delay={0.25}><p className="mt-10 max-w-2xl text-lg text-muted">{intro}</p></Reveal>
+        <Reveal delay={0.35}>
           <div className="mt-10 flex flex-wrap gap-3">
             {links.map(([href, label], i) => (
               <Magnetic key={href}>

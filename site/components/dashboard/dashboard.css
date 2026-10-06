@@ -683,7 +683,7 @@ body {
 .kpi-goal-label {
   font-family: var(--font-mono);
   font-size: 8px;
-  color: #444;
+  color: #8a93a8;
   letter-spacing: 0.08em;
   margin-top: 2px;
   text-transform: uppercase;
@@ -1040,7 +1040,7 @@ body {
   grid-column: 1 / -1;
   font-family: var(--font-mono);
   font-size: 9px;
-  color: #444;
+  color: #8a93a8;
   letter-spacing: 0.06em;
   padding-top: 2px;
   text-align: right;
@@ -1089,7 +1089,7 @@ body {
 .filter-range-label {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #555;
+  color: #8a93a8;
   letter-spacing: 0.06em;
   white-space: nowrap;
 }
@@ -1100,7 +1100,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #555;
+  color: #8a93a8;
   background: transparent;
   border: 1px solid #222;
   border-radius: 4px;
@@ -1191,7 +1191,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: #444;
+  color: #8a93a8;
   margin-bottom: 2px;
 }
 
@@ -1233,7 +1233,7 @@ body {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  color: #666;
+  color: #8a93a8;
   background: transparent;
   border: none;
   border-radius: 6px;
@@ -1293,7 +1293,7 @@ body {
   border: none;
   border-radius: 6px;
   background: transparent;
-  color: #666;
+  color: #8a93a8;
   cursor: pointer;
   transition: all 0.15s;
   flex-shrink: 0;
@@ -1431,7 +1431,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #555;
+  color: #8a93a8;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -1454,7 +1454,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #555;
+  color: #8a93a8;
   background: transparent;
   border: 1px solid #222;
   border-radius: 6px;
@@ -1507,7 +1507,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #555;
+  color: #8a93a8;
   background: transparent;
   border: 1px solid #222;
   border-radius: 6px;
@@ -1557,7 +1557,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #555;
+  color: #8a93a8;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1647,7 +1647,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #555;
+  color: #8a93a8;
   background: transparent;
   border: 1px solid #222;
   border-radius: 4px;
@@ -1679,7 +1679,7 @@ body {
 .filter-compare-badge {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: #444;
+  color: #8a93a8;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-left: 4px;
@@ -1734,7 +1734,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #555;
+  color: #8a93a8;
   margin-bottom: 4px;
 }
 
@@ -1748,7 +1748,7 @@ body {
 .dropoff-card__detail {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: #444;
+  color: #8a93a8;
   margin-top: 4px;
 }
 
@@ -2172,7 +2172,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #555;
+  color: #8a93a8;
   background: transparent;
   border: 1px solid #222;
   border-radius: 4px;
