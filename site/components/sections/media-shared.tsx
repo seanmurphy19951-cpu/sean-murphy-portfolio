@@ -35,19 +35,25 @@ export const GROWTH = [
 
 export const CTV: [string, string][] = [["2.8M", "impressions"], ["515K", "video views"], ["3.3×", "attributed ROAS"]];
 
-export const VIDEOS = [
-  "Launch-monitor product film", "Compact launch-monitor product film", "Website modernization walkthrough",
-  "Brand film, 30 seconds", "\"You In\" brand campaign film", "AI software + launch-monitor ad",
-  "AI training product hero film", "Launch-monitor hero film", "Game-day software hero film",
-  "Compact launch-monitor promo ad", "Simulator bundle promo ad",
+export const VIDEOS: [label: string, file: string][] = [
+  ["Launch-monitor product film", "product-film-01"], ["Compact launch-monitor product film", "product-film-02"], ["Website modernization walkthrough", "website-modernization"],
+  ["Brand film, 30 seconds", "brand-film-30s"], ["\"You In\" brand campaign film", "brand-you-in"], ["AI software + launch-monitor ad", "ad-ai-software"],
+  ["AI training product hero film", "ai-trainer-hero"], ["Launch-monitor hero film", "hero-launch-monitor"], ["Game-day software hero film", "game-day-hero"],
+  ["Compact launch-monitor promo ad", "promo-ad-compact"], ["Simulator bundle promo ad", "promo-ad-bundle"],
 ];
 
-export function VideoSlot({ label }: { label: string }) {
+export function VideoSlot({ label, file }: { label: string; file?: string }) {
   return (
     <figure>
-      <div className="video-placeholder grid aspect-video place-items-center rounded-2xl border border-dashed border-line" role="img" aria-label="Video coming soon">
-        <span className="font-mono text-xs uppercase tracking-widest text-faint">▶ Video coming soon</span>
-      </div>
+      {file ? (
+        <video controls playsInline preload="none" poster={`/media/videos/${file}.jpg`} aria-label={label} className="aspect-video w-full rounded-2xl border border-line bg-black object-cover">
+          <source src={`/media/videos/${file}.mp4`} type="video/mp4" />
+        </video>
+      ) : (
+        <div className="video-placeholder grid aspect-video place-items-center rounded-2xl border border-dashed border-line" role="img" aria-label="Video coming soon">
+          <span className="font-mono text-xs uppercase tracking-widest text-faint">▶ Video coming soon</span>
+        </div>
+      )}
       <figcaption className="mt-3 text-sm text-muted">{label}</figcaption>
     </figure>
   );

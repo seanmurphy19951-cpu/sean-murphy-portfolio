@@ -45,7 +45,7 @@ export function Content() {
         </div>
         <h3 className="mb-6 mt-20 font-mono text-xs uppercase tracking-[0.18em] text-accent">Films</h3>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {VIDEOS.map((v, i) => <Reveal key={v} delay={(i % 3) * 0.06}><VideoSlot label={v} /></Reveal>)}
+          {VIDEOS.map(([v, f], i) => <Reveal key={f} delay={(i % 3) * 0.06}><VideoSlot label={v} file={f} /></Reveal>)}
         </div>
       </Panel>
 
@@ -65,7 +65,7 @@ export function Content() {
           <Reveal delay={0.08}>
             <div className="grid gap-4 sm:grid-cols-2">
               <figure><img src="/media/lack-of-knee-flex.jpg" alt="Annotated swing analysis still: lack of knee flex" loading="lazy" className="aspect-video w-full rounded-2xl object-cover" /><figcaption className="mt-3 text-sm text-muted">The still: one frame, fault annotated</figcaption></figure>
-              <VideoSlot label="The motion: same fault, shown live" />
+              <VideoSlot label="The motion: same fault, shown live" file="lack-of-knee-flex" />
             </div>
           </Reveal>
         </div>
