@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { CountUp, Reveal, SectionHead, TiltCard, WordReveal } from "@/components/ui/primitives";
+import { CountUp, Magnetic, Reveal, SectionHead, TiltCard, WordReveal } from "@/components/ui/primitives";
 import { cn } from "@/lib/utils";
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -77,6 +77,25 @@ function ParallaxWall() {
   );
 }
 
+/** Rows of images drifting in opposite directions on a tilted 3D plane. */
+function TiltedWall() {
+  const rows = [0, 1, 2].map((r) => [...RES, ...PEOPLE, ...COMM].filter((_, i) => i % 3 === r).slice(0, 8));
+  return (
+    <div aria-hidden className="relative my-24 h-[34rem] overflow-hidden [perspective:1400px]">
+      <div className="absolute left-1/2 top-1/2 w-[160%] -translate-x-1/2 -translate-y-1/2 [transform:rotateX(28deg)_rotateZ(-14deg)] [transform-style:preserve-3d]">
+        {rows.map((row, ri) => (
+          <div key={ri} className="mb-5 overflow-hidden">
+            <div className={cn("flex w-max gap-5", ri % 2 ? "animate-marquee-rev" : "animate-marquee")}>
+              {[...row, ...row].map((src, i) => <img key={i} src={src} alt="" loading="lazy" decoding="async" className="h-44 w-72 shrink-0 rounded-2xl object-cover" />)}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--color-bg2)_75%)]" />
+    </div>
+  );
+}
+
 function Gallery() {
   const [tab, setTab] = useState("res");
   const [all, setAll] = useState(false);
@@ -138,9 +157,9 @@ export function AiContent() {
           <Reveal delay={0.7}><p className="mt-10 max-w-2xl text-lg text-muted">I build AI and automation into the daily work of marketing: image and video generation, keyword research and reporting. This page shows what comes off the line, and the growth it supported.</p></Reveal>
           <Reveal delay={0.85}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <a href="#gallery" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#08080b] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(198_255_61/0.5)]">See the AI gallery</a>
-              <a href="#growth" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">Jump to the numbers</a>
-              <a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a>
+              <Magnetic><a href="#gallery" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#08080b] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(198_255_61/0.5)]">See the AI gallery</a></Magnetic>
+              <Magnetic><a href="#growth" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">Jump to the numbers</a></Magnetic>
+              <Magnetic><a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a></Magnetic>
             </div>
           </Reveal>
         </div>
@@ -167,6 +186,7 @@ export function AiContent() {
         <div className="mx-auto max-w-7xl">
           <SectionHead eyebrow="01 · AI image production" title={<>Unlimited content,<br />zero photoshoots.</>}>Every image here was generated with AI from basic product renders and room references: staged homes, bars and hotels that would each have cost a location scout, a crew and a shoot day.</SectionHead>
           <ParallaxWall />
+          <TiltedWall />
           <h3 className="mb-6 mt-4 font-mono text-xs uppercase tracking-[0.18em] text-accent">Browse the full set</h3>
           <Gallery />
           <div className="mt-24 grid items-center gap-10 md:grid-cols-2">

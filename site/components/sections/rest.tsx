@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { CountUp, Reveal, SectionHead, Tag, TiltCard } from "@/components/ui/primitives";
+import { Reveal, ScrollCount, SectionHead, Tag, TiltCard } from "@/components/ui/primitives";
 import { profile, ROLE_INTRO, ROLE_STATS } from "@/lib/data";
 
 export function Experience() {
@@ -31,7 +31,7 @@ export function Experience() {
                   {stats.length > 0 && (
                     <ul className="mt-8 flex flex-wrap gap-x-12 gap-y-6">
                       {stats.map(([v, l]) => (
-                        <li key={l}><div className="font-display text-5xl font-bold tracking-[-0.04em] text-accent"><CountUp value={v} /></div><div className="mt-1 font-mono text-[0.68rem] uppercase tracking-widest text-faint">{l}</div></li>
+                        <li key={l}><div className="font-display text-5xl font-bold tracking-[-0.04em] text-accent"><ScrollCount value={v} /></div><div className="mt-1 font-mono text-[0.68rem] uppercase tracking-widest text-faint">{l}</div></li>
                       ))}
                     </ul>
                   )}

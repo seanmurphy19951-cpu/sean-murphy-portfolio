@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { AnimatePresence, animate, motion, useInView, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
+import { AnimatePresence, animate, motion, useInView, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 
 /** Reveals text line by line, word by word, sliding up from a mask. */
@@ -154,7 +154,7 @@ export function Reveal({ children, className, delay = 0, y = 28 }: { children: R
 export function SectionHead({ eyebrow, title, children }: { eyebrow: string; title: ReactNode; children?: ReactNode }) {
   return (
     <div className="mb-14 max-w-3xl">
-      <Reveal><p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-accent">{eyebrow}</p></Reveal>
+      <Reveal><p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-accent"><Scramble text={eyebrow} /></p></Reveal>
       <Reveal delay={0.05}><h2 className="font-display text-5xl font-semibold leading-[0.98] tracking-[-0.035em] md:text-7xl">{title}</h2></Reveal>
       {children && <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-muted">{children}</p></Reveal>}
     </div>
@@ -163,4 +163,69 @@ export function SectionHead({ eyebrow, title, children }: { eyebrow: string; tit
 
 export function Tag({ children }: { children: ReactNode }) {
   return <span className="inline-block rounded-full border border-line bg-white/[0.02] px-3 py-1 text-[0.78rem] text-muted transition-colors hover:border-accent/60 hover:text-fg">{children}</span>;
+}
+
+/** Pulls its child toward the cursor like a magnet. */
+export function Magnetic({ children, className, strength = 0.3 }: { children: ReactNode; className?: string; strength?: number }) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useSpring(useMotionValue(0), { stiffness: 220, damping: 16 });
+  const y = useSpring(useMotionValue(0), { stiffness: 220, damping: 16 });
+  return (
+    <motion.div
+      ref={ref}
+      style={{ x, y }}
+      className={cn("inline-block", className)}
+      onMouseMove={(e) => {
+        if (reduce) return;
+        const r = ref.current!.getBoundingClientRect();
+        x.set((e.clientX - (r.left + r.width / 2)) * strength);
+        y.set((e.clientY - (r.top + r.height / 2)) * strength);
+      }}
+      onMouseLeave={() => { x.set(0); y.set(0); }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/** Text that decodes from random glyphs when it scrolls into view (and again on hover). */
+export function Scramble({ text, className }: { text: string; className?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+  const reduce = useReducedMotion();
+  const [out, setOut] = useState(text);
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const run = () => {
+    if (reduce) return;
+    if (timer.current) clearInterval(timer.current);
+    const glyphs = "!<>-_/[]{}=+*^?#";
+    let f = 0;
+    timer.current = setInterval(() => {
+      f++;
+      setOut(text.split("").map((c, i) => (c === " " || i < f / 2 ? c : glyphs[Math.floor(Math.random() * glyphs.length)])).join(""));
+      if (f / 2 >= text.length && timer.current) { clearInterval(timer.current); setOut(text); }
+    }, 30);
+  };
+  useEffect(() => { if (inView) run(); return () => { if (timer.current) clearInterval(timer.current); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
+  return <span ref={ref} className={className} onMouseEnter={run} aria-label={text}>{out}</span>;
+}
+
+/** Stat whose number is scrubbed by scroll position (counts up as it passes through the viewport). */
+export function ScrollCount({ value, className }: { value: string; className?: string }) {
+  const m = value.match(/^([^0-9]*)([\d,.]+)(.*)$/);
+  const ref = useRef<HTMLSpanElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "start 55%"] });
+  const [text, setText] = useState(value);
+  const render = (p: number) => {
+    if (!m) return;
+    const target = parseFloat(m[2].replace(/,/g, ""));
+    const dec = m[2].includes(".") ? m[2].split(".")[1].length : 0;
+    setText(`${m[1]}${(target * Math.min(1, Math.max(0, p))).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec })}${m[3]}`);
+  };
+  useMotionValueEvent(scrollYProgress, "change", (p) => { if (!reduce) render(p); });
+  return <span ref={ref} className={className} aria-label={value}>{text}</span>;
 }

@@ -17,6 +17,8 @@ export const ROLE_STATS: Record<string, [string, string][]> = {
   uneekor: [["$15M", "Q4 reseller revenue"], ["34%", "YoY revenue growth"], ["4×+", "blended paid media ROAS"], ["$2M+", "Amazon sales, H2"]],
   melton: [["+35%", "CTR"], ["+12%", "AOV"], ["−$3+", "CPA"]],
   pacific: [["+40%", "YoY sales"], ["+10", "first-page keywords"]],
+  // TODO(Sean): PLACEHOLDER Aldi figures; replace with real ones.
+  aldi: [["3rd", "in region for sales"], ["+14%", "peak-season sales vs LY"], ["98%+", "stock accuracy"], ["+12%", "rebuild relaunch week vs target"]],
   shopwired: [["+30%", "revenue across 50+ clients"], ["+$5,000", "new MoM revenue line"]],
 };
 export const ROLE_INTRO: Record<string, string> = {
@@ -24,7 +26,7 @@ export const ROLE_INTRO: Record<string, string> = {
   melton: "Fishing tackle retailer and distributor; on-site e-commerce merchandising.",
   pacific: "Training and education company; sole owner of e-commerce (freelance).",
   shopwired: "UK e-commerce platform; client store work across 50+ merchants.",
-  aldi: "Retail operations before moving into e-commerce.",
+  aldi: "UK discount grocer; store operations, seasonal activations and stock control, where I learned how retail targets are won.",
 };
 export const HERO_STATS: [string, string][] = [
   ["$15M", "Q4 reseller revenue"], ["4×+", "blended paid ROAS"], ["$2M+", "Amazon sales, H2"], ["50+", "client stores grown"],
@@ -34,7 +36,7 @@ export const MARQUEE = [
   "Meta · TikTok · Google", "SEO", "Trade shows & events", "AI image + video production", "E-commerce operations", "Shopify · WooCommerce · BigCommerce",
 ];
 export const NAV = [
-  { id: "about", label: "About" }, { id: "work", label: "Work" }, { id: "experience", label: "Experience" },
+  { id: "about", label: "About" }, { id: "featured", label: "Highlights" }, { id: "work", label: "Work" }, { id: "experience", label: "Experience" },
   { id: "recognition", label: "Recognition" }, { id: "skills", label: "Skills" }, { id: "contact", label: "Contact" },
 ];
 

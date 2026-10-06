@@ -27,7 +27,9 @@ body { font-family: var(--font-sans); color: var(--color-fg); -webkit-font-smoot
 
 @keyframes marquee { to { transform: translateX(-50%); } }
 .animate-marquee { animation: marquee 48s linear infinite; }
+.animate-marquee-rev { animation: marquee 60s linear infinite reverse; }
 .marquee:hover .animate-marquee { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .animate-marquee, .animate-marquee-rev { animation: none; } }
 
 .grid-bg {
   background-image:

@@ -2,6 +2,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Lenis from "lenis";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll, useMotionValue, useSpring } from "motion/react";
+import { CommandPalette } from "@/components/command-palette";
 import { AI_NAV, NAV } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -50,6 +51,7 @@ export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
   const [hidden, setHidden] = useState(false);
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
+  const [palette, setPalette] = useState(false);
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
     setHidden(y > prev && y > 200);
@@ -63,6 +65,7 @@ export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
     return () => io.disconnect();
   }, [items]);
   return (
+    <>
     <motion.header
       animate={{ y: hidden && !open ? -110 : 0 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -79,6 +82,7 @@ export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
           ))}
         </div>
         <a href="/Sean-Murphy-Resume.pdf" className="ml-1 hidden rounded-full border border-white/15 px-4 py-2 text-sm hover:border-accent hover:text-accent md:block">Résumé</a>
+        <button onClick={() => setPalette(true)} aria-label="Open command palette" className="ml-1 hidden rounded-full border border-white/15 px-3 py-2 font-mono text-xs text-muted hover:border-accent hover:text-accent md:block">⌘K</button>
         <button aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)} className="rounded-full px-4 py-2 text-sm md:hidden">{open ? "Close" : "Menu"}</button>
       </nav>
       {open && (
@@ -88,5 +92,7 @@ export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
         </div>
       )}
     </motion.header>
+      <CommandPalette open={palette} setOpen={setPalette} />
+    </>
   );
 }

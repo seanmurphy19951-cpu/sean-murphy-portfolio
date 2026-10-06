@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
-import { CountUp, FlipWords, Marquee, Reveal, SectionHead, WordReveal } from "@/components/ui/primitives";
+import { CountUp, FlipWords, Magnetic, Marquee, Reveal, SectionHead, WordReveal } from "@/components/ui/primitives";
 import { HERO_STATS, MARQUEE } from "@/lib/data";
 
 function HeroBackdrop() {
@@ -52,9 +52,9 @@ export function Hero() {
           </Reveal>
           <Reveal delay={1}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <a href="#work" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#08080b] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(198_255_61/0.5)]">View case studies</a>
-              <a href="/ai-content" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI &amp; content</a>
-              <a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a>
+              <Magnetic><a href="#work" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#08080b] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(198_255_61/0.5)]">View case studies</a></Magnetic>
+              <Magnetic><a href="/ai-content" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI &amp; content</a></Magnetic>
+              <Magnetic><a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a></Magnetic>
             </div>
           </Reveal>
           <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-white/10 pt-8 md:grid-cols-4">
