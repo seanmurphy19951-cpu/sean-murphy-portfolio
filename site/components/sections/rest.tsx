@@ -98,7 +98,6 @@ export function Contact() {
             ))}
           </ul>
         </Reveal>
-        <p className="mt-16 text-center font-mono text-xs text-faint">© 2026 Sean Murphy · Built with Next.js</p>
       </div>
     </footer>
   );
