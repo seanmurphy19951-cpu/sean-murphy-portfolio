@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "public/**",
   ]),
+  // Ported dashboard logic is plain JS carried over as-is.
+  { files: ["components/dashboard/**"], rules: { "@typescript-eslint/ban-ts-comment": "off" } },
 ]);
 
 export default eslintConfig;

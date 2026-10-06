@@ -43,7 +43,19 @@ export function Ambient() {
   );
 }
 
-const DASH_NAV = [{ id: "top", label: "Dashboard" }];
+const DASH_NAV = [
+  { id: "executive-summary", label: "Executive Summary" },
+  { id: "channel-mix", label: "Cross-Channel Performance" },
+  { id: "funnel-analysis", label: "Conversion Funnel" },
+  { id: "google-ads", label: "Google Ads" },
+  { id: "meta-ads", label: "Meta Ads" },
+  { id: "shopify", label: "E-Commerce" },
+  { id: "b2b-partners", label: "B2B Partners" },
+  { id: "website", label: "Website Analytics" },
+  { id: "insights", label: "Insights & Recommendations" },
+  { id: "trends", label: "Cross-Channel Trends" },
+  { id: "promo-analysis", label: "Promo Analysis" },
+];
 const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai-content", label: "AI & Content", key: "ai" }, { href: "/dashboard", label: "Dashboard", key: "dash" }];
 
 /** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
@@ -57,8 +69,12 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "dash"
       (es) => es.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-40% 0px -55% 0px" },
     );
-    items.forEach((n) => { const el = document.getElementById(n.id); if (el) io.observe(el); });
-    return () => io.disconnect();
+    const seen = new Set<string>();
+    const watch = () => items.forEach((n) => { const el = document.getElementById(n.id); if (el && !seen.has(n.id)) { seen.add(n.id); io.observe(el); } });
+    watch();
+    // dashboard sections render after their data loads client-side
+    const poll = seen.size < items.length ? setInterval(() => { watch(); if (seen.size === items.length) clearInterval(poll); }, 400) : undefined;
+    return () => { io.disconnect(); if (poll) clearInterval(poll); };
   }, [items]);
   const ext = "rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:border-accent hover:text-accent";
   return (
@@ -81,15 +97,15 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "dash"
           <div className="max-h-[80svh] overflow-y-auto border-t border-line bg-bg p-4 md:hidden" data-lenis-prevent>
             <p className="px-3 pb-2 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Pages</p>
             {PAGES.map((pg) => <Link key={pg.key} href={pg.href} onClick={() => setOpen(false)} className={cn("block rounded-2xl px-3 py-2.5 text-lg", pg.key === variant && "text-accent")}>{pg.label}</Link>)}
-            {variant !== "dash" && <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">On this page</p>}
-            {variant !== "dash" && items.map((n) => <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="block rounded-2xl px-3 py-2.5 text-lg">{n.label}</a>)}
+            <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">On this page</p>
+            {items.map((n) => <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="block rounded-2xl px-3 py-2.5 text-lg">{n.label}</a>)}
             <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Links</p>
             <a href={profile.linkedin} target="_blank" rel="noopener" className="block rounded-2xl px-3 py-2.5 text-lg">LinkedIn ↗</a>
             <a href={`mailto:${profile.email}`} className="block rounded-2xl px-3 py-2.5 text-lg text-accent">Email</a>
           </div>
         )}
       </header>
-      {variant !== "dash" && <aside aria-label="On this page" className="fixed bottom-0 left-0 top-16 z-40 hidden w-44 flex-col justify-center pl-8 lg:flex">
+      <aside aria-label="On this page" className="fixed bottom-0 left-0 top-16 z-40 hidden w-44 flex-col justify-center pl-8 lg:flex">
         <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint">On this page</p>
         <ul className="space-y-1 border-l border-line">
           {items.map((n) => (
@@ -98,7 +114,7 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "dash"
             </li>
           ))}
         </ul>
-      </aside>}
+      </aside>
       <CommandPalette open={palette} setOpen={setPalette} />
     </>
   );

@@ -1,3 +1,14 @@
+// @ts-nocheck
+export async function loadAllData() {
+  const get = (p, fb) => fetch(`/dashboard-data/${p}`).then(r => (r.ok ? r.json() : fb !== undefined ? fb : Promise.reject(new Error(`Failed to load ${p}: ${r.status}`)))).catch(e => { if (fb !== undefined) return fb; throw e; });
+  const config = await get("config.json");
+  const [google, meta, shopify, b2b, website, promos, goals, annotations] = await Promise.all([
+    get("google-ads.json"), get("meta-ads.json"), get("shopify.json"), get("b2b-partners.json"), get("website.json"),
+    get("promos.json", []), get("goals.json", {}), get("annotations.json", []),
+  ]);
+  const computed = computeAggregates(google, meta, shopify, b2b, website);
+  return { config, google, meta, shopify, b2b, website, computed, promos, goals, annotations };
+}
 /**
  * Pure functions to filter dashboard data by date range
  * and produce comparison-period data for YoY overlays.

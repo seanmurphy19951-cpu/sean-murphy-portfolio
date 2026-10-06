@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Each insight: { type: "positive"|"warning"|"critical", channel, message, detail }
 
 export function generateInsights(data) {
