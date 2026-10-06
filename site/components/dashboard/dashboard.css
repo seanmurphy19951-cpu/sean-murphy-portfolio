@@ -566,6 +566,7 @@ body {
 
 
 .kpi-card {
+  min-height: 185px;
   background: #131e3a;
   border-radius: var(--radius-md);
   padding: var(--space-lg);
@@ -1827,13 +1828,17 @@ body {
 
 @media (max-width: 1400px) {
   .grid-6 { grid-template-columns: repeat(3, 1fr); }
-  .grid-5 { grid-template-columns: repeat(3, 1fr); }
+  .grid-5 { grid-template-columns: repeat(6, 1fr); }
+  .grid-5 > * { grid-column: span 2; }
+  .grid-5 > :nth-child(n+4) { grid-column: span 3; }
 }
 
 @media (max-width: 1200px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .span-2 { grid-column: span 1; }
+  .grid-3 > :last-child:nth-child(odd),
+  .grid-4 > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 @media (max-width: 1024px) {
