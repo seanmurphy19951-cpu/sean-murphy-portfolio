@@ -17,7 +17,6 @@ const ITEMS: Item[] = [
   { label: "Skills", hint: "Section", href: "/#skills" },
   { label: "Contact", hint: "Section", href: "/#contact" },
   ...cases.map((c) => ({ label: c.title, hint: `Case · ${c.employer}`, href: "/#work" })),
-  { label: "Download résumé (PDF)", hint: "Link", href: "/Sean-Murphy-Resume.pdf", external: true },
   { label: "Email Sean", hint: "Link", href: `mailto:${profile.email}`, external: true },
   { label: "LinkedIn", hint: "Link", href: profile.linkedin, external: true },
   { label: "AI-built dashboard", hint: "Link", href: "https://reportingdashboard.vercel.app/", external: true },

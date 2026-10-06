@@ -81,15 +81,13 @@ export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
             </a>
           ))}
         </div>
-        <a href="/Sean-Murphy-Resume.pdf" className="ml-1 hidden rounded-full border border-white/15 px-4 py-2 text-sm hover:border-accent hover:text-accent md:block">Résumé</a>
         <button onClick={() => setPalette(true)} aria-label="Open command palette" className="ml-1 hidden rounded-full border border-white/15 px-3 py-2 font-mono text-xs text-muted hover:border-accent hover:text-accent md:block">⌘K</button>
         <button aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)} className="rounded-full px-4 py-2 text-sm md:hidden">{open ? "Close" : "Menu"}</button>
       </nav>
       {open && (
         <div className="absolute top-16 w-[calc(100%-2rem)] max-w-sm rounded-3xl border border-white/10 bg-black/80 p-3 backdrop-blur-xl md:hidden">
           {items.map((n) => <a key={n.id} href={href(n.id)} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-lg hover:bg-white/5">{n.label}</a>)}
-          <a href="/Sean-Murphy-Resume.pdf" className="block rounded-2xl px-4 py-3 text-lg text-accent">Résumé (PDF)</a>
-        </div>
+          </div>
       )}
     </motion.header>
       <CommandPalette open={palette} setOpen={setPalette} />

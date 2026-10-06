@@ -15,7 +15,7 @@ export function Featured() {
   const cur = FEATURED[active];
   return (
     <section id="featured" className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-      <SectionHead eyebrow="Highlights" title={<>The four results<br />I&apos;d lead with.</>}>Scroll through the headline wins; every case is in the full grid below.</SectionHead>
+      <SectionHead eyebrow="Highlights" title={<>Headline<br />results.</>}>Four of the largest outcomes across e-commerce, paid media and partnerships. Full case studies follow.</SectionHead>
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
         <div>
           {FEATURED.map((c, i) => (

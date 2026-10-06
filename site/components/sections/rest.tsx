@@ -114,8 +114,8 @@ export function Contact() {
           </a>
         </Reveal>
         <Reveal delay={0.1}>
-          <ul className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-4">
-            {[["Email", profile.email, `mailto:${profile.email}`], ["LinkedIn", "linkedin.com/in/seanmurphy19951", profile.linkedin], ["Location", profile.location, ""], ["Résumé", "Download (PDF)", "/Sean-Murphy-Resume.pdf"]].map(([k, v, href]) => (
+          <ul className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-3">
+            {[["Email", profile.email, `mailto:${profile.email}`], ["LinkedIn", "linkedin.com/in/seanmurphy19951", profile.linkedin], ["Location", profile.location, ""]].map(([k, v, href]) => (
               <li key={k} className="bg-bg p-6">
                 <span className="font-mono text-[0.68rem] uppercase tracking-widest text-faint">{k}</span>
                 {href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener" className="mt-2 block break-words text-fg underline-offset-4 hover:text-accent hover:underline">{v}</a> : <p className="mt-2">{v}</p>}
