@@ -1,0 +1,74 @@
+[
+  {
+    "name": "New Year Sale",
+    "startDate": "2025-01-01",
+    "endDate": "2025-01-05",
+    "discountPercent": 20,
+    "channels": ["google-ads", "meta-ads", "shopify"],
+    "color": "#ff6b35"
+  },
+  {
+    "name": "Valentine's Promo",
+    "startDate": "2025-02-10",
+    "endDate": "2025-02-16",
+    "discountPercent": 15,
+    "channels": ["meta-ads", "shopify"],
+    "color": "#e74c3c"
+  },
+  {
+    "name": "Spring Sale",
+    "startDate": "2025-03-15",
+    "endDate": "2025-03-23",
+    "discountPercent": 25,
+    "channels": ["google-ads", "meta-ads", "shopify"],
+    "color": "#2ec4b6"
+  },
+  {
+    "name": "Summer Clearance",
+    "startDate": "2025-06-20",
+    "endDate": "2025-07-04",
+    "discountPercent": 30,
+    "channels": ["google-ads", "meta-ads", "shopify"],
+    "color": "#ffda00"
+  },
+  {
+    "name": "Back to School",
+    "startDate": "2025-08-15",
+    "endDate": "2025-08-25",
+    "discountPercent": 20,
+    "channels": ["google-ads", "meta-ads", "shopify", "b2b-partners"],
+    "color": "#4285f4"
+  },
+  {
+    "name": "Black Friday / Cyber Monday",
+    "startDate": "2025-11-24",
+    "endDate": "2025-12-02",
+    "discountPercent": 35,
+    "channels": ["google-ads", "meta-ads", "shopify", "b2b-partners"],
+    "color": "#9b59b6"
+  },
+  {
+    "name": "Holiday Season",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-28",
+    "discountPercent": 20,
+    "channels": ["google-ads", "meta-ads", "shopify"],
+    "color": "#e74c3c"
+  },
+  {
+    "name": "Q1 Launch Promo",
+    "startDate": "2026-01-15",
+    "endDate": "2026-01-25",
+    "discountPercent": 15,
+    "channels": ["google-ads", "meta-ads", "shopify"],
+    "color": "#1abc9c"
+  },
+  {
+    "name": "March Madness Sale",
+    "startDate": "2026-03-10",
+    "endDate": "2026-03-20",
+    "discountPercent": 25,
+    "channels": ["google-ads", "meta-ads", "shopify"],
+    "color": "#ff6b35"
+  }
+]

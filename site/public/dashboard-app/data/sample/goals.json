@@ -1,0 +1,18 @@
+{
+  "monthly": {
+    "revenue": 260000,
+    "spend": 100000,
+    "roas": 2.5,
+    "cpa": 18,
+    "conversions": 5500,
+    "grossProfit": 160000,
+    "orders": 4500,
+    "sessions": 140000
+  },
+  "quarterly": {
+    "revenue": 750000,
+    "spend": 290000,
+    "roas": 2.6,
+    "grossProfit": 465000
+  }
+}

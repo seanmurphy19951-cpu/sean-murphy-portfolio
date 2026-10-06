@@ -1,0 +1,8 @@
+{
+  "reportPeriod": "2026-03",
+  "previousPeriod": "2026-02",
+  "clientName": "Performance Dashboard",
+  "currency": "USD",
+  "dataSource": "sample",
+  "channels": ["google-ads", "meta-ads", "shopify", "b2b-partners", "website"]
+}

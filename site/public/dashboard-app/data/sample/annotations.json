@@ -1,0 +1,62 @@
+[
+  {
+    "date": "2025-01-01",
+    "label": "New Year Sale Launch",
+    "type": "promo"
+  },
+  {
+    "date": "2025-02-14",
+    "label": "Valentine's Campaign Start",
+    "type": "campaign"
+  },
+  {
+    "date": "2025-03-15",
+    "label": "Spring Collection Launch",
+    "type": "product"
+  },
+  {
+    "date": "2025-04-10",
+    "label": "Competitor Price Drop",
+    "type": "external"
+  },
+  {
+    "date": "2025-06-20",
+    "label": "Summer Clearance Begins",
+    "type": "promo"
+  },
+  {
+    "date": "2025-08-15",
+    "label": "Back to School Push",
+    "type": "campaign"
+  },
+  {
+    "date": "2025-09-01",
+    "label": "New Product Line Launch",
+    "type": "product"
+  },
+  {
+    "date": "2025-11-24",
+    "label": "BFCM Campaign Start",
+    "type": "promo"
+  },
+  {
+    "date": "2025-12-15",
+    "label": "Holiday Campaign Start",
+    "type": "campaign"
+  },
+  {
+    "date": "2026-01-15",
+    "label": "Q1 Product Refresh",
+    "type": "product"
+  },
+  {
+    "date": "2026-02-01",
+    "label": "New Google Ad Strategy",
+    "type": "campaign"
+  },
+  {
+    "date": "2026-03-10",
+    "label": "March Madness Sale Launch",
+    "type": "promo"
+  }
+]
