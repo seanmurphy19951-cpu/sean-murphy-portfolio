@@ -79,15 +79,19 @@ function CaseModal({ c, i, onClose }: { c: Case; i: number; onClose: () => void 
 
 export function Work() {
   const [open, setOpen] = useState<string | null>(null);
+  const [all, setAll] = useState(false);
   const idx = cases.findIndex((c) => c.id === open);
   return (
-    <section id="work" className="relative border-y border-white/10 bg-bg2 px-6 py-28 md:px-12 md:py-40">
+    <section id="work" className="relative border-y border-white/10 bg-bg2 px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="02 · Case studies" title={<>Fourteen times strategy<br />became results.</>}>
-          Click any card for the problem, approach and result. Partners, retailers and talent are anonymized and figures rounded.
+        <SectionHead eyebrow="Case studies" title={<>Fourteen times strategy<br />became results.</>}>
+          Each case lays out the problem, approach and result. Partners, retailers and talent are anonymized and figures rounded.
         </SectionHead>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {cases.map((c, i) => <CaseCard key={c.id} c={c} i={i} onOpen={() => setOpen(c.id)} />)}
+          {(all ? cases : cases.slice(0, 6)).map((c, i) => <CaseCard key={c.id} c={c} i={i} onOpen={() => setOpen(c.id)} />)}
+        </div>
+        <div className="mt-8 flex justify-center">
+          <button onClick={() => setAll(!all)} className="rounded-full border border-line px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:border-accent hover:text-accent">{all ? "Show fewer" : `Show all ${cases.length} case studies`}</button>
         </div>
       </div>
       <AnimatePresence>{idx >= 0 && <CaseModal key={open} c={cases[idx]} i={idx} onClose={() => setOpen(null)} />}</AnimatePresence>

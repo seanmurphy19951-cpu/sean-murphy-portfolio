@@ -12,7 +12,7 @@ export function WordReveal({ lines, className, wordClass, delay = 0 }: { lines: 
       {lines.map((line, li) => (
         <span key={li} className="block" aria-hidden>
           {line.split(" ").map((w, wi) => (
-            <span key={wi} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+            <span key={wi} className="inline-block overflow-hidden pb-[0.2em] -mb-[0.12em] align-bottom">
               <motion.span
                 className={cn("inline-block", wordClass)}
                 initial={reduce ? false : { y: "110%" }}
@@ -104,8 +104,8 @@ export function TiltCard({ children, className, onClick, label }: { children: Re
   const ry = useSpring(useMotionValue(0), { stiffness: 200, damping: 20 });
   const gx = useMotionValue(50);
   const gy = useMotionValue(50);
-  const glow = useTransform([gx, gy], ([x, y]) => `radial-gradient(420px circle at ${x}% ${y}%, rgb(198 255 61 / 0.16), transparent 55%)`);
-  const edge = useTransform([gx, gy], ([x, y]) => `radial-gradient(260px circle at ${x}% ${y}%, rgb(198 255 61 / 0.9), transparent 60%)`);
+  const glow = useTransform([gx, gy], ([x, y]) => `radial-gradient(420px circle at ${x}% ${y}%, rgb(255 185 56 / 0.16), transparent 55%)`);
+  const edge = useTransform([gx, gy], ([x, y]) => `radial-gradient(260px circle at ${x}% ${y}%, rgb(255 185 56 / 0.9), transparent 60%)`);
   const move = (e: React.MouseEvent) => {
     const r = ref.current!.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width;
@@ -153,9 +153,9 @@ export function Reveal({ children, className, delay = 0, y = 28 }: { children: R
 
 export function SectionHead({ eyebrow, title, children }: { eyebrow: string; title: ReactNode; children?: ReactNode }) {
   return (
-    <div className="mb-14 max-w-3xl">
+    <div className="mb-10 max-w-3xl">
       <Reveal><p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-accent"><Scramble text={eyebrow} /></p></Reveal>
-      <Reveal delay={0.05}><h2 className="font-display text-5xl font-semibold leading-[0.98] tracking-[-0.035em] md:text-7xl">{title}</h2></Reveal>
+      <Reveal delay={0.05}><h2 className="font-display text-5xl font-semibold leading-[0.98] tracking-[-0.035em] md:text-6xl">{title}</h2></Reveal>
       {children && <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-muted">{children}</p></Reveal>}
     </div>
   );
@@ -228,4 +228,30 @@ export function ScrollCount({ value, className }: { value: string; className?: s
   };
   useMotionValueEvent(scrollYProgress, "change", (p) => { if (!reduce) render(p); });
   return <span ref={ref} className={className} aria-label={value}>{text}</span>;
+}
+
+
+/** Horizontal snap carousel (touch/trackpad swipe, arrow buttons, keyboard) with a progress line. */
+export function Swiper({ children, itemClass = "w-[85vw] md:w-[30rem]", label }: { children: ReactNode[]; itemClass?: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [p, setP] = useState(0);
+  const by = (d: number) => { const el = ref.current; if (el) el.scrollBy({ left: d * el.clientWidth * 0.7, behavior: "smooth" }); };
+  const onScroll = () => { const el = ref.current; if (el) setP(el.scrollLeft / Math.max(1, el.scrollWidth - el.clientWidth)); };
+  const btn = "grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-accent";
+  return (
+    <div>
+      <div
+        ref={ref} onScroll={onScroll} tabIndex={0} role="region" aria-label={label}
+        onKeyDown={(e) => { if (e.key === "ArrowRight") by(1); if (e.key === "ArrowLeft") by(-1); }}
+        className="flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {children.map((c, i) => <div key={i} className={cn("shrink-0 snap-start", itemClass)}>{c}</div>)}
+      </div>
+      <div className="mt-4 flex items-center gap-4">
+        <div className="h-px flex-1 bg-line"><div className="h-px bg-accent transition-[width] duration-200" style={{ width: `${Math.max(8, p * 100)}%` }} /></div>
+        <button aria-label="Previous" onClick={() => by(-1)} className={btn}>←</button>
+        <button aria-label="Next" onClick={() => by(1)} className={btn}>→</button>
+      </div>
+    </div>
+  );
 }

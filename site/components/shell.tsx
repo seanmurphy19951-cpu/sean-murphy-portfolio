@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState, type ReactNode } from "react";
 import Lenis from "lenis";
-import { motion, useMotionValueEvent, useReducedMotion, useScroll, useMotionValue, useSpring } from "motion/react";
+import Link from "next/link";
+import { motion, useReducedMotion, useScroll, useMotionValue, useSpring } from "motion/react";
 import { CommandPalette } from "@/components/command-palette";
-import { AI_NAV, NAV } from "@/lib/data";
+import { AI_NAV, NAV, profile } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
@@ -36,26 +37,20 @@ export function Ambient() {
       <motion.div
         aria-hidden
         style={{ x: sx, y: sy }}
-        className="pointer-events-none fixed left-0 top-0 z-0 hidden h-[400px] w-[400px] rounded-full bg-accent/[0.05] blur-3xl md:block"
+        className="pointer-events-none fixed left-0 top-0 z-0 hidden h-[400px] w-[400px] rounded-full bg-accent/[0.06] blur-3xl md:block"
       />
     </>
   );
 }
 
-/** Floating glass pill; hides on scroll down, returns on scroll up; highlights the section in view. */
-export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
-  const home = variant === "home";
-  const items = home ? NAV : AI_NAV;
-  const href = (id: string) => (id === "home" ? "/" : `#${id}`);
-  const { scrollY } = useScroll();
-  const [hidden, setHidden] = useState(false);
-  const [active, setActive] = useState("");
+const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai-content", label: "AI & Content", key: "ai" }];
+
+/** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
+export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" }) {
+  const items = variant === "home" ? NAV : AI_NAV;
+  const [active, setActive] = useState(items[0].id);
   const [open, setOpen] = useState(false);
   const [palette, setPalette] = useState(false);
-  useMotionValueEvent(scrollY, "change", (y) => {
-    const prev = scrollY.getPrevious() ?? 0;
-    setHidden(y > prev && y > 200);
-  });
   useEffect(() => {
     const io = new IntersectionObserver(
       (es) => es.forEach((e) => e.isIntersecting && setActive(e.target.id)),
@@ -64,32 +59,48 @@ export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
     items.forEach((n) => { const el = document.getElementById(n.id); if (el) io.observe(el); });
     return () => io.disconnect();
   }, [items]);
+  const ext = "rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:border-accent hover:text-accent";
   return (
     <>
-    <motion.header
-      animate={{ y: hidden && !open ? -110 : 0 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
-    >
-      <nav aria-label="Primary" className="flex items-center gap-1 rounded-full border border-white/10 bg-black/40 p-1.5 pl-5 shadow-2xl shadow-black/50 backdrop-blur-xl">
-        <a href={home ? "#top" : "/"} className="mr-3 font-display text-lg font-bold tracking-tight">SM<span className="text-accent">.</span></a>
-        <div className="hidden items-center md:flex">
-          {items.map((n) => (
-            <a key={n.id} href={href(n.id)} className={cn("relative rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-fg", active === n.id && "text-[#08080b]")}>
-              {active === n.id && <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-full bg-accent" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
-              <span className="relative">{n.label}</span>
-            </a>
-          ))}
-        </div>
-        <button onClick={() => setPalette(true)} aria-label="Open command palette" className="ml-1 hidden rounded-full border border-white/15 px-3 py-2 font-mono text-xs text-muted hover:border-accent hover:text-accent md:block">⌘K</button>
-        <button aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)} className="rounded-full px-4 py-2 text-sm md:hidden">{open ? "Close" : "Menu"}</button>
-      </nav>
-      {open && (
-        <div className="absolute top-16 w-[calc(100%-2rem)] max-w-sm rounded-3xl border border-white/10 bg-black/80 p-3 backdrop-blur-xl md:hidden">
-          {items.map((n) => <a key={n.id} href={href(n.id)} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-lg hover:bg-white/5">{n.label}</a>)}
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/75 backdrop-blur-xl">
+        <nav aria-label="Pages" className="mx-auto flex h-16 max-w-[90rem] items-center gap-2 px-4 md:px-8">
+          <Link href="/" className="mr-4 font-display text-xl font-bold tracking-tight">SM<span className="text-accent">.</span></Link>
+          <div className="hidden items-center gap-1 md:flex">
+            {PAGES.map((pg) => (
+              <Link key={pg.key} href={pg.href} aria-current={pg.key === variant ? "page" : undefined} className={cn("relative rounded-full px-4 py-2 text-sm transition-colors", pg.key === variant ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg")}>{pg.label}</Link>
+            ))}
           </div>
-      )}
-    </motion.header>
+          <div className="ml-auto hidden items-center gap-2 md:flex">
+            <a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className={ext}>AI-built dashboard ↗</a>
+            <a href={profile.linkedin} target="_blank" rel="noopener" className={cn(ext, "hidden lg:block")}>LinkedIn ↗</a>
+            <a href={`mailto:${profile.email}`} className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-[#0a1224] transition hover:-translate-y-0.5">Email</a>
+            <button onClick={() => setPalette(true)} aria-label="Open command palette" className="hidden rounded-full border border-line px-3 py-2 font-mono text-xs text-muted hover:border-accent hover:text-accent lg:block">⌘K</button>
+          </div>
+          <button aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)} className="ml-auto rounded-full border border-line px-4 py-2 text-sm md:hidden">{open ? "Close" : "Menu"}</button>
+        </nav>
+        {open && (
+          <div className="max-h-[80svh] overflow-y-auto border-t border-line bg-bg p-4 md:hidden" data-lenis-prevent>
+            <p className="px-3 pb-2 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Pages</p>
+            {PAGES.map((pg) => <Link key={pg.key} href={pg.href} onClick={() => setOpen(false)} className={cn("block rounded-2xl px-3 py-2.5 text-lg", pg.key === variant && "text-accent")}>{pg.label}</Link>)}
+            <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">On this page</p>
+            {items.map((n) => <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="block rounded-2xl px-3 py-2.5 text-lg">{n.label}</a>)}
+            <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Links</p>
+            <a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="block rounded-2xl px-3 py-2.5 text-lg">AI-built dashboard ↗</a>
+            <a href={profile.linkedin} target="_blank" rel="noopener" className="block rounded-2xl px-3 py-2.5 text-lg">LinkedIn ↗</a>
+            <a href={`mailto:${profile.email}`} className="block rounded-2xl px-3 py-2.5 text-lg text-accent">Email</a>
+          </div>
+        )}
+      </header>
+      <aside aria-label="On this page" className="fixed bottom-0 left-0 top-16 z-40 hidden w-44 flex-col justify-center pl-8 lg:flex">
+        <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint">On this page</p>
+        <ul className="space-y-1 border-l border-line">
+          {items.map((n) => (
+            <li key={n.id}>
+              <a href={`#${n.id}`} className={cn("-ml-px block border-l-2 py-1.5 pl-4 text-sm transition-colors", active === n.id ? "border-accent text-fg" : "border-transparent text-muted hover:text-fg")}>{n.label}</a>
+            </li>
+          ))}
+        </ul>
+      </aside>
       <CommandPalette open={palette} setOpen={setPalette} />
     </>
   );

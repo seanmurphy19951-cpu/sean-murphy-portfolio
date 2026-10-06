@@ -8,7 +8,7 @@ function HeroBackdrop() {
   const reduce = useReducedMotion();
   const mx = useSpring(useMotionValue(50), { stiffness: 60, damping: 20 });
   const my = useSpring(useMotionValue(30), { stiffness: 60, damping: 20 });
-  const spot = useTransform([mx, my], ([x, y]) => `radial-gradient(600px circle at ${x}% ${y}%, rgb(198 255 61 / 0.10), transparent 60%)`);
+  const spot = useTransform([mx, my], ([x, y]) => `radial-gradient(600px circle at ${x}% ${y}%, rgb(255 185 56 / 0.10), transparent 60%)`);
   return (
     <div
       aria-hidden
@@ -52,9 +52,8 @@ export function Hero() {
           </Reveal>
           <Reveal delay={1}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Magnetic><a href="#work" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#08080b] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(198_255_61/0.5)]">View case studies</a></Magnetic>
-              <Magnetic><a href="/ai-content" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI &amp; content</a></Magnetic>
-              <Magnetic><a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a></Magnetic>
+              <Magnetic><a href="#work" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#0a1224] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(255_185_56/0.5)]">View case studies</a></Magnetic>
+              <Magnetic><a href="#contact" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">Get in touch</a></Magnetic>
             </div>
           </Reveal>
           <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-white/10 pt-8 md:grid-cols-4">
@@ -82,8 +81,8 @@ const VALUES = [
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
   return (
-    <section id="about" className="relative mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-      <SectionHead eyebrow="01 · About" title={<>A marketer who ships,<br />not just plans.</>} />
+    <section id="about" className="relative mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
+      <SectionHead eyebrow="About" title={<>A marketer who ships,<br />not just plans.</>} />
       <div ref={ref} className="grid gap-12 lg:grid-cols-[340px_1fr] lg:gap-20">
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>

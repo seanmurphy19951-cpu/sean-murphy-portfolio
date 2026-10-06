@@ -67,9 +67,9 @@ export function CommandPalette({ open, setOpen }: { open: boolean; setOpen: (v: 
               {results.length === 0 && <li className="px-4 py-6 text-center text-muted">No matches</li>}
               {results.map((r, i) => (
                 <li key={r.label + r.hint}>
-                  <button onMouseEnter={() => setSel(i)} onClick={() => go(r)} className={cn("flex w-full items-center justify-between gap-4 rounded-2xl px-4 py-3 text-left transition-colors", i === sel ? "bg-accent text-[#08080b]" : "text-fg")}>
+                  <button onMouseEnter={() => setSel(i)} onClick={() => go(r)} className={cn("flex w-full items-center justify-between gap-4 rounded-2xl px-4 py-3 text-left transition-colors", i === sel ? "bg-accent text-[#0a1224]" : "text-fg")}>
                     <span className="truncate">{r.label}</span>
-                    <span className={cn("shrink-0 font-mono text-[0.68rem] uppercase tracking-widest", i === sel ? "text-[#08080b]/70" : "text-faint")}>{r.hint}</span>
+                    <span className={cn("shrink-0 font-mono text-[0.68rem] uppercase tracking-widest", i === sel ? "text-[#0a1224]/70" : "text-faint")}>{r.hint}</span>
                   </button>
                 </li>
               ))}

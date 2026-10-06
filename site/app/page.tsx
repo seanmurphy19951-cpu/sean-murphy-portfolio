@@ -1,4 +1,4 @@
-import { FloatingNav } from "@/components/shell";
+import { SiteNav } from "@/components/shell";
 import { About, Hero } from "@/components/sections/hero-about";
 import { Featured } from "@/components/sections/featured";
 import { Work } from "@/components/sections/work";
@@ -6,8 +6,9 @@ import { Contact, Experience, Recognition, Skills } from "@/components/sections/
 
 export default function Home() {
   return (
-    <main>
-      <FloatingNav />
+    <>
+      <SiteNav />
+    <main className="lg:pl-44">
       <Hero />
       <About />
       <Featured />
@@ -17,5 +18,6 @@ export default function Home() {
       <Skills />
       <Contact />
     </main>
+    </>
   );
 }

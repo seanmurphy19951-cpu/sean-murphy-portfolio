@@ -113,7 +113,7 @@ function Gallery() {
       <div role="tablist" className="mb-8 flex flex-wrap gap-2">
         {GALLERIES.map((x) => (
           <button key={x.id} role="tab" aria-selected={tab === x.id} onClick={() => { setTab(x.id); setAll(false); }}
-            className={cn("rounded-full border px-5 py-2 text-sm transition", tab === x.id ? "border-accent bg-accent text-[#08080b]" : "border-line text-muted hover:border-accent/60 hover:text-fg")}>
+            className={cn("rounded-full border px-5 py-2 text-sm transition", tab === x.id ? "border-accent bg-accent text-[#0a1224]" : "border-line text-muted hover:border-accent/60 hover:text-fg")}>
             {x.label} <span className="font-mono text-xs opacity-60">{x.items.length}</span>
           </button>
         ))}
@@ -157,7 +157,7 @@ export function AiContent() {
           <Reveal delay={0.7}><p className="mt-10 max-w-2xl text-lg text-muted">I build AI and automation into the daily work of marketing: image and video generation, keyword research and reporting. This page shows what comes off the line, and the growth it supported.</p></Reveal>
           <Reveal delay={0.85}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Magnetic><a href="#gallery" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#08080b] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(198_255_61/0.5)]">See the AI gallery</a></Magnetic>
+              <Magnetic><a href="#gallery" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#0a1224] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(255_185_56/0.5)]">See the AI gallery</a></Magnetic>
               <Magnetic><a href="#growth" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">Jump to the numbers</a></Magnetic>
               <Magnetic><a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">AI-built dashboard ↗</a></Magnetic>
             </div>
@@ -165,8 +165,8 @@ export function AiContent() {
         </div>
       </header>
 
-      <section id="pipeline" className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-36">
-        <SectionHead eyebrow="00 · The workflow" title={<>An AI production line,<br />step by step.</>}>Not a novelty: a repeatable process that has been in service for months and applies to any product line.</SectionHead>
+      <section id="pipeline" className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
+        <SectionHead eyebrow="The workflow" title={<>An AI production line,<br />step by step.</>}>Not a novelty: a repeatable process that has been in service for months and applies to any product line.</SectionHead>
         <ol className="grid gap-4 md:grid-cols-4">
           {STEPS.map(([t, d], i) => (
             <li key={t}>
@@ -182,9 +182,9 @@ export function AiContent() {
         </ol>
       </section>
 
-      <section id="gallery" className="border-y border-white/10 bg-bg2 px-6 py-28 md:px-12 md:py-36">
+      <section id="gallery" className="border-y border-white/10 bg-bg2 px-6 py-20 md:px-12 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <SectionHead eyebrow="01 · AI image production" title={<>Unlimited content,<br />zero photoshoots.</>}>Every image here was generated with AI from basic product renders and room references: staged homes, bars and hotels that would each have cost a location scout, a crew and a shoot day.</SectionHead>
+          <SectionHead eyebrow="AI image production" title={<>Unlimited content,<br />zero photoshoots.</>}>Every image here was generated with AI from basic product renders and room references: staged homes, bars and hotels that would each have cost a location scout, a crew and a shoot day.</SectionHead>
           <ParallaxWall />
           <TiltedWall />
           <h3 className="mb-6 mt-4 font-mono text-xs uppercase tracking-[0.18em] text-accent">Browse the full set</h3>
@@ -202,8 +202,8 @@ export function AiContent() {
         </div>
       </section>
 
-      <section id="films" className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-36">
-        <SectionHead eyebrow="02 · Films & ad creative" title={<>Brand films and the ads<br />behind the numbers.</>}>Produced with agencies and in-house teams I managed. The &ldquo;You In&rdquo; film is the creative behind the CTV campaign in the growth section below; several of the others lean on the AI workflow above.</SectionHead>
+      <section id="films" className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
+        <SectionHead eyebrow="Films & ad creative" title={<>Brand films and the ads<br />behind the numbers.</>}>Produced with agencies and in-house teams I managed. The &ldquo;You In&rdquo; film is the creative behind the CTV campaign in the growth section below; several of the others lean on the AI workflow above.</SectionHead>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {VIDEOS.map((v, i) => <Reveal key={v} delay={(i % 3) * 0.06}><VideoSlot label={v} /></Reveal>)}
         </div>
@@ -217,9 +217,9 @@ export function AiContent() {
         </div>
       </section>
 
-      <section id="email" className="border-y border-white/10 bg-bg2 px-6 py-28 md:px-12 md:py-36">
+      <section id="email" className="border-y border-white/10 bg-bg2 px-6 py-20 md:px-12 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <SectionHead eyebrow="03 · Email & lifecycle" title={<>Lifecycle email,<br />on brand and on schedule.</>}>Campaign and lifecycle email built to match the paid and social creative, so a customer sees one coherent brand from ad to inbox.</SectionHead>
+          <SectionHead eyebrow="Email & lifecycle" title={<>Lifecycle email,<br />on brand and on schedule.</>}>Campaign and lifecycle email built to match the paid and social creative, so a customer sees one coherent brand from ad to inbox.</SectionHead>
           <div className="grid gap-6 md:grid-cols-2">
             {[["/media/emails/independence-day.webp", "Independence Day campaign email (scroll to view)"], ["/media/emails/email-02.webp", "Full-length campaign email (scroll to view)"]].map(([src, cap]) => (
               <Reveal key={src}>
@@ -240,8 +240,8 @@ export function AiContent() {
         </div>
       </section>
 
-      <section id="growth" className="relative mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-        <SectionHead eyebrow="04 · YoY growth" title={<>The numbers behind<br />the story.</>}>Everything above is output. This is what it supported: June 2025 to June 2026 versus the prior twelve months, from Google Analytics, ad-platform exports and monthly performance reporting.</SectionHead>
+      <section id="growth" className="relative mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
+        <SectionHead eyebrow="YoY growth" title={<>The numbers behind<br />the story.</>}>Everything above is output. This is what it supported: June 2025 to June 2026 versus the prior twelve months, from Google Analytics, ad-platform exports and monthly performance reporting.</SectionHead>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {GROWTH.map(([v, l, d], i) => (
             <Reveal key={l} delay={(i % 3) * 0.06}>

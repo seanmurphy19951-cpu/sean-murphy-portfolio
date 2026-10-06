@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FloatingNav } from "@/components/shell";
+import { SiteNav } from "@/components/shell";
 import { AiContent } from "@/components/sections/ai-content";
 
 export const metadata: Metadata = {
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <FloatingNav variant="ai" />
-      <AiContent />
+      <SiteNav variant="ai" />
+      <div className="lg:pl-44"><AiContent /></div>
     </>
   );
 }

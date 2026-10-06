@@ -36,11 +36,11 @@ export const MARQUEE = [
   "Meta · TikTok · Google", "SEO", "Trade shows & events", "AI image + video production", "E-commerce operations", "Shopify · WooCommerce · BigCommerce",
 ];
 export const NAV = [
-  { id: "about", label: "About" }, { id: "featured", label: "Highlights" }, { id: "work", label: "Work" }, { id: "experience", label: "Experience" },
-  { id: "recognition", label: "Recognition" }, { id: "skills", label: "Skills" }, { id: "contact", label: "Contact" },
+  { id: "top", label: "Intro" }, { id: "about", label: "About" }, { id: "featured", label: "Highlights" }, { id: "work", label: "Work" },
+  { id: "experience", label: "Experience" }, { id: "recognition", label: "Recognition" }, { id: "skills", label: "Skills" }, { id: "contact", label: "Contact" },
 ];
 
 export const AI_NAV = [
-  { id: "home", label: "Home" }, { id: "pipeline", label: "Workflow" }, { id: "gallery", label: "Gallery" },
+  { id: "top", label: "Intro" }, { id: "pipeline", label: "Workflow" }, { id: "gallery", label: "Gallery" },
   { id: "films", label: "Films & ads" }, { id: "email", label: "Email" }, { id: "growth", label: "Growth" },
 ];
