@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Chart, registerables } from "chart.js";
 
 /* ── one-time Chart.js setup (defaults + annotation plugins) ─────────────── */
 
@@ -89,6 +88,19 @@ const chartAnnotationsPlugin = {
 };
 
 let ready = false;
+let ChartLib = null;
+let chartLoad = null;
+/** Loads chart.js on demand (kept out of the initial bundle) and runs the one-time setup. */
+function loadChart() {
+  return (chartLoad ||= import("chart.js").then((m) => { ChartLib = m.Chart; ensureChartSetup(m); return ChartLib; }));
+}
+/** Runs cb once el is near the viewport; returns a cleanup. */
+function whenVisible(el, cb) {
+  if (!el || typeof IntersectionObserver === "undefined") { cb(); return () => {}; }
+  const io = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { io.disconnect(); cb(); } }, { rootMargin: "400px" });
+  io.observe(el);
+  return () => io.disconnect();
+}
 function dashEl() {
   return document.querySelector(".dash") || document.documentElement;
 }
@@ -96,7 +108,7 @@ export function cssVar(name) {
   return getComputedStyle(dashEl()).getPropertyValue(name).trim();
 }
 
-export function ensureChartSetup() {
+function ensureChartSetup({ Chart, registerables }) {
   if (ready) return;
   ready = true;
   Chart.register(...registerables, promoAnnotationsPlugin, chartAnnotationsPlugin);
@@ -273,11 +285,14 @@ export function ChartCard({ title, subtitle, kind, spec, toggle = false, legend 
   const canvas = useRef(null);
   const [type, setType] = useState(kind);
   useEffect(() => {
-    ensureChartSetup();
     if (!canvas.current) return;
-    const cfg = type === "line" ? lineConfig(spec) : type === "bar" ? barConfig(spec) : type === "doughnut" ? doughnutConfig(spec) : bubbleConfig(spec);
-    const chart = new Chart(canvas.current, cfg);
-    return () => chart.destroy();
+    let chart, dead = false;
+    const stop = whenVisible(canvas.current, () => loadChart().then((Chart) => {
+      if (dead || !canvas.current) return;
+      const cfg = type === "line" ? lineConfig(spec) : type === "bar" ? barConfig(spec) : type === "doughnut" ? doughnutConfig(spec) : bubbleConfig(spec);
+      chart = new Chart(canvas.current, cfg);
+    }));
+    return () => { dead = true; stop(); chart?.destroy(); };
   }, [spec, type]);
   return (
     <div className="chart-wrapper">
@@ -310,14 +325,17 @@ function cssVarSafe(name) {
 export function Sparkline({ data, color }) {
   const canvas = useRef(null);
   useEffect(() => {
-    ensureChartSetup();
     if (!canvas.current) return;
-    const chart = new Chart(canvas.current, {
-      type: "line",
-      data: { labels: data.map((_, i) => i), datasets: [{ data, borderColor: color, backgroundColor: hexToRgba(color, 0.1), fill: true, borderWidth: 1.5, tension: 0.4, pointRadius: 0, pointHoverRadius: 0 }] },
-      options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false }, tooltip: { enabled: false } }, scales: { x: { display: false }, y: { display: false } } },
-    });
-    return () => chart.destroy();
+    let chart, dead = false;
+    const stop = whenVisible(canvas.current, () => loadChart().then((Chart) => {
+      if (dead || !canvas.current) return;
+      chart = new Chart(canvas.current, {
+        type: "line",
+        data: { labels: data.map((_, i) => i), datasets: [{ data, borderColor: color, backgroundColor: hexToRgba(color, 0.1), fill: true, borderWidth: 1.5, tension: 0.4, pointRadius: 0, pointHoverRadius: 0 }] },
+        options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false }, tooltip: { enabled: false } }, scales: { x: { display: false }, y: { display: false } } },
+      });
+    }));
+    return () => { dead = true; stop(); chart?.destroy(); };
   }, [data, color]);
   return <div className="kpi-sparkline"><canvas ref={canvas} /></div>;
 }
