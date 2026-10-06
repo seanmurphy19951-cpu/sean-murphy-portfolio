@@ -103,7 +103,7 @@ export function ensureChartSetup() {
   const d = Chart.defaults;
   d.font.family = cssVar("--font") || "Inter, sans-serif";
   d.font.size = 12;
-  d.color = "#7280a0";
+  d.color = "#8c98b6";
   const t = d.plugins.tooltip;
   t.backgroundColor = "#181818"; t.titleColor = "#ffb938"; t.bodyColor = "#f3efe6";
   t.borderColor = "rgba(255,185,56,0.2)"; t.borderWidth = 1;
@@ -111,7 +111,7 @@ export function ensureChartSetup() {
   t.bodyFont = { size: 13, weight: "700" };
   t.padding = 12; t.cornerRadius = 6; t.displayColors = true; t.boxPadding = 4;
   d.plugins.legend.display = false;
-  d.plugins.legend.labels.color = "#7280a0";
+  d.plugins.legend.labels.color = "#8c98b6";
   d.elements.line.tension = 0.3; d.elements.line.borderWidth = 2;
   d.elements.point.radius = 0; d.elements.point.hoverRadius = 5; d.elements.point.hoverBorderWidth = 2;
   d.scale.grid.color = "rgba(255,255,255,0.05)";

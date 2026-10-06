@@ -633,7 +633,7 @@ function PeriodColumn({ label, days, m, color }) {
     <div style={{ background: "#0e1730", borderRadius: 8, padding: 16, borderLeft: `3px solid ${color}` }}>
       <div style={{ marginBottom: 12 }}>
         <div style={{ fontWeight: 700, fontSize: "0.85rem", color: "#fff", textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
-        <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "#7280a0", letterSpacing: "0.1em", marginTop: 2 }}>{days} days</div>
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "#8c98b6", letterSpacing: "0.1em", marginTop: 2 }}>{days} days</div>
       </div>
       {rows.map(([l, v]) => (
         <div key={l} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid #26365a" }}>
@@ -649,7 +649,7 @@ function LiftBadge({ label, value, positive }) {
   const c = positive ? "0,208,132" : "255,77,77";
   return (
     <div style={{ background: `rgba(${c},0.08)`, border: `1px solid rgba(${c},0.25)`, borderRadius: 6, padding: "8px 14px" }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 8, color: "#7280a0", textTransform: "uppercase", letterSpacing: "0.12em" }}>{label}</div>
+      <div style={{ fontFamily: "var(--font-mono)", fontSize: 8, color: "#8c98b6", textTransform: "uppercase", letterSpacing: "0.12em" }}>{label}</div>
       <div style={{ fontSize: "1rem", fontWeight: 700, color: positive ? "#00d084" : "#ff4d4d", marginTop: 2 }}>{value}</div>
     </div>
   );
@@ -691,7 +691,7 @@ function PromoImpl({ data }) {
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
               <span style={{ width: 10, height: 10, borderRadius: "50%", background: color, flexShrink: 0 }} />
               <span style={{ fontWeight: 700, fontSize: "1rem", color: "#fff", textTransform: "uppercase", letterSpacing: "0.06em" }}>{p.name}</span>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "#7280a0", letterSpacing: "0.04em" }}>{p.startDate} — {p.endDate}</span>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "#8c98b6", letterSpacing: "0.04em" }}>{p.startDate} — {p.endDate}</span>
               {p.discountPercent ? <span className="badge" style={{ background: "rgba(255,185,56,0.1)", color: "#ffb938", borderColor: "rgba(255,185,56,0.25)" }}>{p.discountPercent}% OFF</span> : null}
             </div>
             <div className="grid grid-3" style={{ gap: 12 }}>
