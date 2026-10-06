@@ -120,7 +120,7 @@ export function Gallery() {
         {GALLERIES.map((x) => (
           <button key={x.id} role="tab" aria-selected={tab === x.id} onClick={() => { setTab(x.id); setAll(false); }}
             className={cn("rounded-full border px-5 py-2 text-sm transition", tab === x.id ? "border-accent bg-accent text-[#0a1224]" : "border-line text-muted hover:border-accent/60 hover:text-fg")}>
-            {x.label} <span className="font-mono text-xs opacity-60">{x.items.length}</span>
+            {x.label} <span className="font-mono text-xs opacity-80">{x.items.length}</span>
           </button>
         ))}
       </div>
