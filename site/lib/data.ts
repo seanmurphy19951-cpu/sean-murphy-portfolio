@@ -37,3 +37,8 @@ export const NAV = [
   { id: "about", label: "About" }, { id: "work", label: "Work" }, { id: "experience", label: "Experience" },
   { id: "recognition", label: "Recognition" }, { id: "skills", label: "Skills" }, { id: "contact", label: "Contact" },
 ];
+
+export const AI_NAV = [
+  { id: "home", label: "Home" }, { id: "pipeline", label: "Workflow" }, { id: "gallery", label: "Gallery" },
+  { id: "films", label: "Films & ads" }, { id: "email", label: "Email" }, { id: "growth", label: "Growth" },
+];

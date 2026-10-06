@@ -2,7 +2,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Lenis from "lenis";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll, useMotionValue, useSpring } from "motion/react";
-import { NAV } from "@/lib/data";
+import { AI_NAV, NAV } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
@@ -42,7 +42,10 @@ export function Ambient() {
 }
 
 /** Floating glass pill; hides on scroll down, returns on scroll up; highlights the section in view. */
-export function FloatingNav() {
+export function FloatingNav({ variant = "home" }: { variant?: "home" | "ai" }) {
+  const home = variant === "home";
+  const items = home ? NAV : AI_NAV;
+  const href = (id: string) => (id === "home" ? "/" : `#${id}`);
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [active, setActive] = useState("");
@@ -56,9 +59,9 @@ export function FloatingNav() {
       (es) => es.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-40% 0px -55% 0px" },
     );
-    NAV.forEach((n) => { const el = document.getElementById(n.id); if (el) io.observe(el); });
+    items.forEach((n) => { const el = document.getElementById(n.id); if (el) io.observe(el); });
     return () => io.disconnect();
-  }, []);
+  }, [items]);
   return (
     <motion.header
       animate={{ y: hidden && !open ? -110 : 0 }}
@@ -66,10 +69,10 @@ export function FloatingNav() {
       className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
     >
       <nav aria-label="Primary" className="flex items-center gap-1 rounded-full border border-white/10 bg-black/40 p-1.5 pl-5 shadow-2xl shadow-black/50 backdrop-blur-xl">
-        <a href="#top" className="mr-3 font-display text-lg font-bold tracking-tight">SM<span className="text-accent">.</span></a>
+        <a href={home ? "#top" : "/"} className="mr-3 font-display text-lg font-bold tracking-tight">SM<span className="text-accent">.</span></a>
         <div className="hidden items-center md:flex">
-          {NAV.map((n) => (
-            <a key={n.id} href={`#${n.id}`} className={cn("relative rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-fg", active === n.id && "text-[#08080b]")}>
+          {items.map((n) => (
+            <a key={n.id} href={href(n.id)} className={cn("relative rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-fg", active === n.id && "text-[#08080b]")}>
               {active === n.id && <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-full bg-accent" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
               <span className="relative">{n.label}</span>
             </a>
@@ -80,7 +83,7 @@ export function FloatingNav() {
       </nav>
       {open && (
         <div className="absolute top-16 w-[calc(100%-2rem)] max-w-sm rounded-3xl border border-white/10 bg-black/80 p-3 backdrop-blur-xl md:hidden">
-          {NAV.map((n) => <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-lg hover:bg-white/5">{n.label}</a>)}
+          {items.map((n) => <a key={n.id} href={href(n.id)} onClick={() => setOpen(false)} className="block rounded-2xl px-4 py-3 text-lg hover:bg-white/5">{n.label}</a>)}
           <a href="/Sean-Murphy-Resume.pdf" className="block rounded-2xl px-4 py-3 text-lg text-accent">Résumé (PDF)</a>
         </div>
       )}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { Ambient, FloatingNav, SmoothScroll } from "@/components/shell";
+import { Ambient, SmoothScroll } from "@/components/shell";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
@@ -19,7 +19,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-bg font-sans">
         <SmoothScroll>
           <Ambient />
-          <FloatingNav />
           {children}
         </SmoothScroll>
       </body>
