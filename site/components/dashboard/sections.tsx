@@ -301,6 +301,51 @@ function GoogleImpl({ data, compareData }) {
           { key: "qualityScore", label: "QS", type: "qs" },
         ]}
       />
+      {(g.devices || []).length > 0 && (
+        <div className="grid grid-2">
+          <ChartCard title="Spend by Device" kind="doughnut" spec={{ labels: g.devices.map((d) => d.device), data: g.devices.map((d) => d.spend), colors: ["#4285f4", "#34a853", "#f4b400"] }} />
+          <ChartCard title="ROAS by Device" kind="bar" spec={{ labels: g.devices.map((d) => d.device), datasets: [{ label: "ROAS", data: g.devices.map((d) => d.roas), colors: g.devices.map((d) => (d.roas >= 2.5 ? "#34a853" : d.roas >= 1.5 ? "#f4b400" : "#ff6b35")) }] }} />
+        </div>
+      )}
+      {g.impressionShare && (
+        <div className="grid grid-4">
+          <Kpi index={0} label="Search Impr. Share" value={g.impressionShare.search} previous={g.impressionShare.previous?.search} format="percent" accentColor="#4285f4" />
+          <Kpi index={1} label="Lost to Budget" value={g.impressionShare.lostBudget} previous={g.impressionShare.previous?.lostBudget} format="percent" invertDelta accentColor="#4285f4" />
+          <Kpi index={2} label="Lost to Rank" value={g.impressionShare.lostRank} previous={g.impressionShare.previous?.lostRank} format="percent" invertDelta accentColor="#4285f4" />
+          <Kpi index={3} label="Top of Page Rate" value={g.impressionShare.topOfPage} format="percent" accentColor="#4285f4" />
+        </div>
+      )}
+      {(g.searchTerms || []).length > 0 && (
+        <DataTable
+          title="Search Terms" subtitle="Queries that triggered ads" csvFilename="google-search-terms" rows={g.searchTerms} defaultSort={{ key: "revenue", dir: "desc" }}
+          columns={[
+            { key: "term", label: "Search Term" },
+            { key: "matchType", label: "Match", badge: (r) => ({ text: cap(r.matchType), cls: matchBadge[r.matchType] || "badge-google" }) },
+            { key: "campaign", label: "Campaign", muted: true },
+            { key: "spend", label: "Spend", type: "currency" },
+            { key: "clicks", label: "Clicks", type: "number" },
+            { key: "conversions", label: "Conv.", type: "number" },
+            { key: "cpa", label: "CPA", type: "currency" },
+            { key: "roas", label: "ROAS", type: "roas" },
+          ]}
+        />
+      )}
+      {(g.shoppingProducts || []).length > 0 && (
+        <DataTable
+          title="Shopping Products" csvFilename="google-shopping-products" rows={g.shoppingProducts} defaultSort={{ key: "revenue", dir: "desc" }}
+          columns={[
+            { key: "product", label: "Product" },
+            { key: "spend", label: "Spend", type: "currency" },
+            { key: "clicks", label: "Clicks", type: "number" },
+            { key: "conversions", label: "Conv.", type: "number" },
+            { key: "revenue", label: "Revenue", type: "currency" },
+            { key: "roas", label: "ROAS", type: "roas" },
+          ]}
+        />
+      )}
+      {(g.geo || []).length > 0 && (
+        <ChartCard title="ROAS by Region" kind="bar" spec={{ labels: g.geo.map((r) => r.region), datasets: [{ label: "ROAS", data: g.geo.map((r) => r.roas), colors: g.geo.map((r) => (r.roas >= 2.5 ? "#34a853" : r.roas >= 1.5 ? "#f4b400" : "#ff6b35")) }], horizontal: true }} />
+      )}
     </Shell>
   );
 }
