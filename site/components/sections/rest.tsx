@@ -5,9 +5,7 @@ import { profile, ROLE_INTRO, ROLE_STATS } from "@/lib/data";
 export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
-      <SectionHead eyebrow="Experience" title={<>Six years, five seats,<br />one through-line.</>}>
-        Each role is a seat where strategy has to become something live.
-      </SectionHead>
+      <SectionHead eyebrow="Experience" title={<>Six years, one habit:<br />make it measurable.</>}>From the retail floor to a global brand, every role tied to numbers.</SectionHead>
       <Reveal>
         <Swiper label="Work experience" itemClass="w-[88vw] md:w-[38rem]">
           {profile.experience.map((j) => {
@@ -64,7 +62,7 @@ export function Skills() {
   const head = "mb-3 font-mono text-xs uppercase tracking-[0.15em] text-accent";
   return (
     <section id="skills" className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
-      <SectionHead eyebrow="Skills & tools" title={<>Tools and<br />skills.</>} />
+      <SectionHead eyebrow="Skills & tools" title={<>What I<br />work with.</>}>The platforms and methods I use day to day.</SectionHead>
       <Reveal>
         <Swiper label="Skills and tools" itemClass="w-[78vw] md:w-72">
           {[

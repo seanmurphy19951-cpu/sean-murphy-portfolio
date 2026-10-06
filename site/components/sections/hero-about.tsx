@@ -83,7 +83,7 @@ export function About() {
   const ref = useRef<HTMLDivElement>(null);
   return (
     <section id="about" className="relative mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-      <SectionHead eyebrow="About" title={<>A marketer who ships,<br />not just plans.</>} />
+      <SectionHead eyebrow="About" title={<>Strategy that<br />gets built.</>}>I run e-commerce marketing end to end, from the plan to the live campaign, site or partner deal.</SectionHead>
       <div ref={ref} className="grid gap-12 lg:grid-cols-[340px_1fr] lg:gap-20">
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>

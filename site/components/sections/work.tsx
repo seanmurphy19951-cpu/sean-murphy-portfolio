@@ -84,9 +84,7 @@ export function Work() {
   return (
     <section id="work" className="relative border-y border-white/10 bg-bg2 px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="Case studies" title={<>Fourteen times strategy<br />became results.</>}>
-          Each case lays out the problem, approach and result. Partners, retailers and talent are anonymized and figures rounded.
-        </SectionHead>
+        <SectionHead eyebrow="Case studies" title={<>Fourteen problems,<br />fourteen results.</>}>Each case lays out the problem, approach and result. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {(all ? cases : cases.slice(0, 6)).map((c, i) => <CaseCard key={c.id} c={c} i={i} onOpen={() => setOpen(c.id)} />)}
         </div>
@@ -109,9 +107,7 @@ export function WorkPage() {
   return (
     <main className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
       <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="Work" title={<>Every case study,<br />problem to result.</>}>
-          {cases.length} projects across paid media, lifecycle, marketplaces and operations. Partners, retailers and talent are anonymized and figures rounded.
-        </SectionHead>
+        <SectionHead eyebrow="Work" title={<>The full portfolio<br />of work.</>}>Filter by channel and open any project for the detail. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
         <div id="cases" className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter case studies">
           {tags.map((t) => (
             <button key={t} onClick={() => setTag(t)} aria-pressed={tag === t} className={cn("rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors", tag === t ? "border-accent bg-accent text-[#0a1224]" : "border-line text-muted hover:border-accent hover:text-accent")}>{t}</button>

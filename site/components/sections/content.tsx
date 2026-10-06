@@ -22,19 +22,19 @@ const MORE = [
 export function Content() {
   return (
     <main>
-      <PageHero eyebrow="Content" lines={["Creative that", "earns its keep."]}
-        intro="Photo shoots, ad creative, email and lifecycle: the brand work behind the numbers, made to be tested and improved."
+      <PageHero eyebrow="Content" lines={["Creative", "that sells."]}
+        intro="Photo shoots, ads and email, built to be tested and tied to results."
         links={[["#shoots", "Photo shoots"], ["#ads", "Ad creative"], ["#email", "Email & lifecycle"]]} />
 
       <Panel id="shoots">
-        <SectionHead eyebrow="Photo shoots" title={<>Planned to be<br />used everywhere.</>}>Briefs, shot lists and sets built so one shoot feeds ads, email, product pages and social for months.</SectionHead>
+        <SectionHead eyebrow="Photo shoots" title={<>One shoot,<br />months of content.</>}>Briefs and shot lists built so a single shoot feeds ads, email, product pages and social.</SectionHead>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {SHOOTS.map((s, i) => <Reveal key={s} delay={i * 0.06}><Slot label={s} ratio="aspect-[4/5]" /></Reveal>)}
         </div>
       </Panel>
 
       <Panel id="ads" alt>
-        <SectionHead eyebrow="Ad creative" title={<>Brand films and the ads<br />behind the numbers.</>}>Produced with agencies and in-house teams I managed. The &ldquo;You In&rdquo; film is the creative behind the CTV campaign below.</SectionHead>
+        <SectionHead eyebrow="Ad creative" title={<>Ads and films<br />behind the numbers.</>}>Produced with agencies and in-house teams I managed. The &ldquo;You In&rdquo; film is the creative behind the CTV campaign below.</SectionHead>
         <div className="grid gap-4 md:grid-cols-3">
           {[["/media/ads/black-friday-promo.webp", "Black Friday promo, 1:1 paid social"], ["/media/ads/product-launch.webp", "Product launch, 1:1 social"], ["/media/ads/person-feature.webp", "Lifestyle feature, 1:1 social"]].map(([src, cap], i) => (
             <Reveal key={src} delay={i * 0.07}>
@@ -50,7 +50,7 @@ export function Content() {
       </Panel>
 
       <Panel id="email">
-        <SectionHead eyebrow="Email & lifecycle" title={<>Lifecycle email,<br />on brand and on schedule.</>}>Campaign and lifecycle email built to match the paid and social creative, so a customer sees one coherent brand from ad to inbox.</SectionHead>
+        <SectionHead eyebrow="Email & lifecycle" title={<>Email that<br />matches the ads.</>}>Campaign and lifecycle email built to match paid and social creative, so customers see one brand from ad to inbox.</SectionHead>
         <InfoCards items={FLOWS} />
         <div className="mt-16 grid gap-6 md:grid-cols-2">
           {[["/media/emails/independence-day.webp", "Independence Day campaign email (scroll to view)"], ["/media/emails/email-02.webp", "Full-length campaign email (scroll to view)"]].map(([src, cap]) => (
@@ -72,12 +72,12 @@ export function Content() {
       </Panel>
 
       <Panel id="more" alt>
-        <SectionHead eyebrow="And the rest" title={<>Everything that<br />carries the brand.</>} />
+        <SectionHead eyebrow="And the rest" title={<>The rest of<br />the brand work.</>}>Social, landing pages and creative testing.</SectionHead>
         <InfoCards items={MORE} />
       </Panel>
 
       <Panel id="growth">
-        <SectionHead eyebrow="YoY growth" title={<>The numbers behind<br />the story.</>}>June 2025 to June 2026 versus the prior twelve months, from Google Analytics, ad-platform exports and monthly performance reporting.</SectionHead>
+        <SectionHead eyebrow="YoY growth" title={<>Where the growth<br />came from.</>}>June 2025 to June 2026 versus the prior twelve months, from Google Analytics, ad-platform exports and monthly performance reporting.</SectionHead>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {GROWTH.map(([v, l, d], i) => (
             <Reveal key={l} delay={(i % 3) * 0.06}>

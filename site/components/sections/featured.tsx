@@ -10,7 +10,7 @@ const FEATURED = ["reseller-growth", "black-friday", "amazon", "paid-media"]
 export function Featured() {
   return (
     <section id="featured" className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
-      <SectionHead eyebrow="Highlights" title={<>Headline<br />results.</>}>Four of the largest outcomes across e-commerce, paid media and partnerships. Full case studies follow.</SectionHead>
+      <SectionHead eyebrow="Highlights" title={<>The results<br />I&apos;d start with.</>}>Four outcomes across e-commerce, paid media and partnerships. Full case studies follow.</SectionHead>
       <Reveal>
         <Swiper label="Headline results" itemClass="w-[85vw] md:w-[34rem]">
           {FEATURED.map((c, i) => (

@@ -31,28 +31,28 @@ const PRINCIPLES = [
 export function Ai() {
   return (
     <main>
-      <PageHero eyebrow="AI & automation" lines={["AI in production,", "not in theory."]}
-        intro="Automations, connected data, AI-built tools and AI-produced imagery that I use in the daily work of marketing. What I have set up, and what comes off the line."
+      <PageHero eyebrow="AI & automation" lines={["AI I use", "every week."]}
+        intro="Automations, tools and imagery that run in my real marketing work: what I have set up and what it produces."
         links={[["#automations", "See the automations"], ["#imagery", "AI imagery"], ["/dashboard", "AI-built dashboard ↗"]]} />
 
       <Panel id="automations">
-        <SectionHead eyebrow="Automations" title={<>Work that runs<br />without me.</>}>The recurring jobs I have automated, so time goes to decisions instead of exports and formatting.</SectionHead>
+        <SectionHead eyebrow="Automations" title={<>Less manual work,<br />more decisions.</>}>Recurring jobs I&apos;ve automated, so time goes to decisions instead of exports and formatting.</SectionHead>
         <InfoCards items={AUTOMATIONS} />
       </Panel>
 
       <Panel id="builds" alt>
-        <SectionHead eyebrow="Built with AI" title={<>Tools I made,<br />not bought.</>}>Dashboards and tools created through AI, each solving a real reporting or workflow gap.</SectionHead>
+        <SectionHead eyebrow="Built with AI" title={<>Tools I built,<br />not bought.</>}>Dashboards and tools made with AI, each closing a real reporting or workflow gap.</SectionHead>
         <InfoCards items={BUILDS} />
         <Reveal><a href="/dashboard" className="mt-8 inline-block rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">Open the dashboard ↗</a></Reveal>
       </Panel>
 
       <Panel id="stack">
-        <SectionHead eyebrow="The connected stack" title={<>MCP, CLI and<br />live data.</>}>How AI plugs into the tools marketing already runs on.</SectionHead>
+        <SectionHead eyebrow="The connected stack" title={<>AI connected to<br />the real stack.</>}>MCP, command line and live data sources, so AI works from actual numbers.</SectionHead>
         <InfoCards items={STACK} />
       </Panel>
 
       <Panel id="pipeline" alt>
-        <SectionHead eyebrow="The workflow" title={<>An AI production line,<br />step by step.</>}>A repeatable process that has been in service for months and applies to any product line.</SectionHead>
+        <SectionHead eyebrow="The workflow" title={<>A repeatable<br />production line.</>}>A step-by-step AI process that has run for months and applies to any product line.</SectionHead>
         <ol className="grid gap-4 md:grid-cols-4">
           {STEPS.map(([t, d], i) => (
             <li key={t}>
@@ -69,7 +69,7 @@ export function Ai() {
       </Panel>
 
       <Panel id="imagery">
-        <SectionHead eyebrow="AI imagery" title={<>Unlimited content,<br />zero photoshoots.</>}>Every image here was generated with AI from basic product renders and room references: staged homes, bars and hotels that would each have cost a location scout, a crew and a shoot day.</SectionHead>
+        <SectionHead eyebrow="AI imagery" title={<>Creative without<br />the shoot day.</>}>Every image here was generated with AI from basic product renders and room references: staged homes, bars and hotels, with no crew or location.</SectionHead>
         <ParallaxWall />
         <TiltedWall />
         <h3 className="mb-6 mt-4 font-mono text-xs uppercase tracking-[0.18em] text-accent">Browse the full set</h3>
@@ -87,7 +87,7 @@ export function Ai() {
       </Panel>
 
       <Panel id="principles" alt>
-        <SectionHead eyebrow="How I work with AI" title={<>Fast, but<br />in control.</>} />
+        <SectionHead eyebrow="How I work with AI" title={<>Fast, with a<br />human in control.</>}>Three rules I apply to every automation.</SectionHead>
         <InfoCards items={PRINCIPLES} />
       </Panel>
 
