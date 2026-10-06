@@ -134,11 +134,9 @@
       "BigCommerce",
       "Magento",
       "Salesforce Commerce Cloud",
-      "ShopWired",
       "Webflow",
       "WordPress",
       "Liquid / custom themes",
-      "HTML / CSS",
       "Site migrations"
     ],
     "Marketplaces": [
@@ -148,8 +146,6 @@
       "Target Plus",
       "Best Buy",
       "TikTok Shop",
-      "Etsy",
-      "Temu",
       "Wayfair"
     ],
     "Paid media": [
@@ -175,43 +171,28 @@
     ],
     "Email, CRM and lifecycle": [
       "Klaviyo",
-      "Mailchimp",
       "HubSpot",
       "Salesforce",
-      "Attentive",
-      "Postscript",
       "Recharge",
       "SMS",
       "Deliverability",
       "Lead scoring and ABM",
-      "Loyalty and referral",
-      "Win-back and retention"
-    ],
-    "Customer tools": [
-      "Yotpo",
-      "Judge.me",
-      "Gorgias",
-      "Zendesk",
-      "Hotjar",
-      "Customer research"
+      "Retention programs",
+      "Reviews platforms",
+      "Support desks"
     ],
     "Analytics and data": [
       "GA4",
-      "Search Console",
-      "Merchant Center",
       "Looker Studio",
       "Tag Manager",
-      "Triple Whale",
-      "Segment",
+      "Attribution and measurement",
       "Tableau / Power BI",
       "BigQuery / Snowflake",
       "SQL",
-      "Excel / Sheets",
       "Python"
     ],
     "AI and automation": [
-      "ChatGPT",
-      "Claude",
+      "LLMs (ChatGPT, Claude)",
       "Midjourney",
       "Sora / Veo / Runway",
       "Zapier / Make",
@@ -224,22 +205,16 @@
       "Screaming Frog",
       "Technical SEO and Core Web Vitals",
       "Structured data",
-      "GEO",
-      "Content calendars"
+      "GEO"
     ],
     "Creative and content": [
       "Photoshop / Illustrator",
       "Premiere / After Effects / CapCut",
       "Figma",
-      "Canva",
       "Video production",
-      "Ad and email copy",
-      "Public speaking",
-      "Press and PR"
+      "Ad and email copy"
     ],
     "Social and partnerships": [
-      "Instagram / Facebook",
-      "YouTube",
       "Discord community",
       "Influencer and creator programs",
       "Impact",
@@ -250,7 +225,6 @@
       "Jira",
       "Notion / Airtable",
       "Monday / Trello / ClickUp",
-      "Slack",
       "NetSuite",
       "ShipStation / 3PL",
       "Inventory planning",
@@ -261,18 +235,16 @@
       "Bundling and AOV",
       "MAP and channel pricing",
       "P&L and margin analysis",
-      "Forecasting",
       "Marketing mix modeling",
       "Go-to-market and launches"
     ],
     "Methods and leadership": [
       "OKRs and KPIs",
-      "Agile",
-      "Kanban",
+      "Agile / Kanban",
       "Cohort and RFM analysis",
       "Messaging frameworks",
       "Hiring and onboarding",
-      "Budget ownership",
+      "Budget and forecasting",
       "Agency oversight",
       "Executive reporting"
     ],
