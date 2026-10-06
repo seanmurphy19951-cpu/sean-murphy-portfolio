@@ -462,6 +462,7 @@ body {
   margin-top: var(--space-lg);
 }
 
+.grid > * { margin-top: 0 !important; min-width: 0; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -1946,11 +1947,37 @@ body {
 }
 
 
+.chart-wrapper .chart-canvas {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  flex: none;
+}
+
 .chart-wrapper canvas {
+  position: absolute;
+  inset: 0;
   width: 100% !important;
-  max-height: 360px;
-  flex: 1;
-  min-height: 0;
+  height: 100% !important;
+}
+
+.chart-wrapper .chart-subtitle {
+  font-size: 13px;
+  color: var(--muted, #aab4cd);
+  margin: -8px 0 var(--space-md);
+}
+
+.card-header .card-subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: #7280a0;
+  margin: 0;
+}
+
+.card-header {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .chart-container {

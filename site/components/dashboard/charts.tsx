@@ -283,7 +283,7 @@ export function ChartCard({ title, subtitle, kind, spec, toggle = false, legend 
     <div className="chart-wrapper">
       {title && <div className="chart-title">{title}</div>}
       {subtitle && <div className="chart-subtitle">{subtitle}</div>}
-      <canvas ref={canvas} />
+      <div className="chart-canvas"><canvas ref={canvas} /></div>
       {legend && (
         <div className="chart-legend">
           {legend.map((l) => (
