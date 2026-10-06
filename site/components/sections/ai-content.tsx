@@ -151,7 +151,7 @@ export function AiContent() {
         <div aria-hidden className="absolute -right-32 top-32 h-[420px] w-[420px] rounded-full bg-accent/15 blur-[130px]" />
         <div className="relative mx-auto w-full max-w-7xl">
           <Reveal><p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-muted">Sean Murphy <span className="text-accent">/</span> AI &amp; automation</p></Reveal>
-          <h1 className="font-display text-[clamp(3.4rem,11vw,10rem)] font-bold leading-[0.88] tracking-[-0.05em]">
+          <h1 className="font-display text-[clamp(3.4rem,11vw,10rem)] font-light leading-[0.88] tracking-[-0.05em]">
             <WordReveal lines={["AI in production,", "not in theory."]} wordClass="text-gradient" delay={0.1} />
           </h1>
           <Reveal delay={0.7}><p className="mt-10 max-w-2xl text-lg text-muted">I build AI and automation into the daily work of marketing: image and video generation, keyword research and reporting. This page shows what comes off the line, and the growth it supported.</p></Reveal>
@@ -172,8 +172,8 @@ export function AiContent() {
             <li key={t}>
               <Reveal delay={i * 0.07} className="h-full">
                 <div className="h-full rounded-3xl border border-line bg-surface p-7 transition-colors hover:border-accent/50">
-                  <span className="font-display text-6xl font-bold tracking-[-0.05em] text-accent/80">{i + 1}</span>
-                  <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight">{t}</h3>
+                  <span className="font-display text-6xl font-light tracking-[-0.05em] text-accent/80">{i + 1}</span>
+                  <h3 className="mt-4 font-display text-2xl font-light tracking-tight">{t}</h3>
                   <p className="mt-3 text-muted">{d}</p>
                 </div>
               </Reveal>
@@ -191,7 +191,7 @@ export function AiContent() {
           <Gallery />
           <div className="mt-24 grid items-center gap-10 md:grid-cols-2">
             <Reveal>
-              <h3 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">It doesn&apos;t stop at stills.</h3>
+              <h3 className="font-display text-4xl font-light tracking-tight md:text-5xl">It doesn&apos;t stop at stills.</h3>
               <p className="mt-4 text-lg text-muted">The same pipeline produces motion. This clip was AI-generated end to end, showing product-in-motion and creator-style content without a crew.</p>
             </Reveal>
             <Reveal delay={0.08}>
@@ -229,7 +229,7 @@ export function AiContent() {
             ))}
           </div>
           <div className="mt-24 grid items-center gap-10 md:grid-cols-2">
-            <Reveal><h3 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">Show the problem, then show it moving.</h3><p className="mt-4 text-lg text-muted">Educational content that earns trust: a single annotated frame flags the swing fault, and the clip shows it live. Same insight, two formats, built for different placements.</p></Reveal>
+            <Reveal><h3 className="font-display text-4xl font-light tracking-tight md:text-5xl">Show the problem, then show it moving.</h3><p className="mt-4 text-lg text-muted">Educational content that earns trust: a single annotated frame flags the swing fault, and the clip shows it live. Same insight, two formats, built for different placements.</p></Reveal>
             <Reveal delay={0.08}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <figure><img src="/media/lack-of-knee-flex.jpg" alt="Annotated swing analysis still: lack of knee flex" loading="lazy" className="aspect-video w-full rounded-2xl object-cover" /><figcaption className="mt-3 text-sm text-muted">The still: one frame, fault annotated</figcaption></figure>
@@ -247,7 +247,7 @@ export function AiContent() {
             <Reveal key={l} delay={(i % 3) * 0.06}>
               <TiltCard className="h-full">
                 <div className="p-8">
-                  <div className="font-display text-7xl font-bold tracking-[-0.045em] text-accent"><CountUp value={v} /></div>
+                  <div className="font-display text-7xl font-light tracking-[-0.045em] text-accent"><CountUp value={v} /></div>
                   <div className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-faint">{l}</div>
                   <p className="mt-4 text-muted">{d}</p>
                 </div>
@@ -257,10 +257,10 @@ export function AiContent() {
         </div>
         <Reveal>
           <div className="mt-16 rounded-3xl border border-line bg-surface p-8 md:p-12">
-            <h3 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">CTV: awareness that converts</h3>
+            <h3 className="font-display text-3xl font-light tracking-tight md:text-4xl">CTV: awareness that converts</h3>
             <p className="mt-3 max-w-2xl text-muted">A connected-TV flight (January to May 2026) built on the &ldquo;You In&rdquo; film, planned and reported with the media agency I managed.</p>
             <ul className="mt-8 flex flex-wrap gap-x-14 gap-y-6">
-              {CTV.map(([v, l]) => <li key={l}><div className="font-display text-6xl font-bold tracking-[-0.04em] text-accent"><CountUp value={v} /></div><div className="mt-1 font-mono text-[0.68rem] uppercase tracking-widest text-faint">{l}</div></li>)}
+              {CTV.map(([v, l]) => <li key={l}><div className="font-display text-6xl font-light tracking-[-0.04em] text-accent"><CountUp value={v} /></div><div className="mt-1 font-mono text-[0.68rem] uppercase tracking-widest text-faint">{l}</div></li>)}
             </ul>
             <p className="mt-8 text-sm text-faint">Placements spanned national sports and news networks and golf&apos;s biggest creator channels. Awareness spend that still paid for itself.</p>
           </div>
@@ -271,7 +271,7 @@ export function AiContent() {
         <div className="relative mx-auto max-w-7xl">
           <Link href="/#work" className="group block">
             <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">Next</p>
-            <p className="mt-4 font-display text-[clamp(2.4rem,8vw,7rem)] font-bold leading-[0.95] tracking-[-0.045em]"><span className="text-gradient">Case studies</span> <span className="text-accent transition-all duration-500 group-hover:ml-3">→</span></p>
+            <p className="mt-4 font-display text-[clamp(2.4rem,8vw,7rem)] font-light leading-[0.95] tracking-[-0.045em]"><span className="text-gradient">Case studies</span> <span className="text-accent transition-all duration-500 group-hover:ml-3">→</span></p>
             <p className="mt-4 text-muted">The roles, results and projects behind this work.</p>
           </Link>
           <p className="mt-16 text-center font-mono text-xs text-faint">© 2026 Sean Murphy · <Link href="/" className="hover:text-accent">Home</Link></p>

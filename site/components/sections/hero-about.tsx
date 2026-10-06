@@ -37,7 +37,7 @@ export function Hero() {
         <HeroBackdrop />
         <div className="relative mx-auto w-full max-w-7xl">
           <Reveal><p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-muted">E-commerce &amp; Digital Marketing Leader <span className="text-accent">/</span> Orange, CA</p></Reveal>
-          <h1 className="font-display text-[clamp(4rem,15.5vw,13rem)] font-bold leading-[0.84] tracking-[-0.05em]">
+          <h1 className="font-display text-[clamp(4rem,15.5vw,13rem)] font-light leading-[0.84] tracking-[-0.05em]">
             <WordReveal lines={["Sean", "Murphy"]} wordClass="text-gradient" delay={0.1} />
           </h1>
           <Reveal delay={0.7}>
@@ -59,7 +59,7 @@ export function Hero() {
           <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-white/10 pt-8 md:grid-cols-4">
             {HERO_STATS.map(([v, l], i) => (
               <Reveal key={l} delay={1.1 + i * 0.08}>
-                <dt className="font-display text-5xl font-semibold tracking-[-0.04em] text-accent md:text-6xl"><CountUp value={v} /></dt>
+                <dt className="font-display text-5xl font-light tracking-[-0.04em] text-accent md:text-6xl"><CountUp value={v} /></dt>
                 <dd className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-faint">{l}</dd>
               </Reveal>
             ))}
@@ -87,7 +87,7 @@ export function About() {
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
             {/* TODO(Sean): headshot. Add public/media/headshot.jpg, then swap this placeholder for <Image src="/media/headshot.jpg" ... />. */}
-            <div className="mb-6 grid aspect-[4/5] w-full place-items-center rounded-3xl border border-dashed border-line bg-surface font-display text-7xl font-bold tracking-[-0.05em] text-faint" aria-hidden>SM<span className="text-accent">.</span></div>
+            <div className="mb-6 grid aspect-[4/5] w-full place-items-center rounded-3xl border border-dashed border-line bg-surface font-display text-7xl font-light tracking-[-0.05em] text-faint" aria-hidden>SM<span className="text-accent">.</span></div>
             <dl className="divide-y divide-line border-y border-line text-sm">
               {[["Based", "Orange, CA"], ["Current role", "E-commerce Marketing Manager, Uneekor"], ["Education", "BA Management Studies, University of Leicester"]].map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 py-3"><dt className="font-mono text-[0.7rem] uppercase tracking-widest text-faint">{k}</dt><dd className="text-right">{v}</dd></div>
@@ -105,7 +105,7 @@ export function About() {
               <Reveal key={t} delay={i * 0.06}>
                 <div className="h-full rounded-3xl border border-line bg-surface p-7 transition-colors hover:border-accent/50">
                   <span className="font-mono text-xs text-accent">0{i + 1}</span>
-                  <h4 className="mt-3 font-display text-2xl font-semibold tracking-tight">{t}</h4>
+                  <h4 className="mt-3 font-display text-2xl font-light tracking-tight">{t}</h4>
                   <p className="mt-3 text-muted">{d}</p>
                 </div>
               </Reveal>

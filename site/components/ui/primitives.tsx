@@ -86,7 +86,7 @@ export function Marquee({ items, className }: { items: string[]; className?: str
     <div className={cn("marquee relative overflow-hidden", className)} aria-label={items.join(", ")}>
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap" aria-hidden>
         {row.map((t, i) => (
-          <span key={i} className="flex items-center gap-10 font-display text-2xl font-medium tracking-tight text-fg/80 md:text-4xl">
+          <span key={i} className="flex items-center gap-10 font-display text-2xl font-light tracking-tight text-fg/80 md:text-4xl">
             {t}
             <span className="text-accent">✦</span>
           </span>
@@ -155,7 +155,7 @@ export function SectionHead({ eyebrow, title, children }: { eyebrow: string; tit
   return (
     <div className="mb-10 max-w-3xl">
       <Reveal><p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-accent"><Scramble text={eyebrow} /></p></Reveal>
-      <Reveal delay={0.05}><h2 className="font-display text-5xl font-semibold leading-[0.98] tracking-[-0.035em] md:text-6xl">{title}</h2></Reveal>
+      <Reveal delay={0.05}><h2 className="font-display text-5xl font-light leading-[0.98] tracking-[-0.035em] md:text-6xl">{title}</h2></Reveal>
       {children && <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-muted">{children}</p></Reveal>}
     </div>
   );

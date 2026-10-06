@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { Inter, Inter_Tight, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Ambient, SmoothScroll } from "@/components/shell";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
+const space = Inter_Tight({ subsets: ["latin"], weight: ["300", "400", "500"], variable: "--font-space" });
 const plex = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex" });
 
 export const metadata: Metadata = {

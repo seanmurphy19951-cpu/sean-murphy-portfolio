@@ -15,13 +15,13 @@ export function Experience() {
             return (
               <article key={j.id} id={`role-${j.id}`} className="h-full rounded-[2rem] border border-line bg-surface p-8 md:p-10">
                 <p className="font-mono text-sm text-accent">{j.start} – {j.end}</p>
-                <h3 className="mt-3 font-display text-4xl font-semibold tracking-[-0.03em] md:text-5xl">{j.company}</h3>
+                <h3 className="mt-3 font-display text-4xl font-light tracking-[-0.03em] md:text-5xl">{j.company}</h3>
                 <p className="mt-2 text-muted">{j.title} · {j.location}{j.note ? ` · ${j.note}` : ""}</p>
                 <p className="mt-4 text-fg/80">{ROLE_INTRO[j.id]}</p>
                 {stats.length > 0 && (
                   <ul className="mt-7 grid grid-cols-2 gap-x-8 gap-y-5 border-y border-line py-6">
                     {stats.map(([v, l]) => (
-                      <li key={l}><div className="font-display text-4xl font-bold tracking-[-0.04em] text-accent"><CountUp value={v} /></div><div className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-faint">{l}</div></li>
+                      <li key={l}><div className="font-display text-4xl font-light tracking-[-0.04em] text-accent"><CountUp value={v} /></div><div className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-faint">{l}</div></li>
                     ))}
                   </ul>
                 )}
@@ -47,11 +47,11 @@ export function Recognition() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:gap-14">
         <div>
           <p className="mb-2 font-mono text-xs uppercase tracking-[0.18em] text-accent">Recognition</p>
-          <span className="font-display text-7xl font-bold tracking-[-0.05em] text-accent md:text-8xl">2026</span>
+          <span className="font-display text-7xl font-light tracking-[-0.05em] text-accent md:text-8xl">2026</span>
         </div>
         <div className="max-w-2xl">
           {/* TODO(Sean): publication name + link; add recommendation quotes as more cards here. */}
-          <h3 className="font-display text-3xl font-semibold tracking-tight">Editor&apos;s Choice Award</h3>
+          <h3 className="font-display text-3xl font-light tracking-tight">Editor&apos;s Choice Award</h3>
           <p className="mt-3 text-muted">An industry editorial team selected one of Uneekor&apos;s products as a 2026 Editor&apos;s Choice winner, the result of ongoing trade-press relationships maintained alongside paid and creator programs.</p>
         </div>
       </div>
@@ -85,7 +85,7 @@ export function Contact() {
       <div className="relative mx-auto max-w-7xl">
         <Reveal><p className="mb-6 font-mono text-xs uppercase tracking-[0.18em] text-accent">Contact</p></Reveal>
         <Reveal delay={0.05}>
-          <a href={`mailto:${profile.email}`} className="group block font-display text-[clamp(2.6rem,9vw,8rem)] font-bold leading-[0.95] tracking-[-0.045em]">
+          <a href={`mailto:${profile.email}`} className="group block font-display text-[clamp(2.6rem,9vw,8rem)] font-light leading-[0.95] tracking-[-0.045em]">
             <span className="text-gradient">Let&apos;s talk</span><br /><span className="text-gradient">about your</span> <span className="text-accent transition-all duration-500 group-hover:tracking-normal">next move.</span>
           </a>
         </Reveal>

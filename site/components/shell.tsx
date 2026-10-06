@@ -64,7 +64,7 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" }) {
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/75 backdrop-blur-xl">
         <nav aria-label="Pages" className="mx-auto flex h-16 max-w-[90rem] items-center gap-2 px-4 md:px-8">
-          <Link href="/" className="mr-4 font-display text-xl font-bold tracking-tight">SM<span className="text-accent">.</span></Link>
+          <Link href="/" className="mr-4 font-display text-xl font-light tracking-tight">SM<span className="text-accent">.</span></Link>
           <div className="hidden items-center gap-1 md:flex">
             {PAGES.map((pg) => (
               <Link key={pg.key} href={pg.href} aria-current={pg.key === variant ? "page" : undefined} className={cn("relative rounded-full px-4 py-2 text-sm transition-colors", pg.key === variant ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg")}>{pg.label}</Link>
@@ -74,7 +74,6 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" }) {
             <a href="https://reportingdashboard.vercel.app/" target="_blank" rel="noopener" className={ext}>AI-built dashboard ↗</a>
             <a href={profile.linkedin} target="_blank" rel="noopener" className={cn(ext, "hidden lg:block")}>LinkedIn ↗</a>
             <a href={`mailto:${profile.email}`} className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-[#0a1224] transition hover:-translate-y-0.5">Email</a>
-            <button onClick={() => setPalette(true)} aria-label="Open command palette" className="hidden rounded-full border border-line px-3 py-2 font-mono text-xs text-muted hover:border-accent hover:text-accent lg:block">⌘K</button>
           </div>
           <button aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)} className="ml-auto rounded-full border border-line px-4 py-2 text-sm md:hidden">{open ? "Close" : "Menu"}</button>
         </nav>

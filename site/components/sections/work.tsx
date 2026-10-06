@@ -20,11 +20,11 @@ function CaseCard({ c, i, onOpen }: { c: Case; i: number; onOpen: () => void }) 
           </div>
           {value && (
             <div className="mt-8">
-              <div className={cn("font-display font-bold leading-none tracking-[-0.04em] text-accent", big ? "text-7xl md:text-9xl" : "text-6xl")}>{value}</div>
+              <div className={cn("font-display font-light leading-none tracking-[-0.04em] text-accent", big ? "text-7xl md:text-9xl" : "text-6xl")}>{value}</div>
               <div className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-faint">{label}</div>
             </div>
           )}
-          <h3 className={cn("mt-auto pt-8 font-display font-semibold leading-tight tracking-tight", big ? "text-3xl md:text-4xl" : "text-2xl")}>{c.title}</h3>
+          <h3 className={cn("mt-auto pt-8 font-display font-light leading-tight tracking-tight", big ? "text-3xl md:text-4xl" : "text-2xl")}>{c.title}</h3>
           <div className="mt-5 flex items-center justify-between font-mono text-xs text-muted">
             <span>{c.tools.slice(0, 2).join(" · ")}</span>
             <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">Read →</span>
@@ -53,11 +53,11 @@ function CaseModal({ c, i, onClose }: { c: Case; i: number; onClose: () => void 
       >
         <button onClick={onClose} className="absolute right-5 top-5 rounded-full border border-line px-4 py-2 font-mono text-xs hover:border-accent hover:text-accent">Close ✕</button>
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">{num(i)} · {c.employer}</p>
-        <h3 className="mt-4 max-w-2xl pr-20 font-display text-3xl font-semibold leading-tight tracking-tight md:text-5xl">{c.title}</h3>
+        <h3 className="mt-4 max-w-2xl pr-20 font-display text-3xl font-light leading-tight tracking-tight md:text-5xl">{c.title}</h3>
         {c.stats.length > 0 && (
           <ul className="mt-8 flex flex-wrap gap-x-10 gap-y-5 border-y border-line py-6">
             {c.stats.map(([v, l]) => (
-              <li key={l}><div className="font-display text-5xl font-bold tracking-[-0.04em] text-accent">{v}</div><div className="mt-1 font-mono text-[0.68rem] uppercase tracking-widest text-faint">{l}</div></li>
+              <li key={l}><div className="font-display text-5xl font-light tracking-[-0.04em] text-accent">{v}</div><div className="mt-1 font-mono text-[0.68rem] uppercase tracking-widest text-faint">{l}</div></li>
             ))}
           </ul>
         )}
