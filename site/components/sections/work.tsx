@@ -3,6 +3,7 @@ import { Pager } from "@/components/pager";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SectionHead, Tag, TiltCard } from "@/components/ui/primitives";
+import { PageHero, Panel } from "./media-shared";
 import { cases, type Case } from "@/lib/data";
 import { FEATURED_IDS } from "./featured";
 import { cn } from "@/lib/utils";
@@ -105,13 +106,15 @@ export function WorkPage() {
   const idx = cases.findIndex((c) => c.id === open);
   const shown = cases.map((c, i) => ({ c, i }));
   return (
-    <main id="top" className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
-      <div className="mx-auto max-w-7xl">
-        <SectionHead h1 eyebrow="Work" title={<>The full portfolio<br />of work.</>}>Open any project for the detail. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
-        <div id="cases" className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <main>
+      <PageHero eyebrow="Work" lines={["The full", "portfolio."]}
+        intro="Every project as a problem, an approach and a result. Open any one for the detail. Partners, retailers and talent are anonymized and figures rounded."
+        links={[["#cases", "Browse the work"]]} />
+      <Panel id="cases">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {shown.map(({ c, i }) => <CaseCard key={c.id} c={c} i={i} big={i === 0} onOpen={() => setOpen(c.id)} />)}
         </div>
-      </div>
+      </Panel>
       <AnimatePresence>{idx >= 0 && <CaseModal key={open} c={cases[idx]} i={idx} onClose={() => setOpen(null)} />}</AnimatePresence>
       <Pager page="work" />
     </main>

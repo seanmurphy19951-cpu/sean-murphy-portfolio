@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <>
       <SiteNav variant="dash" />
-      <main>
+      <main className="lg:pl-44">
         <Dashboard />
         <Pager page="dash" />
       </main>

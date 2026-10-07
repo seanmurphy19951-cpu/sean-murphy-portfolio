@@ -2190,3 +2190,7 @@ body {
 }
 
 }
+
+/* Space between the sticky filter bar and the first section, and anchor offsets under the sticky header + bar. */
+.dash .date-filter-bar { margin-bottom: 40px; }
+.dash [id] { scroll-margin-top: 150px; }

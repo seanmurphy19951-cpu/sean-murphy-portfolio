@@ -74,7 +74,7 @@ const BOARDS = [{ href: "/dashboard", label: "Example dashboard", note: "Perform
 
 /** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
 export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "content" | "work" | "dash" | "okr" }) {
-  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : variant === "okr" || variant === "dash" ? [] : DASH_NAV;
+  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : variant === "okr" ? [] : DASH_NAV;
   const [active, setActive] = useState(items[0]?.id ?? "");
   const [open, setOpen] = useState(false);
   const [palette, setPalette] = useState(false);

@@ -73,7 +73,7 @@ export function Dashboard() {
       <SectionHead h1 eyebrow="Example dashboard" title={<>Performance reporting,<br />in one place.</>}>
         An example dashboard created for performance reporting: ads, ecommerce, email and web in a single view, with date ranges, period comparison, goals and automatic insights. It uses sample data and invented figures.
       </SectionHead>
-      <nav aria-label="Dashboard sections" className="mb-10 flex flex-wrap gap-2">
+      <nav aria-label="Dashboard sections" className="mb-10 flex flex-wrap gap-2 lg:hidden">
         {SECTIONS.map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-line px-3.5 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-accent">{label}</a>)}
       </nav>
     <div className="dash">
