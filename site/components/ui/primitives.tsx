@@ -112,7 +112,7 @@ export function TiltCard({ children, className, onClick, label }: { children: Re
     const px = (e.clientX - r.left) / r.width;
     const py = (e.clientY - r.top) / r.height;
     gx.set(px * 100); gy.set(py * 100);
-    if (!reduce) { ry.set((px - 0.5) * 8); rx.set((0.5 - py) * 8); }
+    if (!reduce && !onClick) { ry.set((px - 0.5) * 8); rx.set((0.5 - py) * 8); }
   };
   const leave = () => { rx.set(0); ry.set(0); };
   return (
@@ -251,7 +251,7 @@ export function Swiper({ children, itemClass = "w-[85vw] md:w-[30rem]", label }:
     const el = ref.current; const d = drag.current;
     if (!el || !d.on) return;
     const dx = e.clientX - d.x;
-    if (!d.moved && Math.abs(dx) > 5) { d.moved = true; setDragging(true); el.setPointerCapture(e.pointerId); }
+    if (!d.moved && Math.abs(dx) > 10) { d.moved = true; setDragging(true); el.setPointerCapture(e.pointerId); }
     if (d.moved) el.scrollLeft = d.left - dx;
   };
   const up = () => { drag.current.on = false; if (drag.current.moved) setTimeout(() => { drag.current.moved = false; setDragging(false); }, 0); };
