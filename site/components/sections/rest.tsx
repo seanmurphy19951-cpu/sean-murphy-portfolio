@@ -67,7 +67,6 @@ export function Skills() {
         <Swiper label="Skills and tools" itemClass="w-[78vw] md:w-72">
           {[
             ...Object.entries(profile.tools_verified).map(([k, v]) => <div key={k} className={card}><h3 className={head}>{k}</h3><div className="flex flex-wrap gap-1.5">{v.map((t) => <Tag key={t}>{t}</Tag>)}</div></div>),
-            <div key="soft" className={card}><h3 className={head}>Working style</h3><div className="flex flex-wrap gap-1.5">{profile.skills_soft.map((t) => <Tag key={t}>{t}</Tag>)}</div></div>,
           ]}
         </Swiper>
       </Reveal>

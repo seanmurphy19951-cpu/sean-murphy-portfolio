@@ -2,10 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { CountUp, Reveal, SectionHead, TiltCard } from "@/components/ui/primitives";
 import { Pager } from "@/components/pager";
-import { CTV, GROWTH, InfoCards, PageHero, Panel, Slot, VIDEOS, VideoSlot } from "./media-shared";
+import { CTV, GROWTH, InfoCards, PageHero, Panel, VIDEOS, VideoSlot } from "./media-shared";
 
-// TODO(Sean): drop real shoot photos into public/media/shoots and swap the Slot placeholders.
-const SHOOTS = ["Product hero set", "Lifestyle on location", "Studio detail shots", "Behind the scenes"];
 const SEO_STATS = [
   ["+10", "first-page keywords", "Added on top of existing rankings after rewriting every page and product on a Shopify store; sales rose over 40% that year."],
   ["+35%", "click-through rate", "From SEO, paid search and on-site incentives guiding merchandising, with CPA down by more than $3."],
@@ -97,13 +95,6 @@ export function Content() {
       <Panel id="more" alt>
         <SectionHead eyebrow="And the rest" title={<>Beyond ads<br />and email.</>}>More of the content I have planned, briefed, written or produced.</SectionHead>
         <InfoCards items={MORE} />
-      </Panel>
-
-      <Panel id="shoots">
-        <SectionHead eyebrow="Photo shoots" title={<>One shoot,<br />months of content.</>}>Briefs and shot lists built so a single shoot feeds ads, email, product pages and social.</SectionHead>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {SHOOTS.map((s, i) => <Reveal key={s} delay={i * 0.06}><Slot label={s} ratio="aspect-[4/5]" /></Reveal>)}
-        </div>
       </Panel>
 
       <Panel id="growth" alt>

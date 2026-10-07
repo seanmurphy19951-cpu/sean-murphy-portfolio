@@ -19,7 +19,7 @@ export function Pager({ page }: { page: PageKey }) {
   const next = ORDER[i + 1];
   const side = "group flex flex-col gap-1 rounded-2xl border border-line bg-surface/60 p-5 transition-colors hover:border-accent/60";
   return (
-    <nav aria-label="Next and previous pages" className="border-t border-white/10 px-6 py-14 md:px-12">
+    <footer className="border-t border-white/10 px-6 py-14 md:px-12"><nav aria-label="Next and previous pages">
       <div className="mx-auto grid max-w-7xl items-stretch gap-4 md:grid-cols-[1fr_auto_1fr]">
         {prev ? (
           <Link href={prev.href} className={side}>
@@ -49,6 +49,6 @@ export function Pager({ page }: { page: PageKey }) {
         )}
       </div>
       <p className="mt-10 text-center font-mono text-xs text-faint">© 2026 Sean Murphy</p>
-    </nav>
+    </nav></footer>
   );
 }
