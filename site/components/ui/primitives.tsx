@@ -13,9 +13,9 @@ export function WordReveal({ lines, className, wordClass, delay = 0 }: { lines: 
       {lines.map((line, li) => (
         <span key={li} className="block" aria-hidden>
           {line.split(" ").map((w, wi) => (
-            <span key={wi} className="inline-block overflow-hidden pb-[0.2em] -mb-[0.12em] align-bottom">
+            <span key={wi} className="inline-block overflow-hidden pb-[0.3em] -mb-[0.22em] align-bottom">
               <motion.span
-                className={cn("inline-block", wordClass)}
+                className={cn("inline-block pb-[0.18em]", wordClass)}
                 initial={reduce ? false : { y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.9, delay: delay + 0.08 * n++, ease: [0.16, 1, 0.3, 1] }}
