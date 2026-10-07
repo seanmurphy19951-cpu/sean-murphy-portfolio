@@ -175,21 +175,6 @@ export function PageHero({ eyebrow, lines, intro, links }: { eyebrow: string; li
   );
 }
 
-export function PageFooter({ href, title, blurb }: { href: string; title: string; blurb: string }) {
-  return (
-    <footer className="noise relative overflow-hidden border-t border-white/10 px-6 pb-10 pt-24 md:px-12">
-      <div className="relative mx-auto max-w-7xl">
-        <Link href={href} className="group block">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">Next</p>
-          <p className="mt-4 font-display text-[clamp(2.4rem,8vw,7rem)] font-light leading-[0.95] tracking-[-0.045em]"><span className="text-gradient">{title}</span> <span className="text-accent transition-all duration-500 group-hover:ml-3">→</span></p>
-          <p className="mt-4 text-muted">{blurb}</p>
-        </Link>
-        <p className="mt-16 text-center font-mono text-xs text-faint">© 2026 Sean Murphy · <Link href="/" className="hover:text-accent">Home</Link></p>
-      </div>
-    </footer>
-  );
-}
-
 export function Panel({ id, alt, children }: { id: string; alt?: boolean; children: React.ReactNode }) {
   return (
     <section id={id} className={cn("px-6 py-20 md:px-12 md:py-24", alt && "border-y border-white/10 bg-bg2")}>

@@ -1,7 +1,8 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { CountUp, Reveal, SectionHead, TiltCard } from "@/components/ui/primitives";
-import { CTV, GROWTH, InfoCards, PageFooter, PageHero, Panel, Slot, VIDEOS, VideoSlot } from "./media-shared";
+import { Pager } from "@/components/pager";
+import { CTV, GROWTH, InfoCards, PageHero, Panel, Slot, VIDEOS, VideoSlot } from "./media-shared";
 
 // TODO(Sean): drop real shoot photos into public/media/shoots and swap the Slot placeholders.
 const SHOOTS = ["Product hero set", "Lifestyle on location", "Studio detail shots", "Behind the scenes"];
@@ -102,7 +103,7 @@ export function Content() {
         </Reveal>
       </Panel>
 
-      <PageFooter href="/work" title="Work" blurb="Every case study, with the problem, approach and result." />
+      <Pager page="content" />
     </main>
   );
 }

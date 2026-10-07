@@ -1,7 +1,8 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { Reveal, SectionHead, TiltCard } from "@/components/ui/primitives";
-import { Gallery, InfoCards, PageFooter, PageHero, Panel, ParallaxWall, STEPS, TiltedWall } from "./media-shared";
+import { Pager } from "@/components/pager";
+import { Gallery, InfoCards, PageHero, Panel, ParallaxWall, STEPS, TiltedWall } from "./media-shared";
 
 // TODO(Sean): confirm each automation and swap in real hours saved / counts where you have them.
 const AUTOMATIONS = [
@@ -91,7 +92,7 @@ export function Ai() {
         <InfoCards items={PRINCIPLES} />
       </Panel>
 
-      <PageFooter href="/content" title="Content" blurb="Photo shoots, ad creative, email and lifecycle." />
+      <Pager page="ai" />
     </main>
   );
 }

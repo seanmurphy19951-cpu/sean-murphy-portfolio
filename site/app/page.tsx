@@ -1,3 +1,4 @@
+import { Pager } from "@/components/pager";
 import { SiteNav } from "@/components/shell";
 import { About, Hero } from "@/components/sections/hero-about";
 import { Featured } from "@/components/sections/featured";
@@ -17,6 +18,7 @@ export default function Home() {
       <Recognition />
       <Skills />
       <Contact />
+      <Pager page="home" />
     </main>
     </>
   );

@@ -1,4 +1,5 @@
 "use client";
+import { Pager } from "@/components/pager";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SectionHead, Tag, TiltCard } from "@/components/ui/primitives";
@@ -119,6 +120,7 @@ export function WorkPage() {
         </div>
       </div>
       <AnimatePresence>{idx >= 0 && <CaseModal key={open} c={cases[idx]} i={idx} onClose={() => setOpen(null)} />}</AnimatePresence>
+      <Pager page="work" />
     </main>
   );
 }
