@@ -56,11 +56,11 @@ const DASH_NAV = [
   { id: "trends", label: "Cross-Channel Trends" },
   { id: "promo-analysis", label: "Promo Analysis" },
 ];
-const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai", label: "AI", key: "ai" }, { href: "/content", label: "Content", key: "content" }, { href: "/work", label: "Work", key: "work" }, { href: "/dashboard", label: "Dashboard", key: "dash" }];
+const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai", label: "AI", key: "ai" }, { href: "/content", label: "Content", key: "content" }, { href: "/work", label: "Work", key: "work" }, { href: "/dashboard", label: "Dashboard", key: "dash" }, { href: "/okr", label: "OKR", key: "okr" }];
 
 /** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
-export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "content" | "work" | "dash" }) {
-  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : DASH_NAV;
+export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "content" | "work" | "dash" | "okr" }) {
+  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : variant === "okr" ? [] : DASH_NAV;
   const [active, setActive] = useState(items[0]?.id ?? "");
   const [open, setOpen] = useState(false);
   const [palette, setPalette] = useState(false);

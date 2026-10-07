@@ -22,6 +22,7 @@ const ITEMS: Item[] = [
   { label: "Email Sean", hint: "Link", href: `mailto:${profile.email}`, external: true },
   { label: "LinkedIn", hint: "Link", href: profile.linkedin, external: true },
   { label: "Dashboard", hint: "Page", href: "/dashboard" },
+  { label: "Example OKR", hint: "Page", href: "/okr" },
 ];
 
 /** ⌘K / Ctrl+K command palette to jump anywhere. Open it with the exported trigger or the keyboard. */

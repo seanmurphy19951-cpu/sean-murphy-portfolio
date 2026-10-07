@@ -7,6 +7,7 @@ const ORDER = [
   { key: "content", href: "/content", title: "Content", blurb: "Shoots, ads and email" },
   { key: "work", href: "/work", title: "Work", blurb: "Every case study" },
   { key: "dash", href: "/dashboard", title: "Dashboard", blurb: "The reporting dashboard" },
+  { key: "okr", href: "/okr", title: "Example OKR", blurb: "A weekly OKR scorecard" },
 ] as const;
 
 export type PageKey = (typeof ORDER)[number]["key"];
