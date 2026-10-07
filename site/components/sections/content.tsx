@@ -28,9 +28,18 @@ const FLOWS = [
   { k: "Lists", t: "Segmentation and testing", d: "Engagement and purchase segments, plus a steady cadence of subject, send-time and content tests." },
 ];
 const MORE = [
-  { t: "Social and creator content", d: "Short-form video and creator-style clips planned around what is working in paid and organic." },
-  { t: "Landing and product pages", d: "Page copy and imagery built to convert, tied to the campaign that sends the traffic." },
-  { t: "Creative testing framework", d: "A simple loop: hypothesis, variants, a clear read, and the winner feeding the next batch." },
+  { k: "Video", t: "Brand and product films", d: "A brand commercial, the 30-second brand film, product films and a website walkthrough, briefed and managed with agencies and in-house teams.", tags: ["Brand film", "Product film"] },
+  { k: "Video", t: "Educational and AI video", d: "Annotated swing-analysis clips, AI-produced software walkthroughs and AI-generated product and lifestyle video.", tags: ["Explainers", "AI video"] },
+  { k: "Photography", t: "Photo shoots and AI imagery", d: "Product and lifestyle shoots briefed from a shot list, plus AI lifestyle scenes built from basic product renders.", tags: ["Shoots", "AI imagery"] },
+  { k: "Paid", t: "Paid social and search creative", d: "Static, short-form video and ad copy for paid social, search, Performance Max and connected TV, built to be tested.", tags: ["Meta", "Google", "CTV"] },
+  { k: "Email", t: "Campaigns and lifecycle", d: "Promotional emails, welcome, cart and winback flows, and tailored mailers by customer type and purchase pattern.", tags: ["Klaviyo", "Lifecycle"] },
+  { k: "Search", t: "SEO copy and blog topics", d: "Page and product copy for every page of a store, keyword-led blog targeting and structured data.", tags: ["SEO", "Blog"] },
+  { k: "Social", t: "Organic social and creators", d: "Short-form video and creator-style clips planned around what works, with influencer and creator programmes alongside.", tags: ["Social", "Creators"] },
+  { k: "Web", t: "Landing, product and store pages", d: "Page copy, imagery, bundles, cross-sells and limited-time deals tied to the campaign that sends the traffic.", tags: ["CRO", "Shopify"] },
+  { k: "Marketplaces", t: "Amazon and catalog listings", d: "Listing content, product photography and catalog structure for Amazon and on-site merchandising.", tags: ["Amazon", "Catalog"] },
+  { k: "Promotions", t: "Seasonal and promo calendars", d: "Cyber, holiday and product-launch promotions planned so paid, email and social tell one story.", tags: ["Promos", "Planning"] },
+  { k: "B2B", t: "Reseller and partner content", d: "Materials and forms behind the reseller programme, plus event and trade-show collateral.", tags: ["Reseller", "Events"] },
+  { k: "Testing", t: "Creative testing", d: "A simple loop: hypothesis, variants, a clear read, and the winner feeding the next batch.", tags: ["A/B tests"] },
 ];
 
 export function Content() {
@@ -67,15 +76,6 @@ export function Content() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-24 grid items-center gap-10 md:grid-cols-2">
-          <Reveal><h3 className="font-display text-4xl font-light tracking-tight md:text-5xl">Show the problem, then show it moving.</h3><p className="mt-4 text-lg text-muted">Educational content that earns trust: a single annotated frame flags the swing fault, and the clip shows it live. Same insight, two formats, built for different placements.</p></Reveal>
-          <Reveal delay={0.08}>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <figure><img src="/media/lack-of-knee-flex.jpg" alt="Annotated swing analysis still: lack of knee flex" loading="lazy" className="aspect-video w-full rounded-2xl object-cover" /><figcaption className="mt-3 text-sm text-muted">The still: one frame, fault annotated</figcaption></figure>
-              <VideoSlot label="The motion: same fault, shown live" file="lack-of-knee-flex" />
-            </div>
-          </Reveal>
-        </div>
       </Panel>
 
       <Panel id="seo">
@@ -95,7 +95,7 @@ export function Content() {
       </Panel>
 
       <Panel id="more" alt>
-        <SectionHead eyebrow="And the rest" title={<>The rest of<br />the brand work.</>}>Social, landing pages and creative testing.</SectionHead>
+        <SectionHead eyebrow="And the rest" title={<>Every kind of<br />content, in one place.</>}>The full range of content I have planned, briefed, written or produced.</SectionHead>
         <InfoCards items={MORE} />
       </Panel>
 
