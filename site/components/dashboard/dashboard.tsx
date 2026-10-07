@@ -59,7 +59,7 @@ export function Dashboard() {
   }, [raw, range]);
 
   if (error) return <div className="dash"><p className="no-data" style={{ padding: 48 }}>Couldn’t load the dashboard data.</p></div>;
-  if (!view) return <div className="dash"><p className="no-data" style={{ padding: 48 }}>Loading dashboard…</p></div>;
+  if (!view) return <div className="dash"><div style={{ padding: 48 }}><h1 className="font-display text-4xl font-light">Example dashboard</h1><p className="no-data">An example dashboard created for performance reporting. Loading the live charts…</p></div></div>;
 
   const period = raw.config.reportPeriod;
   const bounds = dataBounds(period);
@@ -70,7 +70,7 @@ export function Dashboard() {
   return (
     <div className="px-6 pb-16 pt-32 md:px-12 md:pt-40">
     <div className="mx-auto max-w-7xl">
-      <SectionHead eyebrow="Example dashboard" title={<>Performance reporting,<br />in one place.</>}>
+      <SectionHead h1 eyebrow="Example dashboard" title={<>Performance reporting,<br />in one place.</>}>
         An example dashboard created for performance reporting: ads, ecommerce, email and web in a single view, with date ranges, period comparison, goals and automatic insights. It uses sample data and invented figures.
       </SectionHead>
       <nav aria-label="Dashboard sections" className="mb-10 flex flex-wrap gap-2">

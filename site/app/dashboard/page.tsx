@@ -4,7 +4,7 @@ import { SiteNav } from "@/components/shell";
 import { Dashboard } from "@/components/dashboard/dashboard";
 
 export const metadata: Metadata = {
-  title: "Dashboard · Sean Murphy",
+  title: "Example dashboard · Sean Murphy",
   description: "An AI-built reporting dashboard.",
   robots: { index: false, follow: false },
 };

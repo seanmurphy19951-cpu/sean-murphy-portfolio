@@ -48,7 +48,7 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.85}>
             <p className="mt-6 max-w-2xl text-lg text-muted">
-              Six years across paid media, lifecycle email, marketplaces, influencer programs and e-commerce operations, from golf technology to sportfishing, training and an agency serving 50+ businesses.
+              Seven years across paid media, lifecycle email, marketplaces, influencer programs and e-commerce operations, from golf technology to sportfishing, training and an agency serving 50+ businesses.
             </p>
           </Reveal>
           <Reveal delay={1}>

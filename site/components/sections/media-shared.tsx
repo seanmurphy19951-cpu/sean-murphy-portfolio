@@ -26,7 +26,7 @@ export const STEPS = [
 
 export const GROWTH = [
   ["+58%", "online purchases YoY", "13K+ purchases versus roughly 8.5K the year before, measured in Google Analytics."],
-  ["+133%", "paid-media revenue YoY", "June 2026 monthly reporting across Google, Meta and CTV, at a healthy 16× marketing efficiency ratio."],
+  ["+133%", "paid-media revenue YoY", "June 2026 monthly reporting across Google, Meta and CTV, at a 16× marketing efficiency ratio (MER: total revenue ÷ total marketing spend)."],
   ["3.3×", "organic social new users", "From about 44K to 145K new users in a year. Content and creators did this, not spend."],
   ["+22%", "US active users", "About 450K versus 365K, while international audiences grew alongside."],
   ["+85%", "value per paid-search user", "120-day user value nearly doubled while paid-search volume was deliberately cut."],

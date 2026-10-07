@@ -19,6 +19,16 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 }
 
 /** Thin accent progress bar across the top plus a soft cursor glow on desktop. */
+export function SkipLink() {
+  return (
+    <a
+      href="#main"
+      onClick={(e) => { e.preventDefault(); const m = document.querySelector("main"); if (m) { m.setAttribute("tabindex", "-1"); (m as HTMLElement).focus(); m.scrollIntoView(); } }}
+      className="fixed left-4 top-4 z-[100] -translate-y-20 rounded-full bg-accent px-5 py-2 text-sm font-semibold text-[#0a1224] focus:translate-y-0"
+    >Skip to content</a>
+  );
+}
+
 export function Ambient() {
   const { scrollYProgress } = useScroll();
   const x = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });

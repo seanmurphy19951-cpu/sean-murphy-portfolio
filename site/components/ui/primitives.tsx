@@ -152,11 +152,12 @@ export function Reveal({ children, className, delay = 0, y = 28 }: { children: R
   );
 }
 
-export function SectionHead({ eyebrow, title, children }: { eyebrow: string; title: ReactNode; children?: ReactNode }) {
+export function SectionHead({ eyebrow, title, children, h1 }: { eyebrow: string; title: ReactNode; children?: ReactNode; h1?: boolean }) {
+  const H = h1 ? "h1" : "h2";
   return (
     <div className="mb-10 max-w-3xl">
       <Reveal><p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-accent"><Scramble text={eyebrow} /></p></Reveal>
-      <Reveal delay={0.05}><h2 className="font-display text-5xl font-light leading-[0.98] tracking-[-0.035em] md:text-6xl">{title}</h2></Reveal>
+      <Reveal delay={0.05}><H className="font-display text-5xl font-light leading-[0.98] tracking-[-0.035em] md:text-6xl">{title}</H></Reveal>
       {children && <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-muted">{children}</p></Reveal>}
     </div>
   );

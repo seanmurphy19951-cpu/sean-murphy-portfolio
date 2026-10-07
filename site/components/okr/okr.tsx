@@ -4,12 +4,12 @@ import { SectionHead } from "@/components/ui/primitives";
 import { cn } from "@/lib/utils";
 import { BRANDS, CURRENT_WEEK, CURVE, HEALTH, OBJECTIVES, SHARE, WEEKS, WOBBLE, type Fmt, type Measure } from "./data";
 
-const GMV_TARGET = 240000;
-const GMV_END = 232000;
+/** Website sales = the four dollar measures that make up site revenue, so the headline always equals the rows below. */
+const WEBSITE_IDS = ["m1", "m3", "m9", "m12"];
 const WEEK_LABEL = (w: number) => { const s = new Date(Date.UTC(2026, 9, 1 + (w - 1) * 7)); const e = new Date(Date.UTC(2026, 9, 7 + (w - 1) * 7)); const f = (d: Date) => `${d.getUTCDate()} ${d.toLocaleString("en-US", { month: "short", timeZone: "UTC" })}`; return `W${w} · ${f(s)} to ${f(e)}`; };
 
 function fmt(v: number, f: Fmt) {
-  if (f === "usd") return v >= 10000 ? `$${(v / 1000).toFixed(1)}K` : `$${Math.round(v).toLocaleString("en-US")}`;
+  if (f === "usd") return v >= 1000 ? `$${(v / 1000).toFixed(1)}K` : `$${Math.round(v).toLocaleString("en-US")}`;
   if (f === "pct") return `${v.toFixed(2)}%`;
   if (f === "x") return `${v.toFixed(1)}×`;
   return Math.round(v).toLocaleString("en-US");
@@ -96,20 +96,22 @@ export function Okr() {
     const parts = all.map((m) => Math.min(1, series(m, brand)[week - 1] / scaledTarget(m, brand)));
     return Math.round((parts.reduce((a, b) => a + b, 0) / parts.length) * 100);
   }, [all, brand, week]);
-  const gmv = CURVE.map((c) => GMV_END * c * (brand === "All brands" ? 1 : SHARE[brand]));
+  const web = all.filter((m) => WEBSITE_IDS.includes(m.id));
+  const gmv = CURVE.map((_, i) => web.reduce((a, m) => a + series(m, brand)[i], 0));
+  const gmvTarget = web.reduce((a, m) => a + scaledTarget(m, brand), 0);
   const chip = (on: boolean) => cn("rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors", on ? "border-accent bg-accent text-[#0a1224]" : "border-line text-muted hover:border-accent hover:text-accent");
 
   return (
     <div className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
       <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="Example OKR" title={<>A quarterly scorecard,<br />week by week.</>}>
-          A replica of the scorecard I built for a marketing and ecommerce team: five objectives, thirteen measures, weekly updates. Every brand, name and number here is invented.
+        <SectionHead h1 eyebrow="Example OKR" title={<>A quarterly scorecard,<br />week by week.</>}>
+          Inspired by the weekly scorecard I built for a marketing and ecommerce team: five objectives, thirteen measures, weekly updates. Every brand, name and number here is invented.
         </SectionHead>
 
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <label className="sr-only" htmlFor="okr-week">Week</label>
           <select id="okr-week" value={week} onChange={(e) => setWeek(Number(e.target.value))} className="rounded-full border border-line bg-surface px-4 py-2 text-sm text-fg">
-            {Array.from({ length: WEEKS }, (_, i) => i + 1).map((w) => <option key={w} value={w} disabled={w > CURRENT_WEEK}>{WEEK_LABEL(w)}{w > CURRENT_WEEK ? " (not yet)" : ""}</option>)}
+            {Array.from({ length: WEEKS }, (_, i) => i + 1).map((w) => <option key={w} value={w} disabled={w > CURRENT_WEEK}>{WEEK_LABEL(w)}{w > CURRENT_WEEK ? " (upcoming)" : ""}</option>)}
           </select>
           <button onClick={() => setWeek(CURRENT_WEEK)} className={chip(false)}>Go to current week</button>
           <span className="ml-auto font-mono text-xs uppercase tracking-widest text-faint">Q4 2026 · example data</span>
@@ -129,7 +131,7 @@ export function Okr() {
           <div>
             <h3 className="font-display text-4xl font-light tracking-tight">Q4 summary</h3>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {[["OKR score", `${score}%`, "average progress to target"], ["Q4 goal", fmt(gmv[week - 1], "usd"), `of ${fmt(GMV_TARGET * (brand === "All brands" ? 1 : SHARE[brand]), "usd")} website sales`], ["This week", `+${fmt(gmv[week - 1] - (gmv[week - 2] ?? 0), "usd")}`, WEEK_LABEL(week).split(" · ")[1]]].map(([l, v, s]) => (
+              {[["OKR score", `${score}%`, "average of each measure's progress to its quarter target, capped at 100%"], ["Website sales", fmt(gmv[week - 1], "usd"), `of ${fmt(gmvTarget, "usd")} quarter target (ads, other site, email, free search)`], ["This week", `+${fmt(gmv[week - 1] - (gmv[week - 2] ?? 0), "usd")}`, WEEK_LABEL(week).split(" · ")[1]]].map(([l, v, s]) => (
                 <div key={l} className="rounded-2xl border border-line bg-surface p-6">
                   <div className="font-mono text-xs uppercase tracking-widest text-faint">{l}</div>
                   <div className="mt-2 font-display text-5xl font-light tracking-[-0.04em] text-accent">{v}</div>

@@ -107,7 +107,7 @@ export function WorkPage() {
   return (
     <main id="top" className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
       <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="Work" title={<>The full portfolio<br />of work.</>}>Open any project for the detail. Employers, partners, retailers and talent are anonymized and figures rounded.</SectionHead>
+        <SectionHead h1 eyebrow="Work" title={<>The full portfolio<br />of work.</>}>Open any project for the detail. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
         <div id="cases" className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {shown.map(({ c, i }) => <CaseCard key={c.id} c={c} i={i} big={i === 0} onOpen={() => setOpen(c.id)} />)}
         </div>

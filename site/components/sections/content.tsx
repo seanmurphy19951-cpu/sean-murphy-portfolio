@@ -34,11 +34,11 @@ const MORE = [
   { k: "Paid", t: "Paid social and search creative", d: "Static, short-form video and ad copy for paid social, search, Performance Max and connected TV, built to be tested.", tags: ["Meta", "Google", "CTV"] },
   { k: "Email", t: "Campaigns and lifecycle", d: "Promotional emails, welcome, cart and winback flows, and tailored mailers by customer type and purchase pattern.", tags: ["Klaviyo", "Lifecycle"] },
   { k: "Search", t: "SEO copy and blog topics", d: "Page and product copy for every page of a store, keyword-led blog targeting and structured data.", tags: ["SEO", "Blog"] },
-  { k: "Social", t: "Organic social and creators", d: "Short-form video and creator-style clips planned around what works, with influencer and creator programmes alongside.", tags: ["Social", "Creators"] },
+  { k: "Social", t: "Organic social and creators", d: "Short-form video and creator-style clips planned around what works, with influencer and creator programs alongside.", tags: ["Social", "Creators"] },
   { k: "Web", t: "Landing, product and store pages", d: "Page copy, imagery, bundles, cross-sells and limited-time deals tied to the campaign that sends the traffic.", tags: ["CRO", "Shopify"] },
   { k: "Marketplaces", t: "Amazon and catalog listings", d: "Listing content, product photography and catalog structure for Amazon and on-site merchandising.", tags: ["Amazon", "Catalog"] },
   { k: "Promotions", t: "Seasonal and promo calendars", d: "Cyber, holiday and product-launch promotions planned so paid, email and social tell one story.", tags: ["Promos", "Planning"] },
-  { k: "B2B", t: "Reseller and partner content", d: "Materials and forms behind the reseller programme, plus event and trade-show collateral.", tags: ["Reseller", "Events"] },
+  { k: "B2B", t: "Reseller and partner content", d: "Materials and forms behind the reseller program, plus event and trade-show collateral.", tags: ["Reseller", "Events"] },
   { k: "Testing", t: "Creative testing", d: "A simple loop: hypothesis, variants, a clear read, and the winner feeding the next batch.", tags: ["A/B tests"] },
 ];
 
@@ -95,7 +95,7 @@ export function Content() {
       </Panel>
 
       <Panel id="more" alt>
-        <SectionHead eyebrow="And the rest" title={<>Every kind of<br />content, in one place.</>}>The full range of content I have planned, briefed, written or produced.</SectionHead>
+        <SectionHead eyebrow="And the rest" title={<>Beyond ads<br />and email.</>}>More of the content I have planned, briefed, written or produced.</SectionHead>
         <InfoCards items={MORE} />
       </Panel>
 
