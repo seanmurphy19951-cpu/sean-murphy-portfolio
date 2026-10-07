@@ -6,7 +6,7 @@ import { Okr } from "@/components/okr/okr";
 export const metadata: Metadata = {
   title: "Example OKR · Sean Murphy",
   description: "An example quarterly OKR scorecard with invented data.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/okr" },
 };
 
 export default function Page() {

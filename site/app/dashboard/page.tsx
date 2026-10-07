@@ -6,7 +6,7 @@ import { Dashboard } from "@/components/dashboard/dashboard";
 export const metadata: Metadata = {
   title: "Example dashboard · Sean Murphy",
   description: "An AI-built reporting dashboard.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/dashboard" },
 };
 
 export default function Page() {

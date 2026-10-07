@@ -5,7 +5,7 @@ import { WorkPage } from "@/components/sections/work";
 export const metadata: Metadata = {
   title: "Work · Sean Murphy",
   description: "Case studies with the problem, approach and result.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/work" },
 };
 
 export default function Page() {

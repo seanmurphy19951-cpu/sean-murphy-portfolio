@@ -10,8 +10,9 @@ const plex = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variabl
 export const metadata: Metadata = {
   title: "Sean Murphy · E-commerce & Digital Marketing Leader",
   description: "Portfolio of Sean Murphy: paid media, lifecycle email, marketplaces, influencer programs, e-commerce operations and AI workflows.",
-  robots: { index: false, follow: false },
-  openGraph: { title: "Sean Murphy · E-commerce & Digital Marketing Leader", description: "Paid media, lifecycle email, marketplaces, influencer programs, e-commerce operations and AI workflows.", type: "website", siteName: "Sean Murphy" },
+  metadataBase: new URL("https://seanmurphy.site"),
+  alternates: { canonical: "/" },
+  openGraph: { url: "https://seanmurphy.site", title: "Sean Murphy · E-commerce & Digital Marketing Leader", description: "Paid media, lifecycle email, marketplaces, influencer programs, e-commerce operations and AI workflows.", type: "website", siteName: "Sean Murphy" },
   twitter: { card: "summary", title: "Sean Murphy · E-commerce & Digital Marketing Leader" },
 };
 

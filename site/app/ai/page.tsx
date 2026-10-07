@@ -5,7 +5,7 @@ import { Ai } from "@/components/sections/ai";
 export const metadata: Metadata = {
   title: "AI · Sean Murphy",
   description: "AI and automation in practice: automations, AI-built tools, MCP and CLI workflows, and AI-produced imagery.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/ai" },
 };
 
 export default function Page() {
