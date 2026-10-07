@@ -82,7 +82,7 @@ export function Contact() {
         <Reveal><p className="mb-6 font-mono text-xs uppercase tracking-[0.18em] text-accent">Contact</p></Reveal>
         <Reveal delay={0.05}>
           <a href={`mailto:${profile.email}`} className="group block font-display text-[clamp(2.6rem,9vw,8rem)] font-light leading-[0.95] tracking-[-0.045em]">
-            <span className="text-gradient">Let&apos;s talk</span><br /><span className="text-gradient">about your</span> <span className="text-accent transition-all duration-500 group-hover:tracking-normal">next move.</span>
+            <span className="text-gradient">Let&apos;s talk</span><br /><span className="text-gradient">about the</span> <span className="text-accent transition-all duration-500 group-hover:tracking-normal">next move.</span>
           </a>
         </Reveal>
         <Reveal delay={0.1}>

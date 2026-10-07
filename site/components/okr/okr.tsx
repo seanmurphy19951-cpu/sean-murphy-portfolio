@@ -121,7 +121,7 @@ export function Okr() {
           {["All brands", ...BRANDS].map((b) => <button key={b} aria-pressed={brand === b} onClick={() => setBrand(b)} className={chip(brand === b)}>{b}</button>)}
         </div>
 
-        <div role="tablist" aria-label="Objectives" className="mb-10 flex gap-6 overflow-x-auto border-b border-line" data-lenis-prevent>
+        <div role="tablist" aria-label="Objectives" className="mb-10 flex gap-6 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden border-b border-line" data-lenis-prevent>
           {[{ n: "summary", t: "Summary" }, ...OBJECTIVES.map((o) => ({ n: o.n, t: `${o.n}  ${o.title}` }))].map((x) => (
             <button key={x.n} role="tab" aria-selected={tab === x.n} onClick={() => setTab(x.n)} className={cn("-mb-px whitespace-nowrap border-b-2 pb-3 text-sm transition-colors", tab === x.n ? "border-accent text-fg" : "border-transparent text-muted hover:text-fg")}>{x.t}</button>
           ))}
