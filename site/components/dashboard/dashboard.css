@@ -2194,3 +2194,13 @@ body {
 /* Space between the sticky filter bar and the first section, and anchor offsets under the sticky header + bar. */
 .dash .date-filter-bar { margin-bottom: 40px; }
 .dash [id] { scroll-margin-top: 150px; }
+
+/* Responsive fixes: grid items may shrink below chart width; filter bar wraps instead of clipping on small screens. */
+.dash .grid > * { min-width: 0; }
+.dash canvas { max-width: 100%; }
+@media (max-width: 768px) {
+  .dash .date-filter-bar { height: auto; flex-wrap: wrap; overflow: visible; padding: 10px 12px; position: static !important; margin-bottom: 28px; }
+  .dash .filter-bar-section { flex-wrap: wrap; }
+  .dash .filter-divider { display: none; }
+  .dash .filter-bar-right { margin-left: 0; width: 100%; }
+}

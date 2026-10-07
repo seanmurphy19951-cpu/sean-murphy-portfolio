@@ -104,7 +104,7 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
           </div>
           <div className="mx-auto hidden items-center gap-1 md:flex">
             {BOARDS.map((b) => (
-              <Link key={b.key} href={b.href} aria-current={b.key === variant ? "page" : undefined} className={cn("relative rounded-full px-4 py-2 text-sm transition-colors", b.key === variant ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg")}>{b.label}</Link>
+              <Link key={b.key} href={b.href} aria-current={b.key === variant ? "page" : undefined} className={cn("relative whitespace-nowrap rounded-full px-4 py-2 text-sm transition-colors", b.key === variant ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg")}><span className="lg:hidden">{b.key === "dash" ? "Dashboard" : "OKR"}</span><span className="hidden lg:inline">{b.label}</span></Link>
             ))}
           </div>
           <div className="hidden items-center gap-2 md:flex">
