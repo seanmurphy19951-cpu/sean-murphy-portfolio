@@ -17,6 +17,8 @@ export const ROLE_STATS: Record<string, [string, string][]> = {
   uneekor: [["$15M", "Q4 reseller revenue"], ["34%", "YoY revenue growth"], ["4×+", "blended paid media ROAS"], ["$2M+", "Amazon sales, H2"]],
   melton: [["+35%", "CTR"], ["+12%", "AOV"], ["−$3+", "CPA"]],
   pacific: [["+40%", "YoY sales"], ["+10", "first-page keywords"]],
+  // TODO(Sean): PLACEHOLDER Aldi figures; replace with real ones.
+  aldi: [["3rd", "in region for sales"], ["+14%", "peak-season sales vs last year"], ["98%+", "stock accuracy"], ["+12%", "rebuild relaunch week vs target"]],
   shopwired: [["+30%", "revenue across 50+ clients"], ["+$5,000", "new MoM revenue line"]],
 };
 export const ROLE_INTRO: Record<string, string> = {

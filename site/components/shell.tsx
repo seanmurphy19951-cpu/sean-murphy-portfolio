@@ -69,7 +69,7 @@ const DASH_NAV = [
   { id: "trends", label: "Cross-Channel Trends" },
   { id: "promo-analysis", label: "Promo Analysis" },
 ];
-const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai", label: "AI", key: "ai" }, { href: "/content", label: "Content", key: "content" }, { href: "/work", label: "Work", key: "work" }];
+const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/work", label: "Work", key: "work" }, { href: "/ai", label: "AI", key: "ai" }, { href: "/content", label: "Content", key: "content" }];
 const BOARDS = [{ href: "/dashboard", label: "Example dashboard", note: "Performance reporting", key: "dash" }, { href: "/okr", label: "Example OKR", note: "Weekly scorecard", key: "okr" }];
 
 /** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
@@ -101,20 +101,13 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
             {PAGES.map((pg) => (
               <Link key={pg.key} href={pg.href} aria-current={pg.key === variant ? "page" : undefined} className={cn("relative rounded-full px-4 py-2 text-sm transition-colors", pg.key === variant ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg")}>{pg.label}</Link>
             ))}
-            <div className="group relative">
-              <button type="button" aria-haspopup="menu" className={cn("flex items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-colors", boardActive ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg group-focus-within:text-fg")}>Performance boards <span aria-hidden className="text-[0.6rem]">▾</span></button>
-              <div role="menu" className="invisible absolute left-0 top-full z-50 w-64 pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                <div className="rounded-2xl border border-line bg-bg2 p-2 shadow-2xl">
-                  {BOARDS.map((b) => (
-                    <Link key={b.key} role="menuitem" href={b.href} className={cn("block rounded-xl px-3 py-2.5 transition-colors hover:bg-white/5", b.key === variant && "text-accent")}>
-                      <span className="block text-sm">{b.label}</span><span className="block text-xs text-faint">{b.note}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="ml-auto hidden items-center gap-2 md:flex">
+          <div className="mx-auto hidden items-center gap-1 md:flex">
+            {BOARDS.map((b) => (
+              <Link key={b.key} href={b.href} aria-current={b.key === variant ? "page" : undefined} className={cn("relative rounded-full px-4 py-2 text-sm transition-colors", b.key === variant ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg")}>{b.label}</Link>
+            ))}
+          </div>
+          <div className="hidden items-center gap-2 md:flex">
             <a href={profile.linkedin} target="_blank" rel="noopener" className={cn(ext, "hidden lg:block")}>LinkedIn ↗</a>
             <a href={`mailto:${profile.email}`} className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-[#0a1224] transition hover:-translate-y-0.5">Email</a>
           </div>

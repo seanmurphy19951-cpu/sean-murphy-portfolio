@@ -53,7 +53,6 @@ export function Hero() {
           </Reveal>
           <Reveal delay={1}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Magnetic><a href="#work" className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-[#0a1224] transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgb(255_185_56/0.5)]">View case studies</a></Magnetic>
               <Magnetic><a href="#contact" className="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:border-accent hover:text-accent">Get in touch</a></Magnetic>
             </div>
           </Reveal>

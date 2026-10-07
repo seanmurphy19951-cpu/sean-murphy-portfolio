@@ -3,9 +3,9 @@ import { profile } from "@/lib/data";
 
 const ORDER = [
   { key: "home", href: "/", title: "Home", blurb: "The overview" },
-  { key: "ai", href: "/ai", title: "AI", blurb: "Automations and AI-built tools" },
-  { key: "content", href: "/content", title: "Content", blurb: "Shoots, ads and email" },
   { key: "work", href: "/work", title: "Work", blurb: "Every case study" },
+  { key: "ai", href: "/ai", title: "AI", blurb: "Automations and AI-built tools" },
+  { key: "content", href: "/content", title: "Content", blurb: "Ads, email and SEO" },
   { key: "dash", href: "/dashboard", title: "Dashboard", blurb: "The reporting dashboard" },
   { key: "okr", href: "/okr", title: "Example OKR", blurb: "A weekly OKR scorecard" },
 ] as const;
