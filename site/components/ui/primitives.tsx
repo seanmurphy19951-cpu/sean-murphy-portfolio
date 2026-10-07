@@ -232,26 +232,48 @@ export function ScrollCount({ value, className }: { value: string; className?: s
 }
 
 
-/** Horizontal snap carousel (touch/trackpad swipe, arrow buttons, keyboard) with a progress line. */
+/** Horizontal carousel: edge fades and a hint show it scrolls; drag with the mouse, swipe, arrow buttons or keys. */
 export function Swiper({ children, itemClass = "w-[85vw] md:w-[30rem]", label }: { children: ReactNode[]; itemClass?: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [p, setP] = useState(0);
+  const drag = useRef({ on: false, x: 0, left: 0, moved: false });
+  const [edge, setEdge] = useState({ start: true, end: false });
+  const [dragging, setDragging] = useState(false);
   const by = (d: number) => { const el = ref.current; if (el) el.scrollBy({ left: d * el.clientWidth * 0.7, behavior: "smooth" }); };
-  const onScroll = () => { const el = ref.current; if (el) setP(el.scrollLeft / Math.max(1, el.scrollWidth - el.clientWidth)); };
-  const btn = "grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-accent";
+  const measure = () => { const el = ref.current; if (el) setEdge({ start: el.scrollLeft < 8, end: el.scrollLeft > el.scrollWidth - el.clientWidth - 8 }); };
+  useEffect(() => { measure(); window.addEventListener("resize", measure); return () => window.removeEventListener("resize", measure); }, []);
+  const down = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    const el = ref.current; if (!el) return;
+    drag.current = { on: true, x: e.clientX, left: el.scrollLeft, moved: false };
+  };
+  const move = (e: React.PointerEvent) => {
+    const el = ref.current; const d = drag.current;
+    if (!el || !d.on) return;
+    const dx = e.clientX - d.x;
+    if (!d.moved && Math.abs(dx) > 5) { d.moved = true; setDragging(true); el.setPointerCapture(e.pointerId); }
+    if (d.moved) el.scrollLeft = d.left - dx;
+  };
+  const up = () => { drag.current.on = false; if (drag.current.moved) setTimeout(() => { drag.current.moved = false; setDragging(false); }, 0); };
+  const btn = "grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-accent disabled:opacity-30 disabled:hover:border-line disabled:hover:text-muted";
+  const mask = `linear-gradient(to right, ${edge.start ? "#000" : "transparent"}, #000 6%, #000 88%, ${edge.end ? "#000" : "transparent"})`;
   return (
     <div>
       <div
-        ref={ref} onScroll={onScroll} tabIndex={0} role="region" aria-label={label}
+        ref={ref} onScroll={measure} tabIndex={0} role="region" aria-label={label}
         onKeyDown={(e) => { if (e.key === "ArrowRight") by(1); if (e.key === "ArrowLeft") by(-1); }}
-        className="flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}
+        onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); } }}
+        style={{ maskImage: mask, WebkitMaskImage: mask }}
+        className={cn("flex items-stretch gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden select-none", dragging ? "cursor-grabbing" : "cursor-grab snap-x snap-mandatory")}
       >
         {children.map((c, i) => <div key={i} className={cn("shrink-0 snap-start", itemClass)}>{c}</div>)}
       </div>
-      <div className="mt-4 flex items-center gap-4">
-        <div className="h-px flex-1 bg-line"><div className="h-px bg-accent transition-[width] duration-200" style={{ width: `${Math.max(8, p * 100)}%` }} /></div>
-        <button aria-label="Previous" onClick={() => by(-1)} className={btn}>←</button>
-        <button aria-label="Next" onClick={() => by(1)} className={btn}>→</button>
+      <div className="mt-4 flex items-center justify-between gap-4">
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-faint"><span aria-hidden>← </span>Drag or swipe for more<span aria-hidden> →</span></p>
+        <div className="flex gap-2">
+          <button aria-label="Previous" disabled={edge.start} onClick={() => by(-1)} className={btn}>←</button>
+          <button aria-label="Next" disabled={edge.end} onClick={() => by(1)} className={btn}>→</button>
+        </div>
       </div>
     </div>
   );

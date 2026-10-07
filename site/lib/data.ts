@@ -45,7 +45,7 @@ export const AI_NAV = [
   { id: "pipeline", label: "Workflow" }, { id: "imagery", label: "Imagery" }, { id: "principles", label: "Principles" },
 ];
 export const CONTENT_NAV = [
-  { id: "top", label: "Intro" }, { id: "shoots", label: "Shoots" }, { id: "ads", label: "Ads" }, { id: "email", label: "Email" },
-  { id: "more", label: "More" }, { id: "growth", label: "Growth" },
+  { id: "top", label: "Intro" }, { id: "ads", label: "Ads" }, { id: "email", label: "Email" }, { id: "seo", label: "SEO" },
+  { id: "more", label: "More" }, { id: "shoots", label: "Shoots" }, { id: "growth", label: "Growth" },
 ];
 export const WORK_NAV: { id: string; label: string }[] = [];

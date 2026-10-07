@@ -3,6 +3,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import "./dashboard.css";
+import { SectionHead } from "@/components/ui/primitives";
 import { loadAllData, filterDataByRange } from "./data";
 import {
   COMPARE, comparisonRange, defaultComparisonRange, isExplicitCompare, comparisonPeriodLabel,
@@ -12,6 +13,7 @@ import {
   ExecutiveSummary, ChannelMix, FunnelAnalysis, GoogleAds, MetaAds, Shopify, B2BPartners, Website, Insights, Trends, PromoAnalysis,
 } from "./sections";
 
+const SECTIONS = [["executive-summary", "Summary"], ["channel-mix", "Channels"], ["funnel-analysis", "Funnel"], ["google-ads", "Google Ads"], ["meta-ads", "Meta Ads"], ["shopify", "E-Commerce"], ["b2b-partners", "B2B"], ["website", "Website"], ["insights", "Insights"], ["trends", "Trends"], ["promo-analysis", "Promos"]];
 const PRESETS = [["MTD", "MTD"], ["QTD", "QTD"], ["YTD", "YTD"], ["PREV_YEAR", "PREV YR"]];
 
 export function Dashboard() {
@@ -66,6 +68,14 @@ export function Dashboard() {
   const badge = compareBadgeLabel(range);
 
   return (
+    <div className="px-6 pb-16 pt-32 md:px-12 md:pt-40">
+    <div className="mx-auto max-w-7xl">
+      <SectionHead eyebrow="Example dashboard" title={<>Performance reporting,<br />in one place.</>}>
+        An example dashboard created for performance reporting: ads, ecommerce, email and web in a single view, with date ranges, period comparison, goals and automatic insights. It uses sample data and invented figures.
+      </SectionHead>
+      <nav aria-label="Dashboard sections" className="mb-10 flex flex-wrap gap-2">
+        {SECTIONS.map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-line px-3.5 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-accent">{label}</a>)}
+      </nav>
     <div className="dash">
       <div className="date-filter-bar" style={{ position: "sticky", top: 64, zIndex: 49 }}>
         <div className="filter-bar-section">
@@ -103,6 +113,8 @@ export function Dashboard() {
         <Trends data={view.data} compareData={view.compare} />
         <PromoAnalysis data={view.data} compareData={view.compare} />
       </div>
+    </div>
+    </div>
     </div>
   );
 }

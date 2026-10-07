@@ -6,6 +6,19 @@ import { CTV, GROWTH, InfoCards, PageHero, Panel, Slot, VIDEOS, VideoSlot } from
 
 // TODO(Sean): drop real shoot photos into public/media/shoots and swap the Slot placeholders.
 const SHOOTS = ["Product hero set", "Lifestyle on location", "Studio detail shots", "Behind the scenes"];
+const SEO_STATS = [
+  ["+10", "first-page keywords", "Added on top of existing rankings after rewriting every page and product on a Shopify store; sales rose over 40% that year."],
+  ["+35%", "click-through rate", "From SEO, paid search and on-site incentives guiding merchandising, with CPA down by more than $3."],
+  ["50+", "businesses supported", "SEO, paid search and Google services for small ecommerce clients, lifting revenue by at least 30%."],
+];
+const SEO_WORK = [
+  { k: "Research", t: "Keyword and topic research", d: "Semrush and Ahrefs data grouped into the topics, questions and product terms worth writing for, and ranked by how close they sit to a sale.", tags: ["Semrush", "Ahrefs"] },
+  { k: "On-page", t: "Page and product copy", d: "Titles, descriptions, headings and body copy written for every page and product, so each one targets a clear search term.", tags: ["Copywriting", "Shopify"] },
+  { k: "Technical", t: "Site health and speed", d: "Crawl audits, structured data and Core Web Vitals fixes, including faster pages from properly sized images.", tags: ["Screaming Frog", "Structured data", "Core Web Vitals"] },
+  { k: "Tracking", t: "Search Console and Analytics", d: "Analytics, Merchant Center and Search Console connected from the start, so rankings, clicks and sales are read in one place.", tags: ["GA4", "Search Console", "Merchant Center"] },
+  { k: "Content", t: "Blog and topic targeting", d: "Keyword research feeds an AI-assisted content queue, so articles and visuals are made for terms people actually search.", tags: ["Blog", "AI workflow"] },
+  { k: "Next", t: "AI search (GEO)", d: "Writing and structuring pages so they are quoted by AI answers as well as ranked in classic results.", tags: ["GEO"] },
+];
 const FLOWS = [
   { k: "Welcome", t: "Welcome series", d: "Introduces the brand, sets expectations and earns the first purchase with a clear next step." },
   { k: "Browse & cart", t: "Abandonment flows", d: "Browse, cart and checkout reminders timed to intent, with product-aware content." },
@@ -24,17 +37,10 @@ export function Content() {
   return (
     <main>
       <PageHero eyebrow="Content" lines={["Creative", "that sells."]}
-        intro="Photo shoots, ads and email, built to be tested and tied to results."
-        links={[["#shoots", "Photo shoots"], ["#ads", "Ad creative"], ["#email", "Email & lifecycle"]]} />
+        intro="Ads, email, search and photography, built to be tested and tied to results."
+        links={[["#ads", "Ad creative"], ["#email", "Email & lifecycle"], ["#seo", "SEO"]]} />
 
-      <Panel id="shoots">
-        <SectionHead eyebrow="Photo shoots" title={<>One shoot,<br />months of content.</>}>Briefs and shot lists built so a single shoot feeds ads, email, product pages and social.</SectionHead>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {SHOOTS.map((s, i) => <Reveal key={s} delay={i * 0.06}><Slot label={s} ratio="aspect-[4/5]" /></Reveal>)}
-        </div>
-      </Panel>
-
-      <Panel id="ads" alt>
+      <Panel id="ads">
         <SectionHead eyebrow="Ad creative" title={<>Ads and films<br />behind the numbers.</>}>Produced with agencies and in-house teams I managed. The &ldquo;You In&rdquo; film is the creative behind the CTV campaign below.</SectionHead>
         <div className="grid gap-4 md:grid-cols-3">
           {[["/media/ads/black-friday-promo.webp", "Black Friday promo, 1:1 paid social"], ["/media/ads/product-launch.webp", "Product launch, 1:1 social"], ["/media/ads/person-feature.webp", "Lifestyle feature, 1:1 social"]].map(([src, cap], i) => (
@@ -50,7 +56,7 @@ export function Content() {
         </div>
       </Panel>
 
-      <Panel id="email">
+      <Panel id="email" alt>
         <SectionHead eyebrow="Email & lifecycle" title={<>Email that<br />matches the ads.</>}>Campaign and lifecycle email built to match paid and social creative, so customers see one brand from ad to inbox.</SectionHead>
         <InfoCards items={FLOWS} />
         <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -72,12 +78,35 @@ export function Content() {
         </div>
       </Panel>
 
+      <Panel id="seo">
+        <SectionHead eyebrow="SEO" title={<>Found by people<br />who are searching.</>}>Search work across several stores and brands: the keyword research, the writing, the technical set-up and the tracking that ties it to sales.</SectionHead>
+        <div className="mb-10 grid gap-4 md:grid-cols-3">
+          {SEO_STATS.map(([v, l, d], i) => (
+            <Reveal key={l} delay={i * 0.06}>
+              <TiltCard className="h-full"><div className="p-8">
+                <div className="font-display text-6xl font-light tracking-[-0.045em] text-accent"><CountUp value={v} /></div>
+                <div className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-faint">{l}</div>
+                <p className="mt-4 text-muted">{d}</p>
+              </div></TiltCard>
+            </Reveal>
+          ))}
+        </div>
+        <InfoCards items={SEO_WORK} />
+      </Panel>
+
       <Panel id="more" alt>
         <SectionHead eyebrow="And the rest" title={<>The rest of<br />the brand work.</>}>Social, landing pages and creative testing.</SectionHead>
         <InfoCards items={MORE} />
       </Panel>
 
-      <Panel id="growth">
+      <Panel id="shoots">
+        <SectionHead eyebrow="Photo shoots" title={<>One shoot,<br />months of content.</>}>Briefs and shot lists built so a single shoot feeds ads, email, product pages and social.</SectionHead>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {SHOOTS.map((s, i) => <Reveal key={s} delay={i * 0.06}><Slot label={s} ratio="aspect-[4/5]" /></Reveal>)}
+        </div>
+      </Panel>
+
+      <Panel id="growth" alt>
         <SectionHead eyebrow="YoY growth" title={<>Where the growth<br />came from.</>}>June 2025 to June 2026 versus the prior twelve months, from Google Analytics, ad-platform exports and monthly performance reporting.</SectionHead>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {GROWTH.map(([v, l, d], i) => (

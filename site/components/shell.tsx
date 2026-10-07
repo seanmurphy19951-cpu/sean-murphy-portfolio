@@ -29,7 +29,10 @@ export function Ambient() {
   useEffect(() => {
     const f = (e: PointerEvent) => { mx.set(e.clientX - 200); my.set(e.clientY - 200); };
     window.addEventListener("pointermove", f);
-    return () => window.removeEventListener("pointermove", f);
+    // stop the browser's middle-click auto-scroll widget from popping up
+    const mid = (e: MouseEvent) => { if (e.button === 1 && !(e.target as HTMLElement).closest("a")) e.preventDefault(); };
+    window.addEventListener("mousedown", mid);
+    return () => { window.removeEventListener("pointermove", f); window.removeEventListener("mousedown", mid); };
   }, [mx, my]);
   return (
     <>
@@ -56,11 +59,12 @@ const DASH_NAV = [
   { id: "trends", label: "Cross-Channel Trends" },
   { id: "promo-analysis", label: "Promo Analysis" },
 ];
-const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai", label: "AI", key: "ai" }, { href: "/content", label: "Content", key: "content" }, { href: "/work", label: "Work", key: "work" }, { href: "/dashboard", label: "Dashboard", key: "dash" }, { href: "/okr", label: "OKR", key: "okr" }];
+const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai", label: "AI", key: "ai" }, { href: "/content", label: "Content", key: "content" }, { href: "/work", label: "Work", key: "work" }];
+const BOARDS = [{ href: "/dashboard", label: "Example dashboard", note: "Performance reporting", key: "dash" }, { href: "/okr", label: "Example OKR", note: "Weekly scorecard", key: "okr" }];
 
 /** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
 export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "content" | "work" | "dash" | "okr" }) {
-  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : variant === "okr" ? [] : DASH_NAV;
+  const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : variant === "okr" || variant === "dash" ? [] : DASH_NAV;
   const [active, setActive] = useState(items[0]?.id ?? "");
   const [open, setOpen] = useState(false);
   const [palette, setPalette] = useState(false);
@@ -76,6 +80,7 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
     const poll = seen.size < items.length ? setInterval(() => { watch(); if (seen.size === items.length) clearInterval(poll); }, 400) : undefined;
     return () => { io.disconnect(); if (poll) clearInterval(poll); };
   }, [items]);
+  const boardActive = variant === "dash" || variant === "okr";
   const ext = "rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:border-accent hover:text-accent";
   return (
     <>
@@ -86,6 +91,18 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
             {PAGES.map((pg) => (
               <Link key={pg.key} href={pg.href} aria-current={pg.key === variant ? "page" : undefined} className={cn("relative rounded-full px-4 py-2 text-sm transition-colors", pg.key === variant ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg")}>{pg.label}</Link>
             ))}
+            <div className="group relative">
+              <button type="button" aria-haspopup="menu" className={cn("flex items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-colors", boardActive ? "bg-accent text-[#0a1224]" : "text-muted hover:text-fg group-focus-within:text-fg")}>Performance boards <span aria-hidden className="text-[0.6rem]">▾</span></button>
+              <div role="menu" className="invisible absolute left-0 top-full z-50 w-64 pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                <div className="rounded-2xl border border-line bg-bg2 p-2 shadow-2xl">
+                  {BOARDS.map((b) => (
+                    <Link key={b.key} role="menuitem" href={b.href} className={cn("block rounded-xl px-3 py-2.5 transition-colors hover:bg-white/5", b.key === variant && "text-accent")}>
+                      <span className="block text-sm">{b.label}</span><span className="block text-xs text-faint">{b.note}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           <div className="ml-auto hidden items-center gap-2 md:flex">
             <a href={profile.linkedin} target="_blank" rel="noopener" className={cn(ext, "hidden lg:block")}>LinkedIn ↗</a>
@@ -97,6 +114,8 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
           <div className="max-h-[80svh] overflow-y-auto border-t border-line bg-bg p-4 md:hidden" data-lenis-prevent>
             <p className="px-3 pb-2 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Pages</p>
             {PAGES.map((pg) => <Link key={pg.key} href={pg.href} onClick={() => setOpen(false)} className={cn("block rounded-2xl px-3 py-2.5 text-lg", pg.key === variant && "text-accent")}>{pg.label}</Link>)}
+            <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Performance boards</p>
+            {BOARDS.map((b) => <Link key={b.key} href={b.href} onClick={() => setOpen(false)} className={cn("block rounded-2xl px-3 py-2.5 text-lg", b.key === variant && "text-accent")}>{b.label}</Link>)}
             {items.length > 0 && <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">On this page</p>}
             {items.map((n) => <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="block rounded-2xl px-3 py-2.5 text-lg">{n.label}</a>)}
             <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Links</p>
