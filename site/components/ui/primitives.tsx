@@ -8,7 +8,7 @@ export function WordReveal({ lines, className, wordClass, delay = 0 }: { lines: 
   const reduce = useReducedMotion();
   let n = 0;
   return (
-    <span className={cn("block", className)}>
+    <span className={cn("relative block", className)}>
       <span className="sr-only">{lines.join(" ")}</span>
       {lines.map((line, li) => (
         <span key={li} className="block" aria-hidden>
@@ -78,7 +78,7 @@ export function CountUp({ value, className }: { value: string; className?: strin
     return () => c.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
-  return <span ref={ref} className={className}><span className="sr-only">{value}</span><span aria-hidden>{text}</span></span>;
+  return <span ref={ref} className={cn("relative", className)}><span className="sr-only">{value}</span><span aria-hidden>{text}</span></span>;
 }
 
 export function Marquee({ items, className }: { items: string[]; className?: string }) {
@@ -211,7 +211,7 @@ export function Scramble({ text, className }: { text: string; className?: string
   useEffect(() => { if (inView) run(); return () => { if (timer.current) clearInterval(timer.current); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
-  return <span ref={ref} className={className} onMouseEnter={run}><span className="sr-only">{text}</span><span aria-hidden>{out}</span></span>;
+  return <span ref={ref} className={cn("relative", className)} onMouseEnter={run}><span className="sr-only">{text}</span><span aria-hidden>{out}</span></span>;
 }
 
 /** Stat whose number is scrubbed by scroll position (counts up as it passes through the viewport). */
@@ -228,7 +228,7 @@ export function ScrollCount({ value, className }: { value: string; className?: s
     setText(`${m[1]}${(target * Math.min(1, Math.max(0, p))).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec })}${m[3]}`);
   };
   useMotionValueEvent(scrollYProgress, "change", (p) => { if (!reduce) render(p); });
-  return <span ref={ref} className={className}><span className="sr-only">{value}</span><span aria-hidden>{text}</span></span>;
+  return <span ref={ref} className={cn("relative", className)}><span className="sr-only">{value}</span><span aria-hidden>{text}</span></span>;
 }
 
 
