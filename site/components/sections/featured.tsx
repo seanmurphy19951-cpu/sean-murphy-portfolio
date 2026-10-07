@@ -16,7 +16,7 @@ export function Featured() {
         <Swiper label="Headline results" itemClass="w-[85vw] md:w-[34rem]">
           {FEATURED.map((c, i) => (
             <article key={c.id} className="flex h-full min-h-[26rem] flex-col rounded-[2rem] border border-line bg-surface p-8 transition-colors hover:border-accent/50 md:p-10">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-faint">0{i + 1} · {c.employer}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-faint">0{i + 1} · {c.tags[0]}</p>
               <div className="mt-6 font-display text-7xl font-light leading-none tracking-[-0.05em] text-accent md:text-8xl">{c.stats[0]?.[0]}</div>
               <div className="mt-3 font-mono text-xs uppercase tracking-[0.15em] text-muted">{c.stats[0]?.[1]}</div>
               <h3 className="mt-auto pt-8 font-display text-2xl font-light leading-tight tracking-tight md:text-3xl">{c.title}</h3>

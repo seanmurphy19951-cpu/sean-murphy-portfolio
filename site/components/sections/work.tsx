@@ -18,7 +18,7 @@ export function CaseCard({ c, i, onOpen, big = false }: { c: Case; i: number; on
         <article className={cn("flex h-full min-h-[22rem] flex-col p-7", big && "md:min-h-[26rem] md:p-10")}>
           <div className="flex items-start justify-between">
             <span className="font-mono text-xs text-faint">{num(i)}</span>
-            <span className="rounded-full border border-line px-3 py-1 font-mono text-[0.65rem] uppercase tracking-widest text-faint">{c.employer}</span>
+            <span className="rounded-full border border-line px-3 py-1 font-mono text-[0.65rem] uppercase tracking-widest text-faint">{c.tags[0]}</span>
           </div>
           {value && (
             <div className="mt-8">
@@ -54,7 +54,7 @@ export function CaseModal({ c, i, onClose }: { c: Case; i: number; onClose: () =
         style={{ borderRadius: 28 }}
       >
         <button onClick={onClose} className="absolute right-5 top-5 rounded-full border border-line px-4 py-2 font-mono text-xs hover:border-accent hover:text-accent">Close ✕</button>
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">{num(i)} · {c.employer}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">{num(i)} · {c.tags[0]}</p>
         <h3 className="mt-4 max-w-2xl pr-20 font-display text-3xl font-light leading-tight tracking-tight md:text-5xl">{c.title}</h3>
         {c.stats.length > 0 && (
           <ul className="mt-8 flex flex-wrap gap-x-10 gap-y-5 border-y border-line py-6">
@@ -102,21 +102,14 @@ export function Work() {
 
 export function WorkPage() {
   const [open, setOpen] = useState<string | null>(null);
-  const [tag, setTag] = useState("All");
-  const tags = ["All", ...Array.from(new Set(cases.flatMap((c) => c.tags)))];
   const idx = cases.findIndex((c) => c.id === open);
-  const shown = cases.map((c, i) => ({ c, i })).filter(({ c }) => tag === "All" || c.tags.includes(tag));
+  const shown = cases.map((c, i) => ({ c, i }));
   return (
     <main id="top" className="px-6 pb-24 pt-32 md:px-12 md:pt-40">
       <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="Work" title={<>The full portfolio<br />of work.</>}>Filter by channel and open any project for the detail. Partners, retailers and talent are anonymized and figures rounded.</SectionHead>
-        <div id="cases" className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter case studies">
-          {tags.map((t) => (
-            <button key={t} onClick={() => setTag(t)} aria-pressed={tag === t} className={cn("rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors", tag === t ? "border-accent bg-accent text-[#0a1224]" : "border-line text-muted hover:border-accent hover:text-accent")}>{t}</button>
-          ))}
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {shown.map(({ c, i }) => <CaseCard key={c.id} c={c} i={i} big={i === 0 && tag === "All"} onOpen={() => setOpen(c.id)} />)}
+        <SectionHead eyebrow="Work" title={<>The full portfolio<br />of work.</>}>Open any project for the detail. Employers, partners, retailers and talent are anonymized and figures rounded.</SectionHead>
+        <div id="cases" className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {shown.map(({ c, i }) => <CaseCard key={c.id} c={c} i={i} big={i === 0} onOpen={() => setOpen(c.id)} />)}
         </div>
       </div>
       <AnimatePresence>{idx >= 0 && <CaseModal key={open} c={cases[idx]} i={idx} onClose={() => setOpen(null)} />}</AnimatePresence>

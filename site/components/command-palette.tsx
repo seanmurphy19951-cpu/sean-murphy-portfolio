@@ -18,7 +18,7 @@ const ITEMS: Item[] = [
   { label: "Experience", hint: "Section", href: "/#experience" },
   { label: "Skills", hint: "Section", href: "/#skills" },
   { label: "Contact", hint: "Section", href: "/#contact" },
-  ...cases.map((c) => ({ label: c.title, hint: `Case · ${c.employer}`, href: "/#work" })),
+  ...cases.map((c) => ({ label: c.title, hint: `Case · ${c.tags[0]}`, href: "/#work" })),
   { label: "Email Sean", hint: "Link", href: `mailto:${profile.email}`, external: true },
   { label: "LinkedIn", hint: "Link", href: profile.linkedin, external: true },
   { label: "Dashboard", hint: "Page", href: "/dashboard" },

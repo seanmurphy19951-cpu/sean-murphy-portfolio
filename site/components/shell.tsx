@@ -61,7 +61,7 @@ const PAGES = [{ href: "/", label: "Home", key: "home" }, { href: "/ai", label: 
 /** Fixed top bar (pages + external links) and a left rail (sections of the current page). */
 export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "content" | "work" | "dash" }) {
   const items = variant === "home" ? NAV : variant === "ai" ? AI_NAV : variant === "content" ? CONTENT_NAV : variant === "work" ? WORK_NAV : DASH_NAV;
-  const [active, setActive] = useState(items[0].id);
+  const [active, setActive] = useState(items[0]?.id ?? "");
   const [open, setOpen] = useState(false);
   const [palette, setPalette] = useState(false);
   useEffect(() => {
@@ -97,7 +97,7 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
           <div className="max-h-[80svh] overflow-y-auto border-t border-line bg-bg p-4 md:hidden" data-lenis-prevent>
             <p className="px-3 pb-2 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Pages</p>
             {PAGES.map((pg) => <Link key={pg.key} href={pg.href} onClick={() => setOpen(false)} className={cn("block rounded-2xl px-3 py-2.5 text-lg", pg.key === variant && "text-accent")}>{pg.label}</Link>)}
-            <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">On this page</p>
+            {items.length > 0 && <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">On this page</p>}
             {items.map((n) => <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="block rounded-2xl px-3 py-2.5 text-lg">{n.label}</a>)}
             <p className="px-3 pb-2 pt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">Links</p>
             <a href={profile.linkedin} target="_blank" rel="noopener" className="block rounded-2xl px-3 py-2.5 text-lg">LinkedIn ↗</a>
@@ -105,7 +105,7 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
           </div>
         )}
       </header>
-      <aside aria-label="On this page" className="fixed bottom-0 left-0 top-16 z-40 hidden w-44 flex-col justify-center pl-8 lg:flex">
+      {items.length > 0 && <aside aria-label="On this page" className="fixed bottom-0 left-0 top-16 z-40 hidden w-44 flex-col justify-center pl-8 lg:flex">
         <p className="mb-4 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint">On this page</p>
         <ul className="space-y-1 border-l border-line">
           {items.map((n) => (
@@ -114,7 +114,7 @@ export function SiteNav({ variant = "home" }: { variant?: "home" | "ai" | "conte
             </li>
           ))}
         </ul>
-      </aside>
+      </aside>}
       <CommandPalette open={palette} setOpen={setPalette} />
     </>
   );

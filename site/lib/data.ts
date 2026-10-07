@@ -48,4 +48,4 @@ export const CONTENT_NAV = [
   { id: "top", label: "Intro" }, { id: "shoots", label: "Shoots" }, { id: "ads", label: "Ads" }, { id: "email", label: "Email" },
   { id: "more", label: "More" }, { id: "growth", label: "Growth" },
 ];
-export const WORK_NAV = [{ id: "top", label: "Intro" }, { id: "cases", label: "Case studies" }];
+export const WORK_NAV: { id: string; label: string }[] = [];
